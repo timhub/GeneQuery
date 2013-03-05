@@ -1,0 +1,16 @@
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\bin\Debug\Common.dll
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\bin\Debug\Common.pdb
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\bin\Debug\日.exe.config
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\bin\Debug\日.exe
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\bin\Debug\日.pdb
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\obj\x86\Debug\日.exe
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Test\obj\x86\Debug\日.pdb
+E:\Works\SoftProjects\BullQuery\Test\bin\Debug\Common.dll
+E:\Works\SoftProjects\BullQuery\Test\bin\Debug\Common.pdb
+E:\Works\SoftProjects\BullQuery\Test\obj\x86\Debug\Test.csprojResolveAssemblyReference.cache
+E:\Works\SoftProjects\BullQuery\Test\bin\Debug\GeneQueryTestv0.1.exe.config
+E:\Works\SoftProjects\BullQuery\Test\bin\Debug\GeneQueryTestv0.1.exe
+E:\Works\SoftProjects\BullQuery\Test\bin\Debug\GeneQueryTestv0.1.pdb
+E:\Works\SoftProjects\BullQuery\Test\obj\x86\Debug\GeneQueryTestv0.1.exe
+E:\Works\SoftProjects\BullQuery\Test\obj\x86\Debug\GeneQueryTestv0.1.pdb

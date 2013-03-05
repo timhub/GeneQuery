@@ -1,0 +1,10 @@
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\bin\Debug\Common.dll
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\bin\Debug\Common.pdb
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\obj\Debug\ResolveAssemblyReference.cache
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\obj\Debug\Common.dll
+c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\obj\Debug\Common.pdb
+E:\Works\SoftProjects\BullQuery\Common\bin\Debug\Common.dll
+E:\Works\SoftProjects\BullQuery\Common\bin\Debug\Common.pdb
+E:\Works\SoftProjects\BullQuery\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\Works\SoftProjects\BullQuery\Common\obj\Debug\Common.dll
+E:\Works\SoftProjects\BullQuery\Common\obj\Debug\Common.pdb
