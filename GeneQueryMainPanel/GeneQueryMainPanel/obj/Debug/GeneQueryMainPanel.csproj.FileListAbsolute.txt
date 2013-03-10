@@ -1,1 +1,16 @@
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\GeneQueryMainPanel.exe.config
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\GeneQueryMainPanel.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\GeneQueryMainPanel.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.csprojResolveAssemblyReference.cache
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\PageContent\Login.baml
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\PageContent\MainPage.baml
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\PageContent\Login.g.cs
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\PageContent\MainPage.g.cs
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\App.g.cs
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel_MarkupCompile.cache
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.g.resources
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.Properties.Resources.resources
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.csproj.GenerateResource.Cache
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.Properties.zh_cn.resources
