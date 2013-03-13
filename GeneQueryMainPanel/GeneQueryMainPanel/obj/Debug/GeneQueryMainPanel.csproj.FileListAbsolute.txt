@@ -14,3 +14,4 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.exe
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.Properties.zh_cn.resources
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\App.baml
