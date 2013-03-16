@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BackingFunctions;
+using CommonMysql;
 
 namespace GeneQueryMainPanel.PageContent
 {
@@ -22,6 +24,13 @@ namespace GeneQueryMainPanel.PageContent
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            ItemDisplay id = new ItemDisplay();
+            List<ItemDataBean> allDataList = id.displayAllItems();
+            allItemGrid.ItemsSource = allDataList;
         }
     }
 }

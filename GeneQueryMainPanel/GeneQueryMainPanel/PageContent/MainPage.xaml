@@ -34,7 +34,7 @@
                 <DropShadowEffect Opacity="0.5" ShadowDepth="3" BlurRadius="3"/>
             </Button.Effect>
         </Button>
-        <DataGrid Grid.Column="3" HorizontalAlignment="Left" Margin="2,10,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2"  Height="406" Width="681" Background="#FFFFFFFE"/>
+        <DataGrid x:Name="allItemGrid" Grid.Column="3" HorizontalAlignment="Left" Margin="2,10,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2"  Height="406" Width="681" Background="#FFFFFFFE" Loaded="allItemGrid_Loaded"/>
         <Button Content="现有 / 所有" Grid.Column="4" HorizontalAlignment="Left" Margin="206,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="89" Background="#FF9A3117" BorderBrush="{x:Null}" Height="34" Foreground="White">
             <Button.Effect>
                 <DropShadowEffect ShadowDepth="3" Opacity="0.5"/>

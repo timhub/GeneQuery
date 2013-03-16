@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
-using System.Data.SqlClient;
 using System.Text;
 using System.Security.Cryptography;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using MySQLDriverCS;
+
 namespace CommonMysql
 {
 
@@ -249,7 +249,7 @@ namespace CommonMysql
             return list;
         }
 
-        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation)
+        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
         {
             bool flag = false;
             
@@ -265,7 +265,7 @@ namespace CommonMysql
             {
                 bquery.conn.Open();
             }
-            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "')";
+            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "','"+ Gender + "','" + Condition +"')";
             MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);        
             try
             {
@@ -280,6 +280,35 @@ namespace CommonMysql
             }
             bquery.conn.Close();
             return flag;
+        }
+
+        public List<ItemDataBean> getAllItems()
+        {
+            bquery.sqlcom = "select * from bulldsp";
+            List<ItemDataBean> resultList = new List<ItemDataBean>();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    ItemDataBean dataBean = new ItemDataBean();
+                    dataBean.Id = sdr["Id"].ToString();
+                    dataBean.FId = sdr["FId"].ToString();
+                    dataBean.MId = sdr["MId"].ToString();
+                    dataBean.Action = sdr["Action"].ToString();
+                    dataBean.Gender = sdr["Gender"].ToString();
+                    dataBean.Condition = sdr["Condition"].ToString();
+
+                    resultList.Add(dataBean);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultList;
         }
 
 
