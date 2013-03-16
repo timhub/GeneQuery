@@ -1,0 +1,8 @@
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\BackingFunctions.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\BackingFunctions.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\CommonMysql.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\MySql.Data.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\MySQLDriverCS.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\bin\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\obj\Debug\BackingFunctions.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\BackingFunctions\obj\Debug\BackingFunctions.pdb

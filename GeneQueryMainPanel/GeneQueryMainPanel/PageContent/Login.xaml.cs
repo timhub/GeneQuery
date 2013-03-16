@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CommonMysql;
+using BackingFunctions;
 
 namespace GeneQueryMainPanel.PageContent
 {
@@ -19,7 +21,7 @@ namespace GeneQueryMainPanel.PageContent
     /// </summary>
     public partial class Window1 : Window
     {
-        private string userPass = "yangz2007";
+        LoginFilter login = new LoginFilter();
         MainPage mp = new MainPage();
 
         public Window1()
@@ -30,7 +32,8 @@ namespace GeneQueryMainPanel.PageContent
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string input = this.passwordInput.Password;
-            if (input.Equals(userPass))
+            bool flag = login.userCheck(input);
+            if (flag)
             {
                 this.Content = mp.Content;
             }

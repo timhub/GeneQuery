@@ -1,0 +1,18 @@
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\bin\Debug\TestMysql.exe
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\bin\Debug\TestMysql.pdb
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\bin\Debug\MySQLDriverCS.dll
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\obj\x86\Debug\TestMysql.exe
+C:\Users\HP\documents\visual studio 2010\Projects\BullQuery\TestMysql\obj\x86\Debug\TestMysql.pdb
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\TestMysql\bin\Debug\CommonMysql.dll
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\TestMysql\bin\Debug\CommonMysql.pdb
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\TestMysql\bin\Debug\MySql.Data.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\TestMysql.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\TestMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\CommonMysql.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\MySQLDriverCS.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\MySql.Data.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.csprojResolveAssemblyReference.cache

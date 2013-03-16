@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneQueryMainPanel", "GeneQueryMainPanel\GeneQueryMainPanel.csproj", "{13DA4B2E-0BBF-4B79-A0D5-B57ABA848AC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackingFunctions", "BackingFunctions\BackingFunctions.csproj", "{C88702E8-59D5-456F-BE54-87B24BD1CC4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{13DA4B2E-0BBF-4B79-A0D5-B57ABA848AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13DA4B2E-0BBF-4B79-A0D5-B57ABA848AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13DA4B2E-0BBF-4B79-A0D5-B57ABA848AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88702E8-59D5-456F-BE54-87B24BD1CC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88702E8-59D5-456F-BE54-87B24BD1CC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88702E8-59D5-456F-BE54-87B24BD1CC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88702E8-59D5-456F-BE54-87B24BD1CC4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

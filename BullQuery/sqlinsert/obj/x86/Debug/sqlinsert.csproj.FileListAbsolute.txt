@@ -1,0 +1,12 @@
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\sqlinsert.exe
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\sqlinsert.pdb
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.Form1.resources
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.Properties.Resources.resources
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.exe
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.pdb
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\CommonMysql.dll
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\MySql.Data.dll
+C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\CommonMysql.pdb

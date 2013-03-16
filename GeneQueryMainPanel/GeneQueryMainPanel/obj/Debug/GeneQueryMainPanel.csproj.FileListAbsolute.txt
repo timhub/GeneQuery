@@ -15,3 +15,9 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.Properties.zh_cn.resources
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\App.baml
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\CommonMysql.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\MySql.Data.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\MySQLDriverCS.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.dll
