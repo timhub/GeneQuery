@@ -4,27 +4,98 @@
              StartupUri="PageContent/Login.xaml">
     <Application.Resources>
 
-        <ControlTemplate x:Key="ButtonStyle1" TargetType="{x:Type Button}">
-            <Grid Background="#FF9A3117" ClipToBounds="True">
-                <Grid.Effect>
-                    <BlurEffect/>
-                </Grid.Effect>
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="MouseOver"/>
-                        <VisualState x:Name="Pressed"/>
-                        <VisualState x:Name="Disabled"/>
-                    </VisualStateGroup>
-                    <VisualStateGroup x:Name="FocusStates">
-                        <VisualState x:Name="Focused"/>
-                    </VisualStateGroup>
-                    <VisualStateGroup x:Name="ValidationStates">
-                        <VisualState x:Name="InvalidFocused"/>
-                        <VisualState x:Name="InvalidUnfocused"/>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </Grid>
-        </ControlTemplate>
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="Simple Styles.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+
+    		<ControlTemplate x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+    			<ControlTemplate.Resources>
+    				<Storyboard x:Key="mouseEnter"/>
+    				<Storyboard x:Key="mouseLeave"/>
+    			</ControlTemplate.Resources>
+    			<Grid x:Name="grid" ClipToBounds="True" Background="White">
+    				<Grid.Effect>
+    					<BlurEffect Radius="3" RenderingBias="Quality"/>
+    				</Grid.Effect>
+    				<VisualStateManager.VisualStateGroups>
+    					<VisualStateGroup x:Name="CommonStates">
+    						<VisualState x:Name="MouseOver"/>
+    						<VisualState x:Name="Pressed"/>
+    						<VisualState x:Name="Disabled"/>
+    					</VisualStateGroup>
+    					<VisualStateGroup x:Name="FocusStates">
+    						<VisualState x:Name="Focused"/>
+    					</VisualStateGroup>
+    					<VisualStateGroup x:Name="ValidationStates">
+    						<VisualState x:Name="InvalidFocused"/>
+    						<VisualState x:Name="InvalidUnfocused"/>
+    					</VisualStateGroup>
+    				</VisualStateManager.VisualStateGroups>
+    			</Grid>
+    			<ControlTemplate.Triggers>
+    				<EventTrigger RoutedEvent="Mouse.MouseEnter">
+    					<BeginStoryboard x:Name="mouseEnter_BeginStoryboard" Storyboard="{StaticResource mouseEnter}"/>
+    				</EventTrigger>
+    				<EventTrigger RoutedEvent="Mouse.MouseLeave">
+    					<BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+    					<StopStoryboard BeginStoryboardName="mouseEnter_BeginStoryboard"/>
+    				</EventTrigger>
+    			</ControlTemplate.Triggers>
+    		</ControlTemplate>
+    		<ControlTemplate x:Key="commonBtnStyle1" TargetType="{x:Type Button}">
+    			<Grid Background="#FFE0E0E0" IsHitTestVisible="False">
+    				<VisualStateManager.VisualStateGroups>
+    					<VisualStateGroup x:Name="CommonStates">
+    						<VisualState x:Name="MouseOver"/>
+    						<VisualState x:Name="Pressed"/>
+    						<VisualState x:Name="Disabled"/>
+    					</VisualStateGroup>
+    					<VisualStateGroup x:Name="FocusStates">
+    						<VisualState x:Name="Focused"/>
+    					</VisualStateGroup>
+    					<VisualStateGroup x:Name="ValidationStates">
+    						<VisualState x:Name="InvalidFocused"/>
+    						<VisualState x:Name="InvalidUnfocused"/>
+    					</VisualStateGroup>
+    				</VisualStateManager.VisualStateGroups>
+    			</Grid>
+    		</ControlTemplate>
+            <Style x:Key="gridHeader" TargetType="{x:Type DataGridRowHeader}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridRowHeader}">
+                            <Grid Background="#FFE0E0E0" HorizontalAlignment="Center">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal_CurrentRow"/>
+                                        <VisualState x:Name="Unfocused_EditingRow"/>
+                                        <VisualState x:Name="Normal_EditingRow"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="MouseOver_CurrentRow"/>
+                                        <VisualState x:Name="MouseOver_Unfocused_EditingRow"/>
+                                        <VisualState x:Name="MouseOver_EditingRow"/>
+                                        <VisualState x:Name="MouseOver_Unfocused_Selected"/>
+                                        <VisualState x:Name="MouseOver_Selected"/>
+                                        <VisualState x:Name="MouseOver_Unfocused_CurrentRow_Selected"/>
+                                        <VisualState x:Name="MouseOver_CurrentRow_Selected"/>
+                                        <VisualState x:Name="Unfocused_Selected"/>
+                                        <VisualState x:Name="Unfocused_CurrentRow_Selected"/>
+                                        <VisualState x:Name="Normal_CurrentRow_Selected"/>
+                                        <VisualState x:Name="Normal_Selected"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="ValidationStates">
+                                        <VisualState x:Name="InvalidFocused"/>
+                                        <VisualState x:Name="InvalidUnfocused"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>
