@@ -5,6 +5,5 @@ C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\CommonMysql\obj\Debu
 C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\CommonMysql\obj\Debug\CommonMysql.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\bin\Debug\CommonMysql.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\bin\Debug\CommonMysql.pdb
-E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.csprojResolveAssemblyReference.cache
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.pdb

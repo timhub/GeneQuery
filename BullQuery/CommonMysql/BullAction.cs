@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -282,7 +282,42 @@ namespace CommonMysql
             return flag;
         }
 
-        public List<ItemDataBean> getAllItems()
+
+        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation)
+        {
+            bool flag = false;
+
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            if (RowsCount(Id))
+            {
+                return false;
+            }
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "')";
+            MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            bquery.conn.Close();
+            return flag;
+        }
+
+
+        public List<ItemDataBean> GetAllItems()
         {
             bquery.sqlcom = "select * from bulldsp";
             List<ItemDataBean> resultList = new List<ItemDataBean>();
@@ -300,7 +335,7 @@ namespace CommonMysql
                     dataBean.Action = sdr["Action"].ToString();
                     dataBean.Gender = sdr["Gender"].ToString();
                     dataBean.Condition = sdr["Condition"].ToString();
-
+                    dataBean.Nation = sdr["Nation"].ToString();
                     resultList.Add(dataBean);
                 }
             }
@@ -311,6 +346,77 @@ namespace CommonMysql
             return resultList;
         }
 
+
+        public List<ItemDataBean> GetAllItemsLike(String Id)
+        {
+            bquery.sqlcom = "select * from bulldsp where Id like " + "'" + Id + "%" + "'";
+            List<ItemDataBean> resultList = new List<ItemDataBean>();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    ItemDataBean dataBean = new ItemDataBean();
+                    dataBean.Id = sdr["Id"].ToString();
+                    dataBean.FId = sdr["FId"].ToString();
+                    dataBean.MId = sdr["MId"].ToString();
+                    dataBean.Action = sdr["Action"].ToString();
+                    dataBean.Gender = sdr["Gender"].ToString();
+                    dataBean.Condition = sdr["Nation"].ToString();
+                    resultList.Add(dataBean);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultList;
+        }
+
+        /// <summary>
+        /// wait to be assert
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="MId"></param>
+        /// <param name="FId"></param>
+        /// <param name="Action"></param>
+        /// <param name="Nation"></param>
+        /// <param name="Gender"></param>
+        /// <param name="Condition"></param>
+        /// <returns></returns>
+        public bool updateInfoById(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
+        {
+            bool flag = false;
+            bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "' WHERE `Id`='" + Id + "';";
+            //if (bquery.conn.State == ConnectionState.Closed)
+            //{
+            //    bquery.conn.Open();
+            //}
+            if (!RowsCount(Id))
+            {
+                return flag;
+            }
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    flag = true;
+                }
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            bquery.conn.Close();
+            return flag;
+        }
 
         public bool DeleteBullInfo(String Id)
         {

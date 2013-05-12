@@ -100,7 +100,7 @@
         	</StackPanel.RenderTransform>
             <Button x:Name="mainHomeBtn" Content="首     页" Height="40" BorderBrush="#FF7A3939" Foreground="White" Background="#FF9A3117" BorderThickness="1" Focusable="False" IsHitTestVisible="True" Click="mainHomeBtn_Click"/>
             <Button x:Name="mainAddBtn" Content="增加新个体" Height="40" BorderThickness="0" Focusable="False" Click="mainAddBtn_Click" IsHitTestVisible="True" Background="#FFF0F0F0"/>
-            <Button x:Name="analysisPageBtn" Content="育种分析" Height="40" Background="White" BorderThickness="0" Focusable="False" IsHitTestVisible="True"/>
+            <Button x:Name="analysisPageBtn" Content="育种分析" Height="40" Background="White" BorderThickness="0" Focusable="False" IsHitTestVisible="True" Click="analysisPageBtn_Click"/>
         </StackPanel>
         <TextBox x:Name="textBox" Grid.Column="3" Margin="3.5,4,8.5,0" Grid.Row="1" TextWrapping="Wrap" BorderBrush="#FFBDBDBD" CaretBrush="#FF818181" 
                  BorderThickness="1" Padding="1,5,1,1" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Focusable="False">
@@ -177,7 +177,7 @@
         		</TransformGroup>
         	</DataGrid.RenderTransform>
         </DataGrid>
-        <Grid x:Name="addNewItemGrid" Grid.Column="2" Margin="11,0,0,0" Grid.ColumnSpan="5" Background="White" Grid.RowSpan="4" Grid.Row="1" Visibility="Hidden">
+        <Grid x:Name="addNewItemGrid" Grid.Column="2" Margin="11,0,0,0" Grid.ColumnSpan="5" Background="White" Grid.RowSpan="4" Grid.Row="1" Visibility="Hidden" d:IsHidden="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="107*"/>
                 <RowDefinition Height="120*"/>
@@ -196,7 +196,7 @@
             <TextBlock x:Name="midError" HorizontalAlignment="Left" Margin="307,148,0,0" TextWrapping="Wrap" Text="母代编号输入有误，请重新输入" VerticalAlignment="Top" Height="26" Width="181" Background="#FFC73434" Foreground="White" Padding="6,4,0,0" Visibility="Hidden"/>
             <Label Content="性别：" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <CheckBox x:Name="maleCheckBox" Content="M" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="104,192,0,0" BorderBrush="#FFC5C5C5" Foreground="#FF333333" Height="16" Width="27" Checked="maleCheckBox_Checked" MouseDown="maleCheckBox_MouseDown"/>
-            <CheckBox x:Name="femaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="157,192,0,0" VerticalAlignment="Top" BorderBrush="#FFC5C5C5" Foreground="#FF333333" Height="16" Width="21" Checked="femaleCheckbox_Checked" MouseDown="femaleCheckbox_MouseDown"/>
+            <CheckBox x:Name="femaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="175,192,0,0" VerticalAlignment="Top" BorderBrush="#FFC5C5C5" Foreground="#FF333333" Height="16" Width="21" Checked="femaleCheckbox_Checked" MouseDown="femaleCheckbox_MouseDown"/>
             <TextBlock x:Name="genderError" HorizontalAlignment="Left" Margin="307,183,0,0" TextWrapping="Wrap" Text="必须选择一个性别" VerticalAlignment="Top" Height="23" Width="115" Foreground="White" Background="#FFC73434" Padding="9,3,0,0" Visibility="Hidden"/>
             <Label Content="个体编号：" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="itemidBox" HorizontalAlignment="Left" Height="32" Margin="101,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" Padding="1,4,1,1" BorderBrush="#FFC5C5C5" SelectionBrush="#FF9A3117" Foreground="#FF333333" BorderThickness="2" LostFocus="itemidBox_LostFocus" TextChanged="itemidBox_TextChanged"/>
@@ -204,7 +204,7 @@
             <Button x:Name="addCancelBtn" Content="取   消" Margin="377,0,0,10" Grid.Row="2" BorderThickness="2" BorderBrush="#FFDEDEDE" Click="addCancelBtn_Click" Height="33" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
             <TextBlock x:Name="itemidError" HorizontalAlignment="Left" Margin="307,66,0,0" TextWrapping="Wrap" Text="编号输入有误，请重新输入" VerticalAlignment="Top" Height="26" Background="#FFC73434" Foreground="White" Width="159" Padding="7,4,0,0" Visibility="Hidden"/>
         </Grid>
-        <Grid x:Name="detailGrid" Grid.Column="3" Margin="3,0,-2,0" Grid.Row="2" Grid.ColumnSpan="4" Background="#F6292929" Grid.RowSpan="3" Height="168" VerticalAlignment="Bottom">
+        <Grid x:Name="detailGrid" Grid.Column="3" Margin="0,0,-1,0" Grid.Row="2" Grid.ColumnSpan="4" Background="#F6292929" Grid.RowSpan="3" Height="168" VerticalAlignment="Bottom" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="332*"/>
@@ -225,6 +225,46 @@
             <TextBlock x:Name="detailNationText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="其他信息：" Grid.Column="1" HorizontalAlignment="Left" Margin="313,70,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailOtherText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+            <Button x:Name="detailViewEditBtn" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="633,0,0,0" VerticalAlignment="Top" Width="33" Height="168" Foreground="White" BorderThickness="0" Click="detailViewEditBtn_Click">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF99F73D" Offset="0.003"/>
+                        <GradientStop Color="#FF3D5920" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9CFB3E" Offset="0.007"/>
+                        <GradientStop Color="#FF3C5720" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Content="性别：" Grid.Column="1" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <TextBlock x:Name="detailGenderText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="editGrid" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" Background="White" Margin="10,0,2,0" Visibility="Hidden">
+            <Label Content="编辑信息" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF666666" FontSize="36" Margin="0,-12,0,0"/>
+            <Label Content="个体编号：" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
+            <Label Content="父代编号：" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
+            <Label Content="母代编号：" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="editItemIdBox" HorizontalAlignment="Left" Height="32" Margin="100,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" Padding="1,3,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA"/>
+            <TextBox x:Name="editFIdBox" HorizontalAlignment="Left" Height="32" Margin="100,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA" SelectionBrush="Black"/>
+            <TextBox x:Name="editMIdBox" HorizontalAlignment="Left" Height="32" Margin="100,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA"/>
+            <Label Content="性别：" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <CheckBox x:Name="editMaleCheckbox" Content="M" HorizontalAlignment="Left" Margin="100,192,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA" Foreground="#FF333333" Checked="editMaleCheckbox_Checked"/>
+            <CheckBox x:Name="editFemaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="183,192,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA" Foreground="#FF333333" Checked="editFemaleCheckbox_Checked"/>
+            <Button x:Name="editSaveBtn" Content="保   存" Margin="602,468,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click"/>
+            <Button x:Name="editCancelBtn" Content="取    消" Margin="402,468,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click"/>
+        </Grid>
+        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="696" Grid.RowSpan="3" Grid.Column="3" Margin="3,220,-2,0" Grid.Row="2" Background="#F6292929" d:IsHidden="True" Visibility="Hidden">
+            <Button x:Name="analysisBackBtn" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="32" BorderBrush="{x:Null}" Foreground="{x:Null}" ToolTip="返回" Click="analysisBackBtn_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="image/back_btn.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="育种分析" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="147,47,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" KeyDown="analysisMid_KeyDown" IsEditable="True"/>
+            <Label Content="雄性个体（ID）：" HorizontalAlignment="Left" Margin="35,45,0,0" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
 
     </Grid>

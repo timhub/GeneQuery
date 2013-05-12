@@ -74,12 +74,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ValidateActionFunction.cs" />
-    <Compile Include="PageContent\ItemDetail.xaml.cs">
-      <DependentUpon>ItemDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageContent\ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\zh_cn.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,14 +118,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PageContent\ItemDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageContent\ItemDetailPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageContent\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

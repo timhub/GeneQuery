@@ -16,6 +16,7 @@ namespace TestMysql
        static void Main(string[] args)
         {
             BullAction baction = new BullAction();
+            //baction.updateInfoById("44", "00", "56", "", "usa", "M", "");
             Console.WriteLine("请分别输入FID与MID，输入-1退出程序！");
             string FID = Console.ReadLine();
             string MID = Console.ReadLine();

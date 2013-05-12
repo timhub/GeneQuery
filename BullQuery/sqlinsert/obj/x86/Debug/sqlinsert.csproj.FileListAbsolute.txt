@@ -10,3 +10,14 @@ C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\obj\x86\De
 C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\CommonMysql.dll
 C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\MySql.Data.dll
 C:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\sqlinsert\bin\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\sqlinsert.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\sqlinsert.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\CommonMysql.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\MySql.Data.dll
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.csprojResolveAssemblyReference.cache
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.Form1.resources
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.Properties.Resources.resources
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.csproj.GenerateResource.Cache
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.exe
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.pdb

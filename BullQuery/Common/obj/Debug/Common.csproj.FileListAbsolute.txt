@@ -5,6 +5,5 @@ c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\obj\Debug\Com
 c:\Users\HP\Documents\Visual Studio 2010\Projects\BullQuery\Common\obj\Debug\Common.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\Common\bin\Debug\Common.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\Common\bin\Debug\Common.pdb
-E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\Common\obj\Debug\Common.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\Common\obj\Debug\Common.pdb
