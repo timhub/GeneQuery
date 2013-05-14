@@ -13,9 +13,20 @@ namespace TestMysql
 {
     class Program
     {
+
+
+
+
+
        static void Main(string[] args)
         {
             BullAction baction = new BullAction();
+            List<string> t_t = baction.getIdLike("3","F");
+            foreach (string t1 in t_t)
+            {
+                Console.WriteLine(t1);
+            }
+
             //baction.updateInfoById("44", "00", "56", "", "usa", "M", "");
             Console.WriteLine("请分别输入FID与MID，输入-1退出程序！");
             string FID = Console.ReadLine();

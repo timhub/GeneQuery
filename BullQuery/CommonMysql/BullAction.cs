@@ -253,10 +253,10 @@ namespace CommonMysql
         {
             bool flag = false;
             
-            if (bquery.conn.State == ConnectionState.Closed)
-            {
-                bquery.conn.Open();
-            }
+            //if (bquery.conn.State == ConnectionState.Open)
+            //{
+            //    bquery.conn.Close();
+            //}
             if (RowsCount(Id))
             {
                 return false;
@@ -287,10 +287,10 @@ namespace CommonMysql
         {
             bool flag = false;
 
-            if (bquery.conn.State == ConnectionState.Closed)
-            {
-                bquery.conn.Open();
-            }
+            //if (bquery.conn.State == ConnectionState.Closed)
+            //{
+            //    bquery.conn.Open();
+            //}
             if (RowsCount(Id))
             {
                 return false;
@@ -338,6 +338,8 @@ namespace CommonMysql
                     dataBean.Nation = sdr["Nation"].ToString();
                     resultList.Add(dataBean);
                 }
+                sdr.Close();
+                bquery.conn.Close();
             }
             catch (Exception ex)
             {
@@ -367,6 +369,9 @@ namespace CommonMysql
                     dataBean.Condition = sdr["Nation"].ToString();
                     resultList.Add(dataBean);
                 }
+                
+                sdr.Close();
+                bquery.conn.Close();
             }
             catch (Exception ex)
             {
@@ -389,10 +394,9 @@ namespace CommonMysql
         public bool updateInfoById(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
         {
             bool flag = false;
-            bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "' WHERE `Id`='" + Id + "';";
-            //if (bquery.conn.State == ConnectionState.Closed)
+            //if (bquery.conn.State == ConnectionState.Open)
             //{
-            //    bquery.conn.Open();
+            //    bquery.conn.Close();
             //}
             if (!RowsCount(Id))
             {
@@ -404,6 +408,7 @@ namespace CommonMysql
             }
             try
             {
+                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "' WHERE `Id`='" + Id + "';";
                 MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -422,10 +427,10 @@ namespace CommonMysql
         {
             bool flag = false;
             MySqlCommand cmd = null;
-            if (bquery.conn.State == ConnectionState.Closed)
-            {
-                bquery.conn.Open();
-            }
+            //if (bquery.conn.State == ConnectionState.Open)
+            //{
+            //    bquery.conn.Close();
+            //}
             if (!RowsCount(Id))
             {
                 return flag;
@@ -449,6 +454,35 @@ namespace CommonMysql
             }
             bquery.conn.Close();
             return flag;
+        }
+
+        public List<string> getIdLike(string Id, string gender)
+        {
+            List<string> IdList=new List<string>();
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            //bquery.sqlcom = "select Id from bulldsp where Id like " + "'" + Id + "%" + "'";
+            //bquery.sqlcom = "select Id from bulldsp where Id like " + "'" + Id + "%" + "'" + "and gender='" + gender + "'";
+            bquery.sqlcom = "select Id from bulldsp where gender='" + gender + "'" + "and Id like " + "'" + Id + "%" + "'";
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    IdList.Add(sdr[0].ToString());
+                }
+                sdr.Close();
+                bquery.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return IdList;
         }
     }
 }

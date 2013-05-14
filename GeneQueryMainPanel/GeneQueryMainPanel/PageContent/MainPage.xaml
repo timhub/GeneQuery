@@ -131,11 +131,14 @@
             </Button.Effect>
         </Button>
         <DataGrid x:Name="allItemGrid" Grid.Column="3" Margin="3.5,10,-1.5,0" Grid.Row="2" Grid.ColumnSpan="4" 
-    		Background="#FFFFFFFE" Loaded="allItemGrid_Loaded" BorderBrush="#FFCDCDCD" Foreground="#FF1B1B1B" 
-            GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
-    		AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
-    		MouseDoubleClick="allItemGrid_MouseDoubleClick" MouseLeftButtonDown="allItemGrid_MouseLeftButtonDown" 
-    		SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed" IsSynchronizedWithCurrentItem="True" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}">
+    		    Background="#FFFFFFFE" Loaded="allItemGrid_Loaded" BorderBrush="#FFCDCDCD" Foreground="#FF1B1B1B" 
+                GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
+    		    AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
+    		    MouseDoubleClick="allItemGrid_MouseDoubleClick" MouseLeftButtonDown="allItemGrid_MouseLeftButtonDown" 
+    		    SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed" 
+                IsSynchronizedWithCurrentItem="True" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
+                CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" 
+                RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}">
         	<DataGrid.RenderTransform>
         		<TransformGroup>
         			<ScaleTransform/>
@@ -177,7 +180,7 @@
         		</TransformGroup>
         	</DataGrid.RenderTransform>
         </DataGrid>
-        <Grid x:Name="addNewItemGrid" Grid.Column="2" Margin="11,0,0,0" Grid.ColumnSpan="5" Background="White" Grid.RowSpan="4" Grid.Row="1" Visibility="Hidden" d:IsHidden="True">
+        <Grid x:Name="addNewItemGrid" Grid.Column="2" Margin="11,0,0,0" Grid.ColumnSpan="5" Background="White" Grid.RowSpan="4" Grid.Row="1" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="107*"/>
                 <RowDefinition Height="120*"/>
@@ -216,7 +219,7 @@
             </Button>
             <Label Content="个体详细信息" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="127" Foreground="White" FontSize="18"/>
             <Label Content="个体编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <TextBlock x:Name="detailItemIdText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="0" Foreground="White" FontSize="18"/>
+            <TextBlock x:Name="detailItemIdText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Foreground="White" FontSize="18"/>
             <Label Content="父代编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailFidText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Foreground="White" Padding="0,5,0,0"/>
             <Label Content="母代编号：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -225,7 +228,7 @@
             <TextBlock x:Name="detailNationText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="其他信息：" Grid.Column="1" HorizontalAlignment="Left" Margin="313,70,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailOtherText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-            <Button x:Name="detailViewEditBtn" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="633,0,0,0" VerticalAlignment="Top" Width="33" Height="168" Foreground="White" BorderThickness="0" Click="detailViewEditBtn_Click">
+            <Button x:Name="detailViewEditBtn" Content="" Grid.Column="1" Foreground="White" BorderThickness="0" Click="detailViewEditBtn_Click" HorizontalAlignment="Right" Width="33">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF99F73D" Offset="0.003"/>
@@ -253,18 +256,54 @@
             <Label Content="性别：" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <CheckBox x:Name="editMaleCheckbox" Content="M" HorizontalAlignment="Left" Margin="100,192,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA" Foreground="#FF333333" Checked="editMaleCheckbox_Checked"/>
             <CheckBox x:Name="editFemaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="183,192,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA" Foreground="#FF333333" Checked="editFemaleCheckbox_Checked"/>
-            <Button x:Name="editSaveBtn" Content="保   存" Margin="602,468,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click"/>
-            <Button x:Name="editCancelBtn" Content="取    消" Margin="402,468,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click"/>
+            <Button x:Name="editSaveBtn" Content="保   存" Margin="0,0,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85"/>
+            <Button x:Name="editCancelBtn" Content="取    消" Margin="0,0,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click" HorizontalAlignment="Right" Width="86" Height="30" VerticalAlignment="Bottom"/>
         </Grid>
-        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="696" Grid.RowSpan="3" Grid.Column="3" Margin="3,220,-2,0" Grid.Row="2" Background="#F6292929" d:IsHidden="True" Visibility="Hidden">
+        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="570" VerticalAlignment="Top" Width="696" Grid.RowSpan="5" Grid.Column="3" Margin="3,0,-2,0" Background="#F6292929">
             <Button x:Name="analysisBackBtn" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="32" BorderBrush="{x:Null}" Foreground="{x:Null}" ToolTip="返回" Click="analysisBackBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="image/back_btn.png"/>
                 </Button.Background>
             </Button>
             <Label Content="育种分析" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
-            <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="147,47,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" KeyDown="analysisMid_KeyDown" IsEditable="True"/>
+            <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="438,45,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" IsEditable="True" KeyDown="analysisMid_KeyDown" IsDropDownOpen="True"/>
+            <Rectangle x:Name="analysisGreenRec" HorizontalAlignment="Left" Height="122" Margin="142,110,0,0" VerticalAlignment="Top" Width="361" Visibility="Hidden">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9BFA3E" Offset="0"/>
+                        <GradientStop Color="#FF3D5820" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle x:Name="analysisRedRec" HorizontalAlignment="Left" Height="122" Margin="142,110,0,0" VerticalAlignment="Top" Width="361" Visibility="Hidden">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9A3117" Offset="0"/>
+                        <GradientStop Color="#FF441313" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
             <Label Content="雄性个体（ID）：" HorizontalAlignment="Left" Margin="35,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="雌性个体（ID）：" HorizontalAlignment="Left" Margin="331,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <ComboBox x:Name="analysisFid" HorizontalAlignment="Left" Margin="142,45,0,0" VerticalAlignment="Top" Width="150" Height="22" IsEditable="True" KeyDown="analysisFid_KeyDown"/>
+            <Button x:Name="analysisBtn" Content="开始分析" HorizontalAlignment="Left" Margin="35,0,0,10" Width="150" Foreground="White" FontSize="16" Height="51" VerticalAlignment="Bottom" Click="analysisBtn_Click">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9CFB3E" Offset="0"/>
+                        <GradientStop Color="#FF3C5720" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9CFB3E" Offset="0"/>
+                        <GradientStop Color="#FF3C5720" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBlock x:Name="analysisResultTitleText" HorizontalAlignment="Left" Margin="142,110,0,0" TextWrapping="Wrap" Text="选配结果：" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0" Visibility="Hidden"/>
+            <TextBlock x:Name="analysisDataTitleText" HorizontalAlignment="Left" Margin="142,166,0,0" TextWrapping="Wrap" Text="近交系数：" VerticalAlignment="Top" Foreground="White" Padding="5,5,0,0" FontSize="16" Visibility="Hidden"/>
+            <TextBlock x:Name="analysisResultText" HorizontalAlignment="Left" Margin="249,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+            <TextBlock x:Name="analysisResultTitleText_result" HorizontalAlignment="Left" Margin="262,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0"/>
         </Grid>
 
     </Grid>

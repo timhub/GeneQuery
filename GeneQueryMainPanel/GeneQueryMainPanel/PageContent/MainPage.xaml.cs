@@ -94,6 +94,8 @@ namespace GeneQueryMainPanel.PageContent
         private void saveItemBtn_Click(object sender, RoutedEventArgs e)
         {
             saveData();
+            allDataList = ba.GetAllItems();
+            addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void itemidBox_LostFocus(object sender, RoutedEventArgs e)
@@ -233,6 +235,8 @@ namespace GeneQueryMainPanel.PageContent
             }
 
             ba.updateInfoById(Id,MId,FId,"","",gender,"");
+            allDataList = ba.GetAllItems();
+            
             editGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
@@ -252,16 +256,60 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-        /// <summary>
-        /// for analysis page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void analysisMid_KeyDown(object sender, KeyEventArgs e)
         {
-            String targetStr = analysisMid.Text;
-            List<ItemDataBean> resultList = ba.GetAllItemsLike(targetStr);
-            analysisMid.ItemsSource = resultList;
+            hideAnalysisResultElements();
+            String input = analysisMid.Text;
+            List<String> result = ba.getIdLike(input, "M");
+            this.analysisMid.ItemsSource = result;
+            this.analysisMid.IsDropDownOpen = true;
+        }
+
+        private void analysisFid_KeyDown(object sender, KeyEventArgs e)
+        {
+            hideAnalysisResultElements();
+            String input = analysisFid.Text;
+            List<String> result = ba.getIdLike(input, "F");
+            this.analysisFid.ItemsSource = result;
+            this.analysisFid.IsDropDownOpen = true;
+        }
+
+        private void analysisBtn_Click(object sender, RoutedEventArgs e)
+        {
+            bool analysisFlag = true;
+            string fid = analysisFid.Text;
+            string mid = analysisMid.Text;
+
+            if (!ba.RowsCount(fid) && ba.RowsCount(mid))
+            {
+                analysisFlag = false;
+                MessageBox.Show("父代或母代Id输入有误！");
+            }
+            else
+            {
+                analysisFlag = true;
+            }
+            if (analysisFlag)
+            {
+                foreach (KeyValuePair<String, double> result in ba.FamilyFertileCountWithFaIndex(fid, mid))
+                {
+                    string resultText = 100 * result.Value+"";
+                    resultText.Substring(0, 6);
+                    resultText += "%";
+                    analysisResultText.Text = resultText;
+                    if (result.Value < 0.0625)
+                    {
+                        analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
+                        analysisResultTitleText_result.Text = "适合选配";
+                    }
+                    else
+                    {
+                        analysisRedRec.Visibility = System.Windows.Visibility.Visible;
+                        analysisResultTitleText_result.Text = "不适合选配";
+                    }
+                    showAnalysisResultElements();
+                }
+            }
         }
 
         //=======================================below is action functions===================================
@@ -317,6 +365,31 @@ namespace GeneQueryMainPanel.PageContent
             detailGenderText.Text = currentBean.Gender;
         }
 
+        private void showAnalysisResultElements()
+        {
+            analysisResultTitleText.Visibility = System.Windows.Visibility.Visible;
+            analysisResultTitleText_result.Visibility = System.Windows.Visibility.Visible;
+            analysisDataTitleText.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void hideAnalysisResultElements()
+        {
+            analysisResultTitleText.Visibility = System.Windows.Visibility.Hidden;
+            analysisResultTitleText_result.Visibility = System.Windows.Visibility.Hidden;
+            analysisDataTitleText.Visibility = System.Windows.Visibility.Hidden;
+            if (analysisGreenRec.Visibility == System.Windows.Visibility.Visible)
+            {
+                analysisGreenRec.Visibility = System.Windows.Visibility.Hidden;
+            }
+            if (analysisRedRec.Visibility == System.Windows.Visibility.Visible)
+            {
+                analysisRedRec.Visibility = System.Windows.Visibility.Hidden;
+            }
+            analysisResultText.Text = "";
+            analysisResultTitleText_result.Text = "";
+
+        }
+
         //===========================some assistant functions=======================================
 
         private void itemidBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -361,6 +434,9 @@ namespace GeneQueryMainPanel.PageContent
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
         }
+
+
+        
 
     }
 }
