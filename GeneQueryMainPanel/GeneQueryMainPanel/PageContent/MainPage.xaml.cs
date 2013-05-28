@@ -41,6 +41,7 @@ namespace GeneQueryMainPanel.PageContent
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
@@ -49,6 +50,7 @@ namespace GeneQueryMainPanel.PageContent
             allDataList = ba.GetAllItems();
             allItemGrid.ItemsSource = allDataList;
             allItemGrid.SelectedValuePath = "Id";
+            
         }
 
         private void switchViewBtn_click(object sender, RoutedEventArgs e)
@@ -83,12 +85,15 @@ namespace GeneQueryMainPanel.PageContent
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
         {
             addNewItemGrid.Visibility = System.Windows.Visibility.Visible;
+            analysisGrid.Visibility = System.Windows.Visibility.Hidden;
+            editGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void mainHomeBtn_Click(object sender, RoutedEventArgs e)
         {
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
+            analysisGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void saveItemBtn_Click(object sender, RoutedEventArgs e)
@@ -96,6 +101,9 @@ namespace GeneQueryMainPanel.PageContent
             saveData();
             allDataList = ba.GetAllItems();
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
+            allItemGrid.ItemsSource = allDataList;
+            //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
+            //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
         }
 
         private void itemidBox_LostFocus(object sender, RoutedEventArgs e)
@@ -293,11 +301,9 @@ namespace GeneQueryMainPanel.PageContent
             {
                 foreach (KeyValuePair<String, double> result in ba.FamilyFertileCountWithFaIndex(fid, mid))
                 {
-                    string resultText = 100 * result.Value+"";
-                    resultText.Substring(0, 6);
-                    resultText += "%";
+                    string resultText = 100 * result.Value+"%";
                     analysisResultText.Text = resultText;
-                    if (result.Value < 0.0625)
+                    if (result.Value <= 0.0625)
                     {
                         analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
                         analysisResultTitleText_result.Text = "适合选配";
@@ -310,6 +316,18 @@ namespace GeneQueryMainPanel.PageContent
                     showAnalysisResultElements();
                 }
             }
+        }
+
+        private void analysisMid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            analysisMid.IsDropDownOpen = true;
+            hideAnalysisResultElements();
+        }
+
+        private void analysisFid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            analysisFid.IsDropDownOpen = true;
+            hideAnalysisResultElements();
         }
 
         //=======================================below is action functions===================================
@@ -387,7 +405,6 @@ namespace GeneQueryMainPanel.PageContent
             }
             analysisResultText.Text = "";
             analysisResultTitleText_result.Text = "";
-
         }
 
         //===========================some assistant functions=======================================
@@ -435,8 +452,6 @@ namespace GeneQueryMainPanel.PageContent
             editGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
-
-        
 
     }
 }

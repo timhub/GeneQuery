@@ -11,9 +11,9 @@ namespace BackingFunctions
     {
         UserIdentification ui = new UserIdentification();
 
-        public bool userCheck(string pass)
+        public bool userCheck(string username, string pass)
         {
-            bool flag = ui.UserValidate("admin", pass);
+            bool flag = ui.UserValidate(username, pass);
             return flag;
         }
     }

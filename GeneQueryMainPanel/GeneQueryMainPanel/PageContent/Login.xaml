@@ -6,9 +6,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="61*"/>
-            <RowDefinition Height="134*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="19*"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,25 +18,32 @@
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="121" Margin="124,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="260" Source="image/login_pic.jpg"/>
-        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="userNameLable" Content="访问密码：" Grid.Column="2" HorizontalAlignment="Left" Margin="10,25,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" Foreground="#FF333333"/>
-        <PasswordBox x:Name="passwordInput" Grid.Column="2" HorizontalAlignment="Left" Margin="88,25,0,0" Grid.Row="2" VerticalAlignment="Top" Width="183" Height="26" BorderThickness="1" Padding="1,5,1,1" GotFocus="passwordInput_GotFocus">
+        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Width="15"/>
+        <Label x:Name="userNameLable" Content="访问密码：" Grid.Column="2" HorizontalAlignment="Left" Margin="25,53,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" Foreground="#FF333333" Height="26"/>
+        <PasswordBox x:Name="passwordInput" Grid.Column="2" HorizontalAlignment="Left" Margin="103,53,0,0" Grid.Row="2" VerticalAlignment="Top" Width="183" Height="26" BorderThickness="1" Padding="1,5,1,1" GotFocus="passwordInput_GotFocus">
             <PasswordBox.Effect>
                 <DropShadowEffect Color="#FF302E2E" Opacity="0.5" ShadowDepth="3"/>
             </PasswordBox.Effect>
         </PasswordBox>
-        <Button x:Name="button" Content="登   陆" Grid.Column="2" HorizontalAlignment="Left" Margin="88,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Height="37" Background="#FFE0E0E0" BorderThickness="1" Foreground="#FF333333" BorderBrush="#FFE0E0E0" Click="Button_Click_1" Focusable="False" FocusVisualStyle="{x:Null}">
+        <Button x:Name="button" Content="登   陆" Grid.Column="2" HorizontalAlignment="Left" Margin="103,103,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Height="37" Background="#FFE0E0E0" BorderThickness="1" Foreground="#FF333333" BorderBrush="#FFE0E0E0" Click="Button_Click_1" Focusable="False" FocusVisualStyle="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" ShadowDepth="2"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="login_cancelBtn" Content="取   消" Grid.Column="2" HorizontalAlignment="Left" Margin="196,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Height="37" Foreground="#FF333333" BorderBrush="#FFE0E0E0" Background="#FFE0E0E0" BorderThickness="1" Click="login_cancelBtn_Click" Focusable="False" FocusVisualStyle="{x:Null}">
+        <Button x:Name="login_cancelBtn" Content="取   消" Grid.Column="2" HorizontalAlignment="Left" Margin="211,103,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Height="37" Foreground="#FF333333" BorderBrush="#FFE0E0E0" Background="#FFE0E0E0" BorderThickness="1" Click="login_cancelBtn_Click" Focusable="False" FocusVisualStyle="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" ShadowDepth="2"/>
             </Button.Effect>
         </Button>
         <Rectangle x:Name="elertBox" Grid.Column="2" Fill="#FF9A3117" HorizontalAlignment="Left" Height="33" Margin="88,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" IsHitTestVisible="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
-        <Label Content="访问密码输入错误，请重新输入" Grid.Column="2" HorizontalAlignment="Left" Margin="90,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" Foreground="White"/>
+        <Label Content="访问密码输入错误，请重新输入" Grid.Column="2" HorizontalAlignment="Left" Margin="103,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" Foreground="White" Height="26"/>
+        <Label Content="西安市奶牛育种中心奶牛选配育种软件" Grid.Column="1" Margin="0,0,307,0" Grid.Row="3" Foreground="#FF333333" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="218" Height="30" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <Label x:Name="userNameLable_Copy" Content="用  户 名：" Grid.Column="2" HorizontalAlignment="Left" Margin="25,13,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" Foreground="#FF333333" Height="26"/>
+        <TextBox x:Name="usernameInput" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="103,16,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderThickness="1" Padding="1,5,1,1" GotFocus="usernameInput_GotFocus">
+            <TextBox.Effect>
+                <DropShadowEffect Opacity="0.5" ShadowDepth="3"/>
+            </TextBox.Effect>
+        </TextBox>
 
     </Grid>
 </Window>

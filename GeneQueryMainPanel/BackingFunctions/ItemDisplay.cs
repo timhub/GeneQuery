@@ -13,7 +13,7 @@ namespace BackingFunctions
         public List<ItemDataBean> displayAllItems()
         {
             List<ItemDataBean> resultList = new List<ItemDataBean>();
-            resultList = ba.getAllItems();
+            resultList = ba.GetAllItems();
 
             return resultList;
         }

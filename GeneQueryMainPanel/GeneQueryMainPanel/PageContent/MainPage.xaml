@@ -259,14 +259,14 @@
             <Button x:Name="editSaveBtn" Content="保   存" Margin="0,0,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85"/>
             <Button x:Name="editCancelBtn" Content="取    消" Margin="0,0,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click" HorizontalAlignment="Right" Width="86" Height="30" VerticalAlignment="Bottom"/>
         </Grid>
-        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="570" VerticalAlignment="Top" Width="696" Grid.RowSpan="5" Grid.Column="3" Margin="3,0,-2,0" Background="#F6292929">
+        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Column="3" Margin="0,0,-2,0" Background="#F6292929" Visibility="Hidden">
             <Button x:Name="analysisBackBtn" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="32" BorderBrush="{x:Null}" Foreground="{x:Null}" ToolTip="返回" Click="analysisBackBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="image/back_btn.png"/>
                 </Button.Background>
             </Button>
             <Label Content="育种分析" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
-            <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="438,45,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" IsEditable="True" KeyDown="analysisMid_KeyDown" IsDropDownOpen="True"/>
+            <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="438,45,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" IsEditable="True" KeyDown="analysisMid_KeyDown" Focusable="False" MouseLeftButtonDown="analysisMid_MouseLeftButtonDown"/>
             <Rectangle x:Name="analysisGreenRec" HorizontalAlignment="Left" Height="122" Margin="142,110,0,0" VerticalAlignment="Top" Width="361" Visibility="Hidden">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -284,9 +284,9 @@
                 </Rectangle.Fill>
             </Rectangle>
             <Label Content="雄性个体（ID）：" HorizontalAlignment="Left" Margin="35,45,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="雌性个体（ID）：" HorizontalAlignment="Left" Margin="331,45,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <ComboBox x:Name="analysisFid" HorizontalAlignment="Left" Margin="142,45,0,0" VerticalAlignment="Top" Width="150" Height="22" IsEditable="True" KeyDown="analysisFid_KeyDown"/>
-            <Button x:Name="analysisBtn" Content="开始分析" HorizontalAlignment="Left" Margin="35,0,0,10" Width="150" Foreground="White" FontSize="16" Height="51" VerticalAlignment="Bottom" Click="analysisBtn_Click">
+            <Label Content="雌性父亲（ID）：" HorizontalAlignment="Left" Margin="331,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <ComboBox x:Name="analysisFid" HorizontalAlignment="Left" Margin="142,45,0,0" VerticalAlignment="Top" Width="150" Height="22" IsEditable="True" KeyDown="analysisFid_KeyDown" Focusable="False" MouseLeftButtonDown="analysisFid_MouseLeftButtonDown"/>
+            <Button x:Name="analysisBtn" Content="开始分析" HorizontalAlignment="Left" Margin="35,0,0,10" Width="150" Foreground="White" FontSize="16" Click="analysisBtn_Click" Height="51" VerticalAlignment="Bottom">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF9CFB3E" Offset="0"/>

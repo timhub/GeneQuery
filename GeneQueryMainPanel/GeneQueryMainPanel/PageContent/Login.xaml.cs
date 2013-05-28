@@ -32,8 +32,9 @@ namespace GeneQueryMainPanel.PageContent
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string input = this.passwordInput.Password;
-            bool flag = login.userCheck(input);
+            string passInput = this.passwordInput.Password;
+            string nameInput = this.usernameInput.Text;
+            bool flag = login.userCheck(nameInput, passInput);
             if (flag)
             {
                 this.Content = mp.Content;
@@ -47,7 +48,7 @@ namespace GeneQueryMainPanel.PageContent
 
         private void passwordInput_GotFocus(object sender, RoutedEventArgs e)
         {
-            this.passwordInput.Password = "";
+            //this.passwordInput.Password = "";
             this.elertBox.Visibility = System.Windows.Visibility.Hidden;
         }
 
@@ -56,5 +57,11 @@ namespace GeneQueryMainPanel.PageContent
             this.passwordInput.Password = "";
             this.elertBox.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        private void usernameInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.elertBox.Visibility = System.Windows.Visibility.Hidden;
+        }
+
     }
 }
