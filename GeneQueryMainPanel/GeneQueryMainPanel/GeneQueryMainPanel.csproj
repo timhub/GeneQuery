@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>genequery.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BackingFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -136,6 +139,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="PageContent\image\back_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="damotouicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="genequery.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PageContent\image\logo_small.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

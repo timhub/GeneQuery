@@ -17,8 +17,7 @@
             <ColumnDefinition Width="345*"/>
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Height="121" Margin="124,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="260" Source="image/login_pic.jpg"/>
-        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Width="15"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="121" Margin="151,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="260" Source="image/login_pic.jpg"/>
         <Label x:Name="userNameLable" Content="访问密码：" Grid.Column="2" HorizontalAlignment="Left" Margin="25,53,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" Foreground="#FF333333" Height="26"/>
         <PasswordBox x:Name="passwordInput" Grid.Column="2" HorizontalAlignment="Left" Margin="103,53,0,0" Grid.Row="2" VerticalAlignment="Top" Width="183" Height="26" BorderThickness="1" Padding="1,5,1,1" GotFocus="passwordInput_GotFocus">
             <PasswordBox.Effect>
@@ -37,13 +36,18 @@
         </Button>
         <Rectangle x:Name="elertBox" Grid.Column="2" Fill="#FF9A3117" HorizontalAlignment="Left" Height="33" Margin="88,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" IsHitTestVisible="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
         <Label Content="访问密码输入错误，请重新输入" Grid.Column="2" HorizontalAlignment="Left" Margin="103,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" Foreground="White" Height="26"/>
-        <Label Content="西安市奶牛育种中心奶牛选配育种软件" Grid.Column="1" Margin="0,0,307,0" Grid.Row="3" Foreground="#FF333333" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="218" Height="30" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <Label Content="西安市奶牛育种中心奶牛选配育种软件" Grid.Row="3" Foreground="#FF333333" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="892" IsEnabled="False" FontSize="16" TextOptions.TextHintingMode="Fixed" Grid.ColumnSpan="4" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
         <Label x:Name="userNameLable_Copy" Content="用  户 名：" Grid.Column="2" HorizontalAlignment="Left" Margin="25,13,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" Foreground="#FF333333" Height="26"/>
         <TextBox x:Name="usernameInput" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="103,16,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderThickness="1" Padding="1,5,1,1" GotFocus="usernameInput_GotFocus">
             <TextBox.Effect>
                 <DropShadowEffect Opacity="0.5" ShadowDepth="3"/>
             </TextBox.Effect>
         </TextBox>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="80" Margin="66,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80" Source="image/logo_small.jpg">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="image/logo_small.jpg" Stretch="Uniform"/>
+            </Image.OpacityMask>
+        </Image>
 
     </Grid>
 </Window>

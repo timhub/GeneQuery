@@ -44,6 +44,7 @@ namespace GeneQueryMainPanel.PageContent
             
         }
 
+        //load the data grid when the window is loaded
         private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
         {
             //ItemDisplay id = new ItemDisplay();
@@ -53,6 +54,7 @@ namespace GeneQueryMainPanel.PageContent
             
         }
 
+        //switch the data grid from all item to current item and from the opposite side
         private void switchViewBtn_click(object sender, RoutedEventArgs e)
         {
             if (displayFlag == true)
@@ -69,6 +71,7 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
+        //trigger the show detail infomation of the current selected item
         private void allItemGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             currentBean = (ItemDataBean)allItemGrid.CurrentItem;
@@ -76,47 +79,70 @@ namespace GeneQueryMainPanel.PageContent
             showDetailArea();
         }
 
+        //select the current item
         private void allItemGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var a = allItemGrid.SelectedItem as ItemDataBean;
             currentBean = a;
         }
 
+        //show the add new item grid
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
         {
             addNewItemGrid.Visibility = System.Windows.Visibility.Visible;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
+            detailGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        //show home page
         private void mainHomeBtn_Click(object sender, RoutedEventArgs e)
         {
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
+            detailGrid.Visibility = System.Windows.Visibility.Hidden;
+            resetInput();
         }
 
+        //save the input data of the add new item grid
         private void saveItemBtn_Click(object sender, RoutedEventArgs e)
         {
             saveData();
             allDataList = ba.GetAllItems();
-            addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
-            allItemGrid.ItemsSource = allDataList;
+            if (addItemFlag)
+            {
+                addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
+            }
+            //allItemGrid.ItemsSource = allDataList;
             //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
             //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
         }
 
+        //trigger the validation function of the input text
         private void itemidBox_LostFocus(object sender, RoutedEventArgs e)
         {
             String input = itemidBox.Text;
             bool result = validate.checkInfoFormat(input);
             if (result)
             {
-                addItemFlag = true;
+                if (ba.RowsCount(input))
+                {
+                    addItemFlag = false;
+                    itemidError.Text = "该ID已存在";
+                    itemidError.Visibility = System.Windows.Visibility.Visible;
+                    addToEditBtn.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    itemidError.Visibility = System.Windows.Visibility.Hidden;
+                    addItemFlag = true;
+                }
             }
             else
             {
                 addItemFlag = false;
+                itemidError.Text = "输入有误，请重新输入";
                 itemidError.Visibility = System.Windows.Visibility.Visible;
             }
         }
@@ -125,8 +151,14 @@ namespace GeneQueryMainPanel.PageContent
         {
             // add new item cancel button function, clean the input text
             cleanInput();
+            itemidError.Visibility = System.Windows.Visibility.Hidden;
+            addToEditBtn.Visibility = System.Windows.Visibility.Hidden;
+            midError.Visibility = System.Windows.Visibility.Hidden;
+            fidError.Visibility = System.Windows.Visibility.Hidden;
+            genderError.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        //trigger the validation function of the input text
         private void fidBox_LostFocus(object sender, RoutedEventArgs e)
         {
             String input = fidBox.Text;
@@ -134,6 +166,7 @@ namespace GeneQueryMainPanel.PageContent
             if (result)
             {
                 addItemFlag = true;
+                fidAutoInsertText.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
@@ -142,6 +175,7 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
+        //trigger the validation function of the input text
         private void midBox_LostFocus(object sender, RoutedEventArgs e)
         {
             String input = midBox.Text;
@@ -205,15 +239,18 @@ namespace GeneQueryMainPanel.PageContent
             editFIdBox.Text = temBean.FId;
             editMIdBox.Text = temBean.MId;
             String gender = temBean.Gender;
-            if (gender.Equals("M"))
+            if (!gender.Equals(""))
             {
-                editMaleCheckbox.IsChecked = true;
-                editFemaleCheckbox.IsChecked = false;
-            }
-            else
-            {
-                editMaleCheckbox.IsChecked = false;
-                editFemaleCheckbox.IsChecked = true;
+                if (gender.Equals("M"))
+                {
+                    editMaleCheckbox.IsChecked = true;
+                    editFemaleCheckbox.IsChecked = false;
+                }
+                else
+                {
+                    editMaleCheckbox.IsChecked = false;
+                    editFemaleCheckbox.IsChecked = true;
+                }
             }
         }
 
@@ -331,6 +368,7 @@ namespace GeneQueryMainPanel.PageContent
         }
 
         //=======================================below is action functions===================================
+        # region actions
         private void saveData()
         {
             checkBoxCheck();
@@ -340,6 +378,11 @@ namespace GeneQueryMainPanel.PageContent
                 String fId = fidBox.Text;
                 String mId = midBox.Text;
                 String gender = "";
+                String condition = "";
+
+                //temporary variable, wait to implement till we change the BullAction code.
+                //TextRange others = new TextRange(addOtherDataInput.Document.ContentStart, addOtherDataInput.Document.ContentEnd);
+                //String othersContent = others.Text;
 
                 if (maleCheckBox.IsChecked == true && femaleCheckbox.IsChecked == false)
                 {
@@ -350,9 +393,40 @@ namespace GeneQueryMainPanel.PageContent
                     gender = "F";
                 }
 
-                ba.InsertBullInfo(itemId, mId, fId, "", "", gender, "");
+                if (addConditionCheckbox.IsChecked == true)
+                {
+                    condition = "Y";
+                }
+                else 
+                {
+                    condition = "N";
+                }
+
+                ba.InsertBullInfo(itemId, mId, fId, "", "", gender, condition);
+
+                //insert new fid
+                if (!ba.RowsCount(fId))
+                {
+                    ba.InsertBullInfo(fId, "", "", "", "", "M", "");
+                }
                 cleanInput();
             }
+        }
+
+        //reset all input value when switching module.
+        private void resetInput()
+        {
+            // reset add item grid boxes
+            itemidBox.Text = "";
+            fidBox.Text = "";
+            midBox.Text = "";
+            femaleCheckbox.IsChecked = false;
+            maleCheckBox.IsChecked = false;
+            itemidError.Visibility = System.Windows.Visibility.Hidden;
+            midError.Visibility = System.Windows.Visibility.Hidden;
+            fidError.Visibility = System.Windows.Visibility.Hidden;
+            genderError.Visibility = System.Windows.Visibility.Hidden;
+
         }
 
         private void cleanInput()
@@ -369,7 +443,7 @@ namespace GeneQueryMainPanel.PageContent
             if (maleCheckBox.IsChecked == false && femaleCheckbox.IsChecked == false)
             {
                 addItemFlag = false;
-                genderError.Visibility = System.Windows.Visibility.Hidden;
+                genderError.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -406,17 +480,20 @@ namespace GeneQueryMainPanel.PageContent
             analysisResultText.Text = "";
             analysisResultTitleText_result.Text = "";
         }
+        #endregion
 
+        # region default actions
         //===========================some assistant functions=======================================
-
         private void itemidBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             itemidError.Visibility = System.Windows.Visibility.Hidden;
+            addToEditBtn.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void fidBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             fidError.Visibility = System.Windows.Visibility.Hidden;
+            fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void midBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -446,12 +523,29 @@ namespace GeneQueryMainPanel.PageContent
 
         private void analysisPageBtn_Click(object sender, RoutedEventArgs e)
         {
+            resetInput();
             analysisGrid.Visibility = System.Windows.Visibility.Visible;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
+            detailGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        private void addToEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            editGrid.Visibility = System.Windows.Visibility.Visible;
+        }
 
+        private void editBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            editGrid.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void addBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
+        }
+        #endregion
     }
 }
+       
