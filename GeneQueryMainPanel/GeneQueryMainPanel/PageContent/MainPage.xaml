@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:CommonMysql="clr-namespace:CommonMysql;assembly=CommonMysql" xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Class="GeneQueryMainPanel.PageContent.MainPage"  x:Name="MainPanel"
-        Title="MainPage" MinHeight="600" MinWidth="900" Height="300" Width="300">
+        Title="西安市奶牛育种中心奶牛选配软件" MinHeight="700" MinWidth="1000" Height="700" Width="1000">
 	<Window.Resources>
         <Storyboard x:Key="login">
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stackPanel">
@@ -74,63 +74,62 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="62"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="431*"/>
-            <RowDefinition Height="31*"/>
+            <RowDefinition Height="531"/>
+            <RowDefinition/>
             <RowDefinition Height="8"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="168*"/>
-            <ColumnDefinition Width="12*"/>
-            <ColumnDefinition Width="333*"/>
+            <ColumnDefinition Width="513*"/>
             <ColumnDefinition Width="51*"/>
             <ColumnDefinition Width="305*"/>
             <ColumnDefinition Width="8"/>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="493" Grid.Row="1" VerticalAlignment="Top" Width="168" Grid.Column="1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5">
-        	<StackPanel.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</StackPanel.RenderTransform>
+        <Label Content="西安市奶牛育种中心 奶牛选配软件" Grid.Column="1" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="42" Width="352" FontSize="22" Foreground="#FF333333" Padding="0,5,5,5" FontStretch="UltraExpanded" FontWeight="Thin" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" TabIndex="2222"/>
+        <Button x:Name="settingBtn" Content="选   项" Grid.Column="3" Margin="0,10,10,0" VerticalAlignment="Top" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="20" Focusable="False" HorizontalAlignment="Right" Width="88" Click="settingBtn_Click"/>
+
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="493" VerticalAlignment="Top" Width="168" Grid.Column="1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Margin="0,62,0,0">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
             <Button x:Name="mainHomeBtn" Content="首     页" Height="40" BorderBrush="#FF7A3939" Foreground="White" Background="#FF9A3117" BorderThickness="1" Focusable="False" IsHitTestVisible="True" Click="mainHomeBtn_Click"/>
-            <Button x:Name="mainAddBtn" Content="增加新个体" Height="40" BorderThickness="0" Focusable="False" Click="mainAddBtn_Click" IsHitTestVisible="True" Background="#FFF0F0F0"/>
-            <Button x:Name="analysisPageBtn" Content="育种分析" Height="40" Background="White" BorderThickness="0" Focusable="False" IsHitTestVisible="True" Click="analysisPageBtn_Click"/>
+            <Button x:Name="mainAddBtn" Content="增加新个体" Height="40" BorderThickness="1" Focusable="False" Click="mainAddBtn_Click" IsHitTestVisible="True" Background="#FFF0F0F0" BorderBrush="#FFE6E6E6"/>
+            <Button x:Name="analysisPageBtn" Content="育种分析" Height="40" Background="#FFF0F0F0" BorderThickness="1,0,1,1" Focusable="False" IsHitTestVisible="True" Click="analysisPageBtn_Click" BorderBrush="#FFE6E6E6"/>
         </StackPanel>
-        <TextBox x:Name="textBox" Grid.Column="3" Margin="3.5,4,8.5,0" Grid.Row="1" TextWrapping="Wrap" BorderBrush="#FFBDBDBD" CaretBrush="#FF818181" 
+        <TextBox x:Name="textBox" Grid.Column="1" Margin="183,66,9,0" TextWrapping="Wrap" BorderBrush="#FFBDBDBD" CaretBrush="#FF818181" 
                  BorderThickness="1" Padding="1,5,1,1" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Focusable="False">
-        	<TextBox.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</TextBox.RenderTransform>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
             <TextBox.Effect>
                 <DropShadowEffect Opacity="0.5" ShadowDepth="2" BlurRadius="3"/>
             </TextBox.Effect>
         </TextBox>
-        <Button x:Name="button" Content="搜  索" Grid.Column="5" HorizontalAlignment="Left" Margin="11.5,4,0,0" Grid.Row="1" 
-                Width="75" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Height="28" VerticalAlignment="Top" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
-        	<Button.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Button.RenderTransform>
+        <Button x:Name="button" Content="搜  索" Grid.Column="3" HorizontalAlignment="Left" Margin="11,66,0,0" 
+                Width="76" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Height="28" VerticalAlignment="Top" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" ShadowDepth="3" BlurRadius="3"/>
             </Button.Effect>
         </Button>
-        <DataGrid x:Name="allItemGrid" Grid.Column="3" Margin="3.5,10,-1.5,0" Grid.Row="2" Grid.ColumnSpan="4" 
+        <DataGrid x:Name="allItemGrid" Grid.Column="1" Margin="183,110,0,0" Grid.ColumnSpan="4" 
     		    Background="#FFFFFFFE" Loaded="allItemGrid_Loaded" BorderBrush="#FFCDCDCD" Foreground="#FF1B1B1B" 
                 GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
     		    AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
@@ -139,14 +138,14 @@
                 IsSynchronizedWithCurrentItem="True" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
                 CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" 
                 RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}">
-        	<DataGrid.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</DataGrid.RenderTransform>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
             <DataGrid.BindingGroup>
                 <BindingGroup/>
             </DataGrid.BindingGroup>
@@ -154,33 +153,36 @@
                 <CommonMysql:ItemDataBean Action="" FId=""/>
             </DataGrid.DataContext>
         </DataGrid>
-        <Button x:Name="switchViewBtn" Content="现有 / 所有" Grid.Column="5" Margin="0,5,8.5,0" Grid.Row="1" 
+        <Button x:Name="switchViewBtn" Content="现有 / 所有" Grid.Column="3" Margin="0,66,8,0" 
                 Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Click="switchViewBtn_click" Height="28" 
-                VerticalAlignment="Top" HorizontalAlignment="Right" Width="89" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
-        	<Button.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Button.RenderTransform>
+                VerticalAlignment="Top" HorizontalAlignment="Right" Width="90" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
             <Button.Effect>
                 <DropShadowEffect ShadowDepth="3" Opacity="0.5"/>
             </Button.Effect>
         </Button>
-        <DataGrid x:Name="currentItemGrid" Grid.Column="3" Margin="2,10,0,0" Grid.Row="2" Grid.ColumnSpan="4" 
+        <DataGrid x:Name="currentItemGrid" Grid.Column="1" Margin="182,110,0,0" Grid.ColumnSpan="4" 
     		Background="White" BorderBrush="#FFE4E4E4" Foreground="#FF1D1D1D" Grid.RowSpan="3" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
-        	<DataGrid.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</DataGrid.RenderTransform>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
         </DataGrid>
-        <Grid x:Name="addNewItemGrid" Grid.Column="2" Margin="11,0,0,0" Grid.ColumnSpan="5" Background="White" Grid.RowSpan="4" Grid.Row="1" Visibility="Hidden">
+        <Grid x:Name="addNewItemGrid" Grid.Column="1" Margin="179,62,0,0" Grid.ColumnSpan="4" Background="White" Grid.RowSpan="3" OpacityMask="Black" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect Direction="292" ShadowDepth="0" BlurRadius="10"/>
+            </Grid.Effect>
             <Grid.RowDefinitions>
                 <RowDefinition Height="281*"/>
                 <RowDefinition Height="173*"/>
@@ -190,24 +192,24 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="添加新个体" VerticalAlignment="Top" Height="47" FontSize="36" Foreground="#FF666666" HorizontalAlignment="Left" Width="196" Padding="0" Margin="0,-7,0,0" IsEnabled="False"/>
-            <Label Content="父代编号：" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <Label Content="添加新个体" VerticalAlignment="Top" Height="47" FontSize="36" Foreground="#FF666666" HorizontalAlignment="Left" Width="196" Padding="0" Margin="10,0,0,0" IsEnabled="False"/>
+            <Label Content="父代编号*：" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="fidBox" HorizontalAlignment="Left" Height="32" Margin="101,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" BorderBrush="#FFC5C5C5" FontSize="16" Foreground="#FF333333" Padding="1,3,1,1" SelectionBrush="#FF9A3117" BorderThickness="2" LostFocus="fidBox_LostFocus" TextChanged="fidBox_TextChanged"/>
             <TextBlock x:Name="fidError" HorizontalAlignment="Left" Margin="307,108,0,0" TextWrapping="Wrap" Text="父代编号输入有误，请重新输入" VerticalAlignment="Top" Height="26" Width="180" Foreground="White" Background="#FFC73434" Padding="5,3,0,0" Visibility="Hidden"/>
             <Label Content="母代编号：" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="midBox" HorizontalAlignment="Left" Height="32" Margin="101,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2" LostFocus="midBox_LostFocus" TextChanged="midBox_TextChanged"/>
             <TextBlock x:Name="midError" HorizontalAlignment="Left" Margin="307,148,0,0" TextWrapping="Wrap" Text="母代编号输入有误，请重新输入" VerticalAlignment="Top" Height="26" Width="180" Background="#FFC73434" Foreground="White" Padding="6,4,0,0" Visibility="Hidden"/>
-            <Label Content="性别：" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <Label Content="性别*：" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <CheckBox x:Name="maleCheckBox" Content="M" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="104,192,0,0" BorderBrush="#FFC5C5C5" Foreground="#FF333333" Height="16" Width="27" Checked="maleCheckBox_Checked" MouseDown="maleCheckBox_MouseDown"/>
             <CheckBox x:Name="femaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="175,192,0,0" VerticalAlignment="Top" BorderBrush="#FFC5C5C5" Foreground="#FF333333" Height="16" Width="21" Checked="femaleCheckbox_Checked" MouseDown="femaleCheckbox_MouseDown"/>
             <TextBlock x:Name="genderError" HorizontalAlignment="Left" Margin="307,183,0,0" TextWrapping="Wrap" Text="必须选择一个性别" VerticalAlignment="Top" Height="23" Width="115" Foreground="White" Background="#FFC73434" Padding="9,3,0,0" Visibility="Hidden"/>
-            <Label Content="个体编号：" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <Label Content="个体编号*：" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="itemidBox" HorizontalAlignment="Left" Height="32" Margin="101,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="16" Padding="1,4,1,1" BorderBrush="#FFC5C5C5" SelectionBrush="#FF9A3117" Foreground="#FF333333" BorderThickness="2" LostFocus="itemidBox_LostFocus" TextChanged="itemidBox_TextChanged"/>
             <Button x:Name="saveItemBtn" Content="保    存" Margin="0,0,10,10" Grid.Row="2" BorderBrush="#FF7A3939" Foreground="White" Background="#FF9A3117" HorizontalAlignment="Right" Width="92" BorderThickness="2" Click="saveItemBtn_Click" Height="30" VerticalAlignment="Bottom"/>
-            <Button x:Name="addCancelBtn" Content="取消编辑" Margin="377,0,0,10" Grid.Row="2" BorderThickness="2" BorderBrush="#FFDEDEDE" Click="addCancelBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
+            <Button x:Name="addCancelBtn" Content="取消编辑" Margin="0,0,234,10" Grid.Row="2" BorderThickness="2" BorderBrush="#FFDEDEDE" Click="addCancelBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="87"/>
             <TextBlock x:Name="itemidError" HorizontalAlignment="Left" Margin="307,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Background="#FFC73434" Foreground="White" Width="180" Padding="7,4,0,0" Visibility="Hidden"/>
             <Label Content="现有个体：" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
-            <CheckBox x:Name="addConditionCheckbox" Content="是否为现有个体" HorizontalAlignment="Left" Margin="104,223,0,0" VerticalAlignment="Top" Foreground="#FF333333" BorderBrush="#FFC5C5C5"/>
+            <CheckBox x:Name="addConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="104,223,0,0" VerticalAlignment="Top" Foreground="#FF333333" BorderBrush="#FFC5C5C5"/>
             <Label Content="其他数据：" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <RichTextBox x:Name="addOtherDataInput" HorizontalAlignment="Left" Height="155" Margin="104,251,0,0" VerticalAlignment="Top" Width="185" Grid.RowSpan="2" BorderBrush="#FFC5C5C5">
                 <FlowDocument>
@@ -219,8 +221,10 @@
             <TextBlock x:Name="fidAutoInsertText" HorizontalAlignment="Left" Margin="307,107,0,0" TextWrapping="Wrap" Text="新记录，将自动插入数据库" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Visibility="Hidden"/>
             <Button x:Name="addToEditBtn" Content="转到编辑" HorizontalAlignment="Left" Margin="492,67,0,0" VerticalAlignment="Top" Width="75" Height="26" Foreground="White" Background="#FFC73434" BorderBrush="#FFC73434" Visibility="Hidden" Click="addToEditBtn_Click"/>
             <Button x:Name="addBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="85" Grid.Row="2" Height="30" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Click="addBackBtn_Click"/>
+            <TextBlock x:Name="addItemIdOk" HorizontalAlignment="Left" Margin="307,67,0,0" TextWrapping="Wrap" Text="Ok!" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Visibility="Hidden"/>
+            <TextBlock TextWrapping="Wrap" Text="输入相应信息，*为必填项目" VerticalAlignment="Top" Height="40" Background="#FFFFC0C0" Padding="22,11,0,0" FontSize="14" HorizontalAlignment="Right" Width="212"/>
         </Grid>
-        <Grid x:Name="detailGrid" Grid.Column="3" Margin="0,0,-1,0" Grid.Row="2" Grid.ColumnSpan="4" Background="#F6292929" Grid.RowSpan="3" Height="168" VerticalAlignment="Bottom" Visibility="Hidden">
+        <Grid x:Name="detailGrid" Grid.Column="1" Margin="180,0,-1,0" Grid.ColumnSpan="4" Background="#F6292929" Grid.RowSpan="3" Height="168" VerticalAlignment="Bottom" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="332*"/>
@@ -241,7 +245,7 @@
             <TextBlock x:Name="detailNationText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="其他信息：" Grid.Column="1" HorizontalAlignment="Left" Margin="313,70,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailOtherText" Grid.Column="1" HorizontalAlignment="Left" Margin="388,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-            <Button x:Name="detailViewEditBtn" Content="" Grid.Column="1" Foreground="White" BorderThickness="0" Click="detailViewEditBtn_Click" HorizontalAlignment="Right" Width="33">
+            <Button x:Name="detailViewEditBtn" Content="详细信息" Grid.Column="1" Foreground="White" BorderThickness="0" Click="detailViewEditBtn_Click" HorizontalAlignment="Right" Width="55">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF99F73D" Offset="0.003"/>
@@ -258,8 +262,11 @@
             <Label Content="性别：" Grid.Column="1" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailGenderText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
-        <Grid x:Name="editGrid" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" Background="White" Margin="10,0,2,0" Visibility="Hidden">
-            <Label Content="编辑信息" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF666666" FontSize="36" Margin="0,-12,0,0"/>
+        <Grid x:Name="editGrid" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="4" Background="White" Margin="178,62,-2,0" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect Direction="292" ShadowDepth="0" BlurRadius="10"/>
+            </Grid.Effect>
+            <Label Content="编辑信息" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF666666" FontSize="36" Margin="0,-1,0,0"/>
             <Label Content="个体编号：" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
             <Label Content="父代编号：" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
             <Label Content="母代编号：" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
@@ -271,9 +278,17 @@
             <CheckBox x:Name="editFemaleCheckbox" Content="F" HorizontalAlignment="Left" Margin="183,192,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA" Foreground="#FF333333" Checked="editFemaleCheckbox_Checked"/>
             <Button x:Name="editSaveBtn" Content="保   存" Margin="0,0,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85"/>
             <Button x:Name="editCancelBtn" Content="取消编辑" Margin="0,0,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click" HorizontalAlignment="Right" Width="86" Height="30" VerticalAlignment="Bottom"/>
-            <Button x:Name="editBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,468,0,0" VerticalAlignment="Top" Width="85" Background="#FF9A3117" Foreground="White" Height="30" Click="editBackBtn_Click" BorderBrush="#FF7A3939"/>
+            <Button x:Name="editBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,0,0,10" Width="85" Background="#FF9A3117" Foreground="White" Click="editBackBtn_Click" BorderBrush="#FF7A3939" Height="30" VerticalAlignment="Bottom"/>
+            <Label Content="现有个体：" HorizontalAlignment="Left" Margin="-5,218,0,0" VerticalAlignment="Top" Width="85" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <CheckBox x:Name="editConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="100,223,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA"/>
         </Grid>
-        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Column="3" Margin="0,0,-2,0" Background="#F6292929" Visibility="Hidden">
+        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Column="1" Margin="180,0,-2,0" Background="#F6292929" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="292" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Button x:Name="analysisBackBtn" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="32" BorderBrush="{x:Null}" Foreground="{x:Null}" ToolTip="返回" Click="analysisBackBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="image/back_btn.png"/>
@@ -281,26 +296,10 @@
             </Button>
             <Label Content="育种分析" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
             <ComboBox x:Name="analysisMid" HorizontalAlignment="Left" Margin="438,45,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFAAAAAA" IsEditable="True" KeyDown="analysisMid_KeyDown" Focusable="False" MouseLeftButtonDown="analysisMid_MouseLeftButtonDown"/>
-            <Rectangle x:Name="analysisGreenRec" HorizontalAlignment="Left" Height="122" Margin="142,110,0,0" VerticalAlignment="Top" Width="361" Visibility="Hidden">
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF9BFA3E" Offset="0"/>
-                        <GradientStop Color="#FF3D5820" Offset="1"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle x:Name="analysisRedRec" HorizontalAlignment="Left" Height="122" Margin="142,110,0,0" VerticalAlignment="Top" Width="361" Visibility="Hidden">
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF9A3117" Offset="0"/>
-                        <GradientStop Color="#FF441313" Offset="1"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
             <Label Content="雄性个体（ID）：" HorizontalAlignment="Left" Margin="35,45,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="雌性父亲（ID）：" HorizontalAlignment="Left" Margin="331,45,0,0" VerticalAlignment="Top" Foreground="White"/>
             <ComboBox x:Name="analysisFid" HorizontalAlignment="Left" Margin="142,45,0,0" VerticalAlignment="Top" Width="150" Height="22" IsEditable="True" KeyDown="analysisFid_KeyDown" Focusable="False" MouseLeftButtonDown="analysisFid_MouseLeftButtonDown"/>
-            <Button x:Name="analysisBtn" Content="开始分析" HorizontalAlignment="Left" Margin="35,0,0,10" Width="150" Foreground="White" FontSize="16" Click="analysisBtn_Click" Height="51" VerticalAlignment="Bottom">
+            <Button x:Name="analysisBtn" Content="开始分析" HorizontalAlignment="Left" Width="200" Foreground="White" FontSize="16" Click="analysisBtn_Click" Height="50" VerticalAlignment="Bottom">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF9CFB3E" Offset="0"/>
@@ -314,13 +313,88 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBlock x:Name="analysisResultTitleText" HorizontalAlignment="Left" Margin="142,110,0,0" TextWrapping="Wrap" Text="选配结果：" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0" Visibility="Hidden"/>
-            <TextBlock x:Name="analysisDataTitleText" HorizontalAlignment="Left" Margin="142,166,0,0" TextWrapping="Wrap" Text="近交系数：" VerticalAlignment="Top" Foreground="White" Padding="5,5,0,0" FontSize="16" Visibility="Hidden"/>
-            <TextBlock x:Name="analysisResultText" HorizontalAlignment="Left" Margin="249,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
-            <TextBlock x:Name="analysisResultTitleText_result" HorizontalAlignment="Left" Margin="262,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="84,34,0,0" VerticalAlignment="Top"/>
+            <Grid x:Name="analysisFamilyTreeGrid" HorizontalAlignment="Left" Height="286" Margin="142,298,0,0" VerticalAlignment="Top" Width="533" Visibility="Hidden">
+                <TextBlock x:Name="fid00Text" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="200" Background="#FF99F63D" Padding="0,93,0,0" Width="80" TextAlignment="Center" Margin="5,76,0,0"/>
+                <TextBlock x:Name="mfid00Text" HorizontalAlignment="Left" Margin="453,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="200" Background="#FF99F63D" Padding="0,93,0,0" Width="80" TextAlignment="Center"/>
+                <TextBlock x:Name="fid10Text" HorizontalAlignment="Left" Margin="90,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="97" Background="#FF99F63D" Padding="0,40,0,0" Width="80" TextAlignment="Center"/>
+                <TextBlock x:Name="fid11Text" HorizontalAlignment="Left" Margin="90,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="97" Background="#FF9A3117" Padding="0,40,0,0" Width="80" TextAlignment="Center" Foreground="White"/>
+                <TextBlock x:Name="fid100Text" HorizontalAlignment="Left" Margin="175,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Background="#FF99F63D" Padding="0,15,0,0" Width="80" TextAlignment="Center"/>
+                <TextBlock x:Name="fid101Text" HorizontalAlignment="Left" Margin="175,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Background="#FF9A3117" Padding="0,15,0,0" Width="80" TextAlignment="Center" Foreground="White"/>
+                <TextBlock x:Name="mfid10Text" HorizontalAlignment="Left" Margin="368,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="97" Background="#FF99F63D" Padding="0,40,0,0" Width="80" TextAlignment="Center"/>
+                <TextBlock x:Name="mfid11Text" HorizontalAlignment="Left" Margin="368,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="97" Background="#FF9A3117" Padding="0,40,0,0" Width="80" TextAlignment="Center" Foreground="White"/>
+                <TextBlock x:Name="mfid100Text" HorizontalAlignment="Left" Margin="283,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Background="#FF99F63D" Padding="0,15,0,0" Width="80" TextAlignment="Center"/>
+                <TextBlock x:Name="mfid101Text" HorizontalAlignment="Left" Margin="283,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Background="#FF9A3117" Padding="0,15,0,0" Width="80" TextAlignment="Center" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="系谱树" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
+                <Rectangle Fill="#FF99F63D" HorizontalAlignment="Left" Height="26" Margin="275,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" OpacityMask="Black"/>
+                <Label Content="雄性" HorizontalAlignment="Left" Margin="333,4,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Rectangle Fill="#FF9A3117" HorizontalAlignment="Left" Height="26" Margin="437,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+                <Label Content="雌性" HorizontalAlignment="Left" Margin="495,4,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="雄性" HorizontalAlignment="Left" Margin="20,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Label Content="父代" HorizontalAlignment="Left" Margin="112,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Label Content="祖父代" HorizontalAlignment="Left" Margin="185,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Label Content="雌性父亲" HorizontalAlignment="Left" Margin="471,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Label Content="父代" HorizontalAlignment="Left" Margin="391,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+                <Label Content="祖父代" HorizontalAlignment="Left" Margin="292,44,0,0" VerticalAlignment="Top" Foreground="White" OpacityMask="Black"/>
+            </Grid>
+            <Grid x:Name="analysisResultGrid" HorizontalAlignment="Left" Height="147" Margin="142,114,0,0" VerticalAlignment="Top" Width="533" Visibility="Hidden">
+                <Rectangle x:Name="analysisGreenRec" HorizontalAlignment="Left" Height="150" Margin="-2,0,0,0" VerticalAlignment="Top" Width="420">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF9BFA3E" Offset="0"/>
+                            <GradientStop Color="#FF3D5820" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="analysisRedRec" HorizontalAlignment="Left" Height="150" Margin="-2,0,0,0" VerticalAlignment="Top" Width="448">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF9A3117" Offset="0"/>
+                            <GradientStop Color="#FF441313" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Name="analysisResultTitleText" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="选配结果：" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0"/>
+                <TextBlock x:Name="analysisDataTitleText" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="近交系数：" VerticalAlignment="Top" Foreground="White" Padding="5,5,0,0" FontSize="16"/>
+                <TextBlock x:Name="analysisResultText" HorizontalAlignment="Left" Margin="117,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+                <TextBlock x:Name="analysisResultTitleText_result" HorizontalAlignment="Left" Margin="130,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="22" Padding="5,5,0,0"/>
+                <TextBlock x:Name="analysisPreGenTitle" HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="与前代近交系数：" VerticalAlignment="Top" Foreground="White" Padding="5,5,0,0" FontSize="16"/>
+                <TextBlock x:Name="analysisPreGenResultText" HorizontalAlignment="Left" Margin="148,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            </Grid>
+            <DataGrid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,1,0,0"/>
         </Grid>
-        <Label Content="西安市奶牛育种中心 奶牛选配软件" Grid.Column="3" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="42" Width="352" FontSize="22" Foreground="#FF333333" Padding="0,5,5,5" FontStretch="UltraExpanded" FontWeight="Thin" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated"/>
+        <Grid x:Name="optionGrid" Grid.Column="1" Margin="178,0,1,0" Grid.ColumnSpan="4" Grid.RowSpan="3" Background="#F6292929" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="292" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Button x:Name="optionBackBtn" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="32" BorderBrush="{x:Null}" Foreground="{x:Null}" ToolTip="返回" Click="optionBackBtn_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="image/back_btn.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="选项" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <Label Content="修改用户名、密码" HorizontalAlignment="Left" Margin="35,60,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <Label Content="用户名：" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="密   码：" HorizontalAlignment="Left" Margin="35,130,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="新密码：" HorizontalAlignment="Left" Margin="36,161,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox x:Name="optionUserNameModify" HorizontalAlignment="Left" Height="23" Margin="98,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderBrush="White" GotFocus="optionUserNameModify_GotFocus"/>
+            <PasswordBox x:Name="optionUserPassModify" HorizontalAlignment="Left" Margin="98,133,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionUserPassModify_GotFocus"/>
+            <PasswordBox x:Name="optionUserPassModifyConfirm" HorizontalAlignment="Left" Margin="98,164,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionUserPassModifyConfirm_GotFocus"/>
+            <Grid x:Name="optionNewUserGrid" HorizontalAlignment="Left" Height="228" Margin="401,57,0,0" VerticalAlignment="Top" Width="291">
+                <Label Content="添加新用户" HorizontalAlignment="Left" Margin="-2,3,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+                <Label Content="用户名：" HorizontalAlignment="Left" Margin="-2,42,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="密   码：" HorizontalAlignment="Left" Margin="-2,73,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="新密码：" HorizontalAlignment="Left" Margin="-1,104,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <TextBox x:Name="optionNewUserName" HorizontalAlignment="Left" Height="23" Margin="61,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderBrush="White" GotFocus="optionNewUserName_GotFocus"/>
+                <PasswordBox x:Name="optionNewUserPass" HorizontalAlignment="Left" Margin="61,76,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionNewUserPass_GotFocus"/>
+                <PasswordBox x:Name="optionNewUserPassConfirm" HorizontalAlignment="Left" Margin="61,107,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionNewUserPassConfirm_GotFocus"/>
+                <Button x:Name="optionNewUserInfoModifySave" Content="保存" HorizontalAlignment="Left" Margin="61,165,0,0" VerticalAlignment="Top" Width="75" Background="#FF9CFB3E" BorderBrush="#FF9CFB3E" Foreground="#FF444444" Click="optionNewUserInfoModifySave_Click"/>
+                <Button x:Name="optionNewUserInfoModifyCancle" Content="取消编辑" HorizontalAlignment="Left" Margin="169,165,0,0" VerticalAlignment="Top" Width="75" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Foreground="White" Click="optionNewUserInfoModifyCancle_Click"/>
+                <TextBlock x:Name="optionNewUserInfoError" HorizontalAlignment="Left" Margin="61,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="183" Foreground="White" Background="#FFD43333" Padding="3,3,0,0" Visibility="Hidden"/>
+            </Grid>
+            <Button x:Name="optionUserInfoModifySave" Content="保存" HorizontalAlignment="Left" Margin="98,221,0,0" VerticalAlignment="Top" Width="75" Background="#FF9CFB3E" BorderBrush="#FF9CFB3E" Foreground="#FF444444" Click="optionUserInfoModifySave_Click"/>
+            <Button x:Name="optionUserInfoModifyCancle" Content="取消编辑" HorizontalAlignment="Left" Margin="206,221,0,0" VerticalAlignment="Top" Width="75" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Foreground="White" Click="optionUserInfoModifyCancle_Click"/>
+            <TextBlock x:Name="optionUserInfoError" HorizontalAlignment="Left" Margin="98,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="183" Foreground="White" Background="#FFD43333" Padding="3,3,0,0" Visibility="Hidden"/>
+        </Grid>
 
     </Grid>
 </Window>

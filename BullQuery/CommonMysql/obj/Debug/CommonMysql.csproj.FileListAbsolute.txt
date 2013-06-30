@@ -7,3 +7,4 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\bin\Debug\Common
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\bin\Debug\CommonMysql.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\CommonMysql\obj\Debug\CommonMysql.csprojResolveAssemblyReference.cache

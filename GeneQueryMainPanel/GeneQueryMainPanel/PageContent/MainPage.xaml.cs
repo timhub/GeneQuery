@@ -50,6 +50,8 @@ namespace GeneQueryMainPanel.PageContent
             //ItemDisplay id = new ItemDisplay();
             allDataList = ba.GetAllItems();
             allItemGrid.ItemsSource = allDataList;
+            //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
+            //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
             allItemGrid.SelectedValuePath = "Id";
             
         }
@@ -89,6 +91,7 @@ namespace GeneQueryMainPanel.PageContent
         //show the add new item grid
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
         {
+            ba.closeConnection();
             addNewItemGrid.Visibility = System.Windows.Visibility.Visible;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -98,6 +101,7 @@ namespace GeneQueryMainPanel.PageContent
         //show home page
         private void mainHomeBtn_Click(object sender, RoutedEventArgs e)
         {
+            ba.closeConnection();
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -165,8 +169,11 @@ namespace GeneQueryMainPanel.PageContent
             bool result = validate.checkInfoFormat(input);
             if (result)
             {
-                addItemFlag = true;
-                fidAutoInsertText.Visibility = System.Windows.Visibility.Visible;
+                if (!("".Equals(input)) && !ba.RowsCount(input))
+                {
+                    addItemFlag = true;
+                    fidAutoInsertText.Visibility = System.Windows.Visibility.Visible;
+                }
             }
             else
             {
@@ -210,25 +217,7 @@ namespace GeneQueryMainPanel.PageContent
         private void detailViewEditBtn_Click(object sender, RoutedEventArgs e)
         {
             temBean = currentBean;
-            editItemIdBox.Text = currentBean.Id;
-            editFIdBox.Text = currentBean.FId;
-            editMIdBox.Text = currentBean.MId;
-            String gender = currentBean.Gender;
-            if (gender.Equals("M"))
-            {
-                editMaleCheckbox.IsChecked = true;
-                editFemaleCheckbox.IsChecked = false;
-            }
-            else if (gender.Equals("F"))
-            {
-                editMaleCheckbox.IsChecked = false;
-                editFemaleCheckbox.IsChecked = true;
-            }
-            else
-            {
-                editMaleCheckbox.IsChecked = false;
-                editFemaleCheckbox.IsChecked = false;
-            }
+            currentBeanDataDisplay();
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Visible;
         }
@@ -264,8 +253,9 @@ namespace GeneQueryMainPanel.PageContent
             String Id = editItemIdBox.Text;
             String FId = editFIdBox.Text;
             String MId = editMIdBox.Text;
-
             String gender = "";
+            String condition = "";
+
             if (editMaleCheckbox.IsChecked == true)
             {
                 gender = "M";
@@ -279,7 +269,16 @@ namespace GeneQueryMainPanel.PageContent
                 gender = "";
             }
 
-            ba.updateInfoById(Id,MId,FId,"","",gender,"");
+            if (editConditionCheckbox.IsChecked == true)
+            {
+                condition = "Y";
+            }
+            else 
+            {
+                condition = "N";
+            }
+
+            ba.updateInfoById(Id, MId, FId, "", "", gender, condition);
             allDataList = ba.GetAllItems();
             
             editGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -305,7 +304,7 @@ namespace GeneQueryMainPanel.PageContent
         {
             hideAnalysisResultElements();
             String input = analysisMid.Text;
-            List<String> result = ba.getIdLike(input, "M");
+            List<String> result = ba.GetAllItemsIdLike(input);
             this.analysisMid.ItemsSource = result;
             this.analysisMid.IsDropDownOpen = true;
         }
@@ -314,7 +313,7 @@ namespace GeneQueryMainPanel.PageContent
         {
             hideAnalysisResultElements();
             String input = analysisFid.Text;
-            List<String> result = ba.getIdLike(input, "F");
+            List<String> result = ba.GetAllItemsIdLike(input);
             this.analysisFid.ItemsSource = result;
             this.analysisFid.IsDropDownOpen = true;
         }
@@ -322,37 +321,92 @@ namespace GeneQueryMainPanel.PageContent
         private void analysisBtn_Click(object sender, RoutedEventArgs e)
         {
             bool analysisFlag = true;
-            string fid = analysisFid.Text;
-            string mid = analysisMid.Text;
+            String fid = analysisFid.Text;
+            String mid = analysisMid.Text;
+            String mfid = analysisMid.Text;
 
-            if (!ba.RowsCount(fid) && ba.RowsCount(mid))
+            String resultText = "";
+            String preGenResultText = "";
+            String mffid = "";
+            double result = 0;
+            double preGenResult = 0;
+
+            //get the father of the 2nd item
+            List<String> mffidList = ba.FindFather(mfid);
+            if (mffidList.Count > 1)
+            {
+                mffid = mffidList[1];
+            }
+            else
+            {
+                mffid = -1 + "";
+            }
+
+            //check if the IDs are avaliable
+            if (!ba.RowsCount(fid) && ba.RowsCount(mfid))
             {
                 analysisFlag = false;
-                MessageBox.Show("父代或母代Id输入有误！");
+                MessageBox.Show("Id输入有误！");
             }
             else
             {
                 analysisFlag = true;
             }
+
+            //do the analysis
             if (analysisFlag)
             {
-                foreach (KeyValuePair<String, double> result in ba.FamilyFertileCountWithFaIndex(fid, mid))
+                analysisResultGrid.Visibility = System.Windows.Visibility.Visible;
+                result = getAnalysisResult(fid, mfid);
+                preGenResult = getAnalysisResult(fid, mffid);
+
+                resultText = result + "%";
+                preGenResultText = preGenResult + "%";
+
+                analysisResultText.Text = resultText;
+                if ( -1 != preGenResult)
                 {
-                    string resultText = 100 * result.Value+"%";
-                    analysisResultText.Text = resultText;
-                    if (result.Value <= 0.0625)
-                    {
-                        analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
-                        analysisResultTitleText_result.Text = "适合选配";
-                    }
-                    else
-                    {
-                        analysisRedRec.Visibility = System.Windows.Visibility.Visible;
-                        analysisResultTitleText_result.Text = "不适合选配";
-                    }
-                    showAnalysisResultElements();
+                    analysisPreGenResultText.Text = preGenResultText;
                 }
+                else
+                {
+                    analysisPreGenResultText.Text = "无可用结果";
+                }
+
+                if (result <= 6.25)
+                {
+                    analysisRedRec.Visibility = System.Windows.Visibility.Hidden;
+                    analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
+                    analysisResultTitleText_result.Text = "适合选配";
+                }
+                else
+                {
+                    analysisGreenRec.Visibility = System.Windows.Visibility.Hidden;
+                    analysisRedRec.Visibility = System.Windows.Visibility.Visible;
+                    analysisResultTitleText_result.Text = "不适合选配";
+                }
+                showAnalysisResultElements();
+                displayFamilyTree();
             }
+        }
+
+        private double getAnalysisResult(String id1, String id2)
+        {
+            double result = 0;
+            if (ba.RowsCount(id2))
+            {
+                foreach (KeyValuePair<String, double> iterator in ba.FamilyFertileCountWithFaIndex(id1, id2))
+                {
+                    result = 100 * iterator.Value;
+                }
+
+                return result;
+            }
+            else
+            {
+                return -1;
+            }
+            
         }
 
         private void analysisMid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -369,9 +423,153 @@ namespace GeneQueryMainPanel.PageContent
 
         //=======================================below is action functions===================================
         # region actions
+
+        // This function is used for displaying family tree items of analysis grid
+        private void displayFamilyTree()
+        {
+            String fid = analysisFid.Text;
+            String mfid = analysisMid.Text;
+
+            ItemDataBean fDataBean = ba.GetItemsById(fid);
+            ItemDataBean mfDataBean = ba.GetItemsById(mfid);
+            ItemDataBean f0DataBean = new ItemDataBean();
+            ItemDataBean mf0DataBean = new ItemDataBean();
+
+            f0DataBean.FId = "";
+            f0DataBean.MId = "";
+            mf0DataBean.FId = "";
+            mf0DataBean.MId = "";
+
+            //left 0 tree node
+            fid00Text.Text = fDataBean.Id;
+            mfid00Text.Text = mfDataBean.Id;
+
+            //left 10 tree node
+            if (!"".Equals(fDataBean.FId))
+            {
+                fid10Text.Text = fDataBean.FId;
+                //set left father's databean
+                f0DataBean = ba.GetItemsById(fDataBean.FId);
+            }
+            else
+            {
+                fid10Text.Text = "无记录";
+            }
+            //left 11 tree node
+            if (!"".Equals(fDataBean.MId))
+            {
+                fid11Text.Text = fDataBean.MId;
+            }
+            else
+            {
+                fid11Text.Text = "无记录";
+            }
+            //right 10 tree node
+            if (!"".Equals(mfDataBean.FId))
+            {
+                mfid10Text.Text = mfDataBean.FId;
+                //set right father's data bean
+                mf0DataBean = ba.GetItemsById(mfDataBean.FId);
+            }
+            else
+            {
+                mfid10Text.Text = "无记录";
+            }
+            //right 11 tree node
+            if (!"".Equals(mfDataBean.MId))
+            {
+                mfid11Text.Text = mfDataBean.MId;
+            }
+            else
+            {
+                mfid11Text.Text = "无记录";
+            }
+
+            //set left 100 tree node
+            if (!"".Equals(f0DataBean.FId))
+            {
+                fid100Text.Text = f0DataBean.FId;
+            }
+            else
+            {
+                fid100Text.Text = "无记录";
+            }
+            //set left 101 tree node
+            if (!"".Equals(f0DataBean.MId))
+            {
+                fid101Text.Text = f0DataBean.MId;
+            }
+            else
+            {
+                fid101Text.Text = "无记录";
+            }
+            //set right 100 tree node
+            if (!"".Equals(mf0DataBean.FId))
+            {
+                mfid100Text.Text = mf0DataBean.FId;
+            }
+            else
+            {
+                mfid100Text.Text = "无记录";
+            }
+            //set right 101 tree node
+            if (!"".Equals(mf0DataBean.MId))
+            {
+                mfid101Text.Text = mf0DataBean.MId;
+            }
+            else
+            {
+                mfid101Text.Text = "无记录";
+            }
+        }
+
+        // For edit grid to display data
+        private void currentBeanDataDisplay()
+        {
+            editItemIdBox.Text = currentBean.Id;
+            editFIdBox.Text = currentBean.FId;
+            editMIdBox.Text = currentBean.MId;
+            String gender = currentBean.Gender;
+            String condition = currentBean.Condition;
+
+            if (gender.Equals("M"))
+            {
+                editMaleCheckbox.IsChecked = true;
+                editFemaleCheckbox.IsChecked = false;
+            }
+            else if (gender.Equals("F"))
+            {
+                editMaleCheckbox.IsChecked = false;
+                editFemaleCheckbox.IsChecked = true;
+            }
+            else
+            {
+                editMaleCheckbox.IsChecked = false;
+                editFemaleCheckbox.IsChecked = false;
+            }
+
+            if (condition.Equals("Y"))
+            {
+                editConditionCheckbox.IsChecked = true;
+            }
+            else
+            {
+                editConditionCheckbox.IsChecked = false;
+            }
+        }
+
+
         private void saveData()
         {
             checkBoxCheck();
+            if ("".Equals(itemidBox.Text))
+            {
+                itemidError.Visibility = System.Windows.Visibility.Visible;
+            }
+            if ("".Equals(fidBox.Text))
+            {
+                fidError.Visibility = System.Windows.Visibility.Visible;
+            }
             if (addItemFlag)
             {
                 String itemId = itemidBox.Text;
@@ -462,6 +660,11 @@ namespace GeneQueryMainPanel.PageContent
             analysisResultTitleText.Visibility = System.Windows.Visibility.Visible;
             analysisResultTitleText_result.Visibility = System.Windows.Visibility.Visible;
             analysisDataTitleText.Visibility = System.Windows.Visibility.Visible;
+            analysisPreGenTitle.Visibility = System.Windows.Visibility.Visible;
+
+            //wait to be checked when the display function is ready.
+            analysisFamilyTreeGrid.Visibility = System.Windows.Visibility.Visible;
+            analysisResultGrid.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void hideAnalysisResultElements()
@@ -469,6 +672,9 @@ namespace GeneQueryMainPanel.PageContent
             analysisResultTitleText.Visibility = System.Windows.Visibility.Hidden;
             analysisResultTitleText_result.Visibility = System.Windows.Visibility.Hidden;
             analysisDataTitleText.Visibility = System.Windows.Visibility.Hidden;
+            analysisPreGenTitle.Visibility = System.Windows.Visibility.Hidden;
+            analysisFamilyTreeGrid.Visibility = System.Windows.Visibility.Hidden;
+            analysisResultGrid.Visibility = System.Windows.Visibility.Hidden;
             if (analysisGreenRec.Visibility == System.Windows.Visibility.Visible)
             {
                 analysisGreenRec.Visibility = System.Windows.Visibility.Hidden;
@@ -479,6 +685,100 @@ namespace GeneQueryMainPanel.PageContent
             }
             analysisResultText.Text = "";
             analysisResultTitleText_result.Text = "";
+            analysisPreGenResultText.Text = "";
+        }
+
+        //validate for the option's user info
+        private bool optionUserInfoValidate()
+        {
+            bool saveFlag = true;
+
+            if (validate.checkInfoFormat(optionUserNameModify.Text))
+            {
+                saveFlag = true;
+            }
+            else
+            {
+                saveFlag = false;
+                optionUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionUserInfoError.Text = "用户名输入有误！";
+            }
+
+            if ("".Equals(optionUserPassModify.Password) || "".Equals(optionUserPassModifyConfirm.Password))
+            {
+                saveFlag = false;
+                optionUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionUserInfoError.Text = "密码不可为空！";
+            }
+
+            if (optionUserPassModify.Password.Equals(optionUserPassModifyConfirm.Password))
+            {
+                saveFlag = true;
+            } 
+            else 
+            {
+                saveFlag = false;
+                optionUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionUserInfoError.Text = "两次密码输入不匹配！";
+            }
+
+            return saveFlag;
+        }
+
+        //validate for the option's new user info
+        private bool optionNewUserInfoValidate()
+        {
+            bool saveFlag = true;
+
+            if (validate.checkInfoFormat(optionNewUserName.Text))
+            {
+                saveFlag = true;
+            }
+            else
+            {
+                saveFlag = false;
+                optionNewUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionNewUserInfoError.Text = "用户名输入有误！";
+            }
+
+            if ("".Equals(optionNewUserPass.Password) || "".Equals(optionNewUserPassConfirm.Password))
+            {
+                saveFlag = false;
+                optionNewUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionNewUserInfoError.Text = "密码不可为空！";
+            }
+
+            if (optionNewUserPass.Password.Equals(optionNewUserPassConfirm.Password))
+            {
+                saveFlag = true;
+            }
+            else
+            {
+                saveFlag = false;
+                optionNewUserInfoError.Visibility = System.Windows.Visibility.Visible;
+                optionNewUserInfoError.Text = "两次密码输入不匹配！";
+            }
+
+            return saveFlag;
+        }
+
+        // Corresponding the save button function of the option User Info Section
+        private void optionUserInfoSave()
+        {
+            bool saveFlag = optionUserInfoValidate();
+            if (saveFlag)
+            {
+                //TODO
+            }
+        }
+
+        private void optionNewUserInfoSave()
+        {
+            bool saveFlag = optionNewUserInfoValidate();
+            if (saveFlag)
+            {
+                //TODO
+            }
         }
         #endregion
 
@@ -523,6 +823,7 @@ namespace GeneQueryMainPanel.PageContent
 
         private void analysisPageBtn_Click(object sender, RoutedEventArgs e)
         {
+            ba.closeConnection();
             resetInput();
             analysisGrid.Visibility = System.Windows.Visibility.Visible;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -533,6 +834,9 @@ namespace GeneQueryMainPanel.PageContent
 
         private void addToEditBtn_Click(object sender, RoutedEventArgs e)
         {
+            currentBean = ba.GetItemsById(itemidBox.Text);
+            temBean = currentBean;
+            currentBeanDataDisplay();
             editGrid.Visibility = System.Windows.Visibility.Visible;
         }
 
@@ -543,9 +847,79 @@ namespace GeneQueryMainPanel.PageContent
 
         private void addBackBtn_Click(object sender, RoutedEventArgs e)
         {
+            ba.closeConnection();
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
         }
         #endregion
+
+        private void optionBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            optionGrid.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void optionUserInfoModifySave_Click(object sender, RoutedEventArgs e)
+        {
+            optionUserInfoSave();
+        }
+
+        private void optionUserNameModify_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+            optionUserInfoError.Text = "";
+        }
+
+        private void optionUserPassModify_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+            optionUserInfoError.Text = "";
+        }
+
+        private void optionUserPassModifyConfirm_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+            optionUserInfoError.Text = "";
+        }
+
+        private void optionUserInfoModifyCancle_Click(object sender, RoutedEventArgs e)
+        {
+            optionUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+            optionUserNameModify.Text = "";
+            optionUserPassModify.Password = "";
+            optionUserPassModifyConfirm.Password = "";
+        }
+
+        private void optionNewUserInfoModifyCancle_Click(object sender, RoutedEventArgs e)
+        {
+            optionNewUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+            optionNewUserName.Text = "";
+            optionNewUserPass.Password = "";
+            optionNewUserPassConfirm.Password = "";
+        }
+
+        private void settingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            optionGrid.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void optionNewUserInfoModifySave_Click(object sender, RoutedEventArgs e)
+        {
+            optionNewUserInfoSave();
+        }
+
+        private void optionNewUserName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionNewUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void optionNewUserPass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionNewUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void optionNewUserPassConfirm_GotFocus(object sender, RoutedEventArgs e)
+        {
+            optionNewUserInfoError.Visibility = System.Windows.Visibility.Hidden;
+        }
     }
 }
        

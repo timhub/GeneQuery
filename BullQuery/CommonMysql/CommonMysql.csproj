@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BullAction .cs" />
     <Compile Include="BullQuery.cs" />
-    <Compile Include="BullAction.cs" />
     <Compile Include="ItemDataBean.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControl.cs" />

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="GeneQueryMainPanel.exe" version="1.0.0.1" publicKeyToken="c1435d76d95f92aa" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="genequery.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="GeneQueryMainPanel.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BackingFunctions.dll" size="4608">
+      <assemblyIdentity name="BackingFunctions" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>5KHSI4NGdc8hbLHb7hP2sJOkj20=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="16384">
+      <assemblyIdentity name="CommonMysql" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>biJmUEwqSN5qLVimPBOdv0EDc+k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="584192">
+      <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>jOD/lGF2ljUgASj3+uM8lYwwB/M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="266240">
+      <assemblyIdentity name="MySql.Data" version="5.0.8.1" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>2npB3fQZEJ697y3c9ggK8a+wiRY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySQLDriverCS.dll" size="53248">
+      <assemblyIdentity name="MySQLDriverCS" version="3.0.1827.33723" publicKeyToken="172F94DFB0FAF263" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>caFZjpBgpNcC5cDB7X9y09Upyx0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="genequery.ico" size="22486">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>zqh2nwat8PIx+4cCOgM2R15cNtU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GeneQueryMainPanel.exe.config" size="167">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>4RnS12hQBk60yafGQFP+/DKgMKQ=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=Tim-PC\Tim" issuerKeyHash="ccb8f21d4fefd1d40ff9e7b7e136998dd0216001" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>c+7ATtMhGVDn7kBAK9WzWPvOhos=</DigestValue></Reference></SignedInfo><SignatureValue>Q7VfcvnRauKeXboqhCy4zmO8fRfLRfqPQzSF/R2ChbSarws6LB8YD1dgSi6zhxrEpUaMSmZVGbXnoxf3T3Pjo4PWx36JTNrlDjaOMCjK/lFX0OZlTtNHQjh0xTUdmz+mPIoPpOyWOXHPiFvqi/4JnhZJRouF7X0HEitphbv+Vrs=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>x89g4WyLkMQ0/rL89y+n7jWGdSsaLkXmWkO+j9giTSpCHLs7Mj8ptZuuFlAIYC7z3WvJY+3R/VUmYLxnYjCK/446+bFsnTcIoCHigWoP6YmdcKsQB4c6YBJXpN7qngYqeq59j1cXO4CarHDT3IEL3ktuv6jawox7oVoUgMle2gM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="8b86cefb58b3d52b4040eee7501921d34ec0ee73" Description="" Url=""><as:assemblyIdentity name="GeneQueryMainPanel.exe" version="1.0.0.1" publicKeyToken="c1435d76d95f92aa" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Tim-PC\Tim</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>tuTj1zE8btONYnROC7E6ntqjJwo=</DigestValue></Reference></SignedInfo><SignatureValue>Efqo88/8x3X8JwdJ9r3LUzh9m1hmFDIdEQzP/R7LiuHySOhKe4Bkx/2UT2ONv5jleI6XPlIxa71WSpl3IC2CTwtk9+mFAtfKJyUESO4gN8UxiD55ejePvXBovPx2sRuzW6FV5cO6j+NyU35zlWbnahob5AMxUeoRMPmMYKbBdUs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>x89g4WyLkMQ0/rL89y+n7jWGdSsaLkXmWkO+j9giTSpCHLs7Mj8ptZuuFlAIYC7z3WvJY+3R/VUmYLxnYjCK/446+bFsnTcIoCHigWoP6YmdcKsQB4c6YBJXpN7qngYqeq59j1cXO4CarHDT3IEL3ktuv6jawox7oVoUgMle2gM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQZnrsgC5VK4JFqJWpPpXtxDANBgkqhkiG9w0BAQUFADAfMR0wGwYDVQQDHhQAVABpAG0ALQBQAEMAXABUAGkAbTAeFw0xMzA2MjQxMzE5MzZaFw0xNDA2MjQxOTE5MzZaMB8xHTAbBgNVBAMeFABUAGkAbQAtAFAAQwBcAFQAaQBtMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHz2DhbIuQxDT+svz3L6fuNYZ1KxouReZaQ76P2CJNKkIcuzsyPym1m64WUAhgLvPda8lj7dH9VSZgvGdiMIr/jjr5sWydNwigIeKBag/piZ1wqxAHhzpgElek3uqeBip6rn2PVxc7gJqscNPcgQveS26/qNrCjHuhWhSAyV7aAwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBALLn4NhpoNY+su48xB1sJoX/Eg7LX+EJsRfdMHiUU5GbLqyroJoIYS7sBivK80GZ0X2O5Lu/W2yOq+F3XO5cuzWlmhD+6Sx8w2/OaMhG0NG8DMexSuAdXq29L0LXxr+xQeMJycojuU52DgOnj9GF9WOmxlEB1ieVNtRDlwdmcobc</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

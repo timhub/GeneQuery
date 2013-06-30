@@ -21,7 +21,8 @@ namespace TestMysql
        static void Main(string[] args)
         {
             BullAction baction = new BullAction();
-            List<string> t_t = baction.getIdLike("3","F");
+            //List<string> t_t = baction.getIdLike("3", "F");
+            List<string> t_t = new List<string>();
             foreach (string t1 in t_t)
             {
                 Console.WriteLine(t1);
