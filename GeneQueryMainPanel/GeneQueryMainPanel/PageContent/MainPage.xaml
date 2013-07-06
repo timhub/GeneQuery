@@ -360,7 +360,6 @@
                 <TextBlock x:Name="analysisPreGenTitle" HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="与前代近交系数：" VerticalAlignment="Top" Foreground="White" Padding="5,5,0,0" FontSize="16"/>
                 <TextBlock x:Name="analysisPreGenResultText" HorizontalAlignment="Left" Margin="148,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
             </Grid>
-            <DataGrid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,1,0,0"/>
         </Grid>
         <Grid x:Name="optionGrid" Grid.Column="1" Margin="178,0,1,0" Grid.ColumnSpan="4" Grid.RowSpan="3" Background="#F6292929" Visibility="Hidden">
             <Grid.Effect>
