@@ -2,7 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:CommonMysql="clr-namespace:CommonMysql;assembly=CommonMysql" xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Class="GeneQueryMainPanel.PageContent.MainPage"  x:Name="MainPanel"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:CommonMysql="clr-namespace:CommonMysql;assembly=CommonMysql" 
+        xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
+        mc:Ignorable="d Anno" 
+        x:Class="GeneQueryMainPanel.PageContent.MainPage"  
+        x:Name="MainPanel"
         Title="西安市奶牛育种中心奶牛选配软件" MinHeight="700" MinWidth="1000" Height="700" Width="1000">
 	<Window.Resources>
         <Storyboard x:Key="login">
@@ -134,8 +139,8 @@
                 GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
     		    AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
     		    MouseDoubleClick="allItemGrid_MouseDoubleClick" MouseLeftButtonDown="allItemGrid_MouseLeftButtonDown" 
-    		    SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed" 
-                IsSynchronizedWithCurrentItem="True" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
+    		    SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed"
+                IsSynchronizedWithCurrentItem="False" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
                 CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" 
                 RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}">
             <DataGrid.RenderTransform>
@@ -168,8 +173,17 @@
                 <DropShadowEffect ShadowDepth="3" Opacity="0.5"/>
             </Button.Effect>
         </Button>
+        <DataGrid AutoGenerateColumns="False" x:Name="allItemGridNew" Grid.Column="1" HorizontalAlignment="Left" Margin="180,110,0,0" VerticalAlignment="Top" 
+        	Grid.ColumnSpan="4" Height="560" Width="797" Grid.RowSpan="3" Background="White" ItemsSource="{Binding AllDataListDisplayList, Mode= OneWay}" Loaded="allItemGridNew_Loaded">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="个体编号" Binding="{Binding Path=Id}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="父代编号" Binding="{Binding Path=FId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <DataGrid x:Name="currentItemGrid" Grid.Column="1" Margin="182,110,0,0" Grid.ColumnSpan="4" 
-    		Background="White" BorderBrush="#FFE4E4E4" Foreground="#FF1D1D1D" Grid.RowSpan="3" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+    		Background="White" BorderBrush="#FFCDCDCD" Foreground="#FF1D1D1D" Grid.RowSpan="3" Visibility="Hidden" RenderTransformOrigin="0.5,0.5" Loaded="currentItemGrid_Loaded" SelectedIndex="0" GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" AlternationCount="2" AlternatingRowBackground="#FFEAEAEA" AreRowDetailsFrozen="True" RowBackground="White">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -375,10 +389,10 @@
             <Label Content="用户名：" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="密   码：" HorizontalAlignment="Left" Margin="35,130,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="新密码：" HorizontalAlignment="Left" Margin="36,161,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <TextBox x:Name="optionUserNameModify" HorizontalAlignment="Left" Height="23" Margin="98,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderBrush="White" GotFocus="optionUserNameModify_GotFocus"/>
+            <TextBox x:Name="optionUserNameModify" HorizontalAlignment="Left" Height="23" Margin="98,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderBrush="White" GotFocus="optionUserNameModify_GotFocus" Loaded="optionUserNameModify_Loaded"/>
             <PasswordBox x:Name="optionUserPassModify" HorizontalAlignment="Left" Margin="98,133,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionUserPassModify_GotFocus"/>
             <PasswordBox x:Name="optionUserPassModifyConfirm" HorizontalAlignment="Left" Margin="98,164,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionUserPassModifyConfirm_GotFocus"/>
-            <Grid x:Name="optionNewUserGrid" HorizontalAlignment="Left" Height="228" Margin="401,57,0,0" VerticalAlignment="Top" Width="291">
+            <Grid x:Name="optionNewUserGrid" HorizontalAlignment="Left" Height="228" Margin="401,57,0,0" VerticalAlignment="Top" Width="291" Loaded="optionNewUserGrid_Loaded">
                 <Label Content="添加新用户" HorizontalAlignment="Left" Margin="-2,3,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
                 <Label Content="用户名：" HorizontalAlignment="Left" Margin="-2,42,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="密   码：" HorizontalAlignment="Left" Margin="-2,73,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -386,7 +400,7 @@
                 <TextBox x:Name="optionNewUserName" HorizontalAlignment="Left" Height="23" Margin="61,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderBrush="White" GotFocus="optionNewUserName_GotFocus"/>
                 <PasswordBox x:Name="optionNewUserPass" HorizontalAlignment="Left" Margin="61,76,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionNewUserPass_GotFocus"/>
                 <PasswordBox x:Name="optionNewUserPassConfirm" HorizontalAlignment="Left" Margin="61,107,0,0" VerticalAlignment="Top" Width="183" BorderBrush="White" Height="23" GotFocus="optionNewUserPassConfirm_GotFocus"/>
-                <Button x:Name="optionNewUserInfoModifySave" Content="保存" HorizontalAlignment="Left" Margin="61,165,0,0" VerticalAlignment="Top" Width="75" Background="#FF9CFB3E" BorderBrush="#FF9CFB3E" Foreground="#FF444444" Click="optionNewUserInfoModifySave_Click"/>
+                <Button x:Name="optionNewUserInfoModifySave" Content="添加" HorizontalAlignment="Left" Margin="61,165,0,0" VerticalAlignment="Top" Width="75" Background="#FF9CFB3E" BorderBrush="#FF9CFB3E" Foreground="#FF444444" Click="optionNewUserInfoModifySave_Click"/>
                 <Button x:Name="optionNewUserInfoModifyCancle" Content="取消编辑" HorizontalAlignment="Left" Margin="169,165,0,0" VerticalAlignment="Top" Width="75" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Foreground="White" Click="optionNewUserInfoModifyCancle_Click"/>
                 <TextBlock x:Name="optionNewUserInfoError" HorizontalAlignment="Left" Margin="61,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="183" Foreground="White" Background="#FFD43333" Padding="3,3,0,0" Visibility="Hidden"/>
             </Grid>

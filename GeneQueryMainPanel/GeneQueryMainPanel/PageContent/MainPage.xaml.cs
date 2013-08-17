@@ -16,6 +16,8 @@ using CommonMysql;
 using System.Data;
 using System.Windows.Navigation;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace GeneQueryMainPanel.PageContent
 {
@@ -32,16 +34,85 @@ namespace GeneQueryMainPanel.PageContent
         ValidateActionFunction validate = new ValidateActionFunction(); // input validator
 
         private List<ItemDataBean> allDataList;
+        private List<ItemDataBean> currentDataList;
         private bool displayFlag = true; //for displaying the all item form or current item form
         private bool addItemFlag = false; //for intercept faults in input date of add new item component
 
         BullAction ba = new BullAction(); // new DB function
-       
+
+        //--------------fallow variables are for user control---------------
+        String userName;
+        bool isAdmin;
+        UserIdentification ui = new UserIdentification();
+
+        private ObservableCollection<ItemDataBean> allDataDisplayList;
+        public ObservableCollection<ItemDataBean> AllDataDisplayList
+        {
+            get
+            {
+                return this.allDataDisplayList;
+            }
+            set
+            {
+                if (this.allDataDisplayList != value)
+                {
+                    this.allDataDisplayList = value;
+                    OnPropertyChanged("AllDataDisplayList");
+                }
+            }
+        }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
+
+        //--------------Binding test---------------------------
+
 
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        public MainPage(String userName)
+        {
+            InitializeComponent();
             
+            this.userName = userName;
+            this.isAdmin = ui.IsAdmin(this.userName);
+
+            this.allDataViewModel = new AllDataItemViewModel();
+            this.allDataViewModel.view = this;
+        }
+
+        public AllDataItemViewModel allDataViewModel
+        {
+            get 
+            {
+                return this.DataContext as AllDataItemViewModel;
+            }
+            set 
+            {
+                this.DataContext = value;
+            }
+        }
+
+        
+
+        private void allItemGridNew_Loaded(object sender, RoutedEventArgs e)
+        {
+            allDataDisplayList = ba.GetAllItemsInOberv();
         }
 
         //load the data grid when the window is loaded
@@ -53,7 +124,13 @@ namespace GeneQueryMainPanel.PageContent
             //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
             //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
             allItemGrid.SelectedValuePath = "Id";
-            
+        }
+
+        private void currentItemGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            currentDataList = ba.GetAllCurrentItems();
+            currentItemGrid.ItemsSource = currentDataList;
+            currentItemGrid.SelectedValuePath = "Id";
         }
 
         //switch the data grid from all item to current item and from the opposite side
@@ -118,6 +195,7 @@ namespace GeneQueryMainPanel.PageContent
             {
                 addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             }
+            allItemGrid.UpdateLayout();
             //allItemGrid.ItemsSource = allDataList;
             //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
             //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
@@ -320,73 +398,80 @@ namespace GeneQueryMainPanel.PageContent
 
         private void analysisBtn_Click(object sender, RoutedEventArgs e)
         {
-            bool analysisFlag = true;
-            String fid = analysisFid.Text;
-            String mid = analysisMid.Text;
-            String mfid = analysisMid.Text;
-
-            String resultText = "";
-            String preGenResultText = "";
-            String mffid = "";
-            double result = 0;
-            double preGenResult = 0;
-
-            //get the father of the 2nd item
-            List<String> mffidList = ba.FindFather(mfid);
-            if (mffidList.Count > 1)
+            if ((!"".Equals(analysisFid.Text)) && (!"".Equals(analysisMid.Text)))
             {
-                mffid = mffidList[1];
-            }
-            else
-            {
-                mffid = -1 + "";
-            }
+                bool analysisFlag = true;
+                String fid = analysisFid.Text;
+                String mid = analysisMid.Text;
+                String mfid = analysisMid.Text;
 
-            //check if the IDs are avaliable
-            if (!ba.RowsCount(fid) && ba.RowsCount(mfid))
-            {
-                analysisFlag = false;
-                MessageBox.Show("Id输入有误！");
-            }
-            else
-            {
-                analysisFlag = true;
-            }
+                String resultText = "";
+                String preGenResultText = "";
+                String mffid = "";
+                double result = 0;
+                double preGenResult = 0;
 
-            //do the analysis
-            if (analysisFlag)
-            {
-                analysisResultGrid.Visibility = System.Windows.Visibility.Visible;
-                result = getAnalysisResult(fid, mfid);
-                preGenResult = getAnalysisResult(fid, mffid);
-
-                resultText = result + "%";
-                preGenResultText = preGenResult + "%";
-
-                analysisResultText.Text = resultText;
-                if ( -1 != preGenResult)
+                //get the father of the 2nd item
+                List<String> mffidList = ba.FindFather(mfid);
+                if (mffidList.Count > 1)
                 {
-                    analysisPreGenResultText.Text = preGenResultText;
+                    mffid = mffidList[1];
                 }
                 else
                 {
-                    analysisPreGenResultText.Text = "无可用结果";
+                    mffid = -1 + "";
                 }
 
-                if (result <= 6.25)
+                //check if the IDs are avaliable
+                if (!ba.RowsCount(fid) && ba.RowsCount(mfid))
                 {
-                    analysisRedRec.Visibility = System.Windows.Visibility.Hidden;
-                    analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
-                    analysisResultTitleText_result.Text = "适合选配";
+                    analysisFlag = false;
+                    MessageBox.Show("Id输入有误！");
                 }
                 else
                 {
-                    analysisGreenRec.Visibility = System.Windows.Visibility.Hidden;
-                    analysisRedRec.Visibility = System.Windows.Visibility.Visible;
-                    analysisResultTitleText_result.Text = "不适合选配";
+                    analysisFlag = true;
                 }
-                showAnalysisResultElements();
-                displayFamilyTree();
+
+                //do the analysis
+                if (analysisFlag)
+                {
+                    analysisResultGrid.Visibility = System.Windows.Visibility.Visible;
+                    result = getAnalysisResult(fid, mfid);
+                    preGenResult = getAnalysisResult(fid, mffid);
+
+                    resultText = result + "%";
+                    preGenResultText = preGenResult + "%";
+
+                    analysisResultText.Text = resultText;
+                    if (-1 != preGenResult)
+                    {
+                        analysisPreGenResultText.Text = preGenResultText;
+                    }
+                    else
+                    {
+                        analysisPreGenResultText.Text = "无可用结果";
+                    }
+
+                    if (result <= 6.25)
+                    {
+                        analysisRedRec.Visibility = System.Windows.Visibility.Hidden;
+                        analysisGreenRec.Visibility = System.Windows.Visibility.Visible;
+                        analysisResultTitleText_result.Text = "适合选配";
+                    }
+                    else
+                    {
+                        analysisGreenRec.Visibility = System.Windows.Visibility.Hidden;
+                        analysisRedRec.Visibility = System.Windows.Visibility.Visible;
+                        analysisResultTitleText_result.Text = "不适合选配";
+                    }
+                    showAnalysisResultElements();
+                    displayFamilyTree();
+                }
+            }
+            else
+            {
+                MessageBox.Show("ID输入有误");
             }
         }
 
@@ -570,6 +655,19 @@ namespace GeneQueryMainPanel.PageContent
             {
                 fidError.Visibility = System.Windows.Visibility.Visible;
             }
+            else if (!"".Equals(fidBox.Text))
+            {
+                String str = fidBox.Text;
+                ItemDataBean fItem = ba.GetItemsById(str);
+                if (!"M".Equals(fItem.Gender))
+                {
+                    fidError.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    fidError.Visibility = System.Windows.Visibility.Hidden;
+                }
+            }
             if (addItemFlag)
             {
                 String itemId = itemidBox.Text;
@@ -601,6 +699,14 @@ namespace GeneQueryMainPanel.PageContent
                 }
 
                 ba.InsertBullInfo(itemId, mId, fId, "", "", gender, condition);
+                ItemDataBean newItem = new ItemDataBean();
+                newItem.Id = itemId;
+                newItem.MId = mId;
+                newItem.FId = fId;
+                newItem.Gender = gender;
+                newItem.Condition = condition;
+                allDataList.Add(newItem);
+                allItemGrid.UpdateLayout();
 
                 //insert new fid
                 if (!ba.RowsCount(fId))
@@ -608,6 +714,7 @@ namespace GeneQueryMainPanel.PageContent
                     ba.InsertBullInfo(fId, "", "", "", "", "M", "");
                 }
                 cleanInput();
+                allDataDisplayList = ba.GetAllItemsInOberv();
             }
         }
 
@@ -768,7 +875,24 @@ namespace GeneQueryMainPanel.PageContent
             bool saveFlag = optionUserInfoValidate();
             if (saveFlag)
             {
-                //TODO
+                String name = optionUserNameModify.Text;
+                String pass = optionUserPassModify.Password;
+                UserBean ub = ui.getUserByName(userName);
+                bool updateFlag = ui.UpdateUserInfo(ub.Id, name, pass);
+
+                if (updateFlag)
+                {
+                    MessageBox.Show("修改成功！");
+                    optionUserNameModify.Text = "";
+                    optionUserPassModify.Password = "";
+                    optionUserPassModifyConfirm.Password = "";
+                }
+                else
+                {
+                    MessageBox.Show("输入有误，请重新输入");
+                    optionUserPassModify.Password = "";
+                    optionUserPassModifyConfirm.Password = "";
+                }
             }
         }
 
@@ -777,7 +901,22 @@ namespace GeneQueryMainPanel.PageContent
             bool saveFlag = optionNewUserInfoValidate();
             if (saveFlag)
             {
-                //TODO
+                String userName = optionNewUserName.Text;
+                String userPass = optionNewUserPass.Password;
+                bool insertFlag = ui.InsertUserInfo(userName, userPass);
+                if (insertFlag)
+                {
+                    MessageBox.Show("插入成功！");
+                    optionNewUserName.Text = "";
+                    optionNewUserPass.Password = "";
+                    optionNewUserPassConfirm.Password = "";
+                }
+                else
+                {
+                    MessageBox.Show("插入有误，请重新输入");
+                    optionNewUserPass.Password = "";
+                    optionNewUserPassConfirm.Password = "";
+                }
             }
         }
         #endregion
@@ -920,6 +1059,26 @@ namespace GeneQueryMainPanel.PageContent
         {
             optionNewUserInfoError.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        private void optionNewUserGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (this.isAdmin)
+            {
+                optionNewUserGrid.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (!this.isAdmin)
+            {
+                optionNewUserGrid.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        private void optionUserNameModify_Loaded(object sender, RoutedEventArgs e)
+        {
+            optionUserNameModify.Text = userName;
+        }
+
+        
+
     }
 }
        

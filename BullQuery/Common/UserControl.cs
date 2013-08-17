@@ -53,7 +53,7 @@ namespace Common
             return flag;
         }
 
-        public bool InsertUserInfo(String Id,String Name,String Pwd)
+        public bool InsertUserInfo(String Name,String Pwd)
         {
             bool flag = false;
             SqlCommand cmd = null;
@@ -61,7 +61,7 @@ namespace Common
             {
                 bquery.conn.Open();
             }
-            if (RowsCount(Id))
+            if (RowsCount(Name))
             {
                 return false;
             }
@@ -69,9 +69,8 @@ namespace Common
             {
                 bquery.conn.Open();
             }
-            bquery.sqlcom = "insert into dbo.UsrTable values (@Id,@Name,@Pwd)";
+            bquery.sqlcom = "insert into dbo.UsrTable values (@Name,@Pwd)";
             cmd = new SqlCommand(bquery.sqlcom, bquery.conn);
-            cmd.Parameters.Add("@Id", SqlDbType.VarChar, 50).Value = Id;
             cmd.Parameters.Add("@Name", SqlDbType.VarChar, 50).Value = Name;
             cmd.Parameters.Add("@Pwd", SqlDbType.VarChar, 50).Value = Pwd;
             try

@@ -9,6 +9,7 @@ using System.Configuration;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using MySQLDriverCS;
+using System.Collections.ObjectModel;
 
 namespace CommonMysql
 {
@@ -337,6 +338,68 @@ namespace CommonMysql
         public List<ItemDataBean> GetAllItems()
         {
             bquery.sqlcom = "select * from bulldsp";
+            List<ItemDataBean> resultList = new List<ItemDataBean>();
+            try
+            {
+                openConnection();
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    ItemDataBean dataBean = new ItemDataBean();
+                    dataBean.Id = sdr["Id"].ToString();
+                    dataBean.FId = sdr["FId"].ToString();
+                    dataBean.MId = sdr["MId"].ToString();
+                    dataBean.Action = sdr["Action"].ToString();
+                    dataBean.Nation = sdr["Nation"].ToString();
+                    dataBean.Gender = sdr["Gender"].ToString();
+                    dataBean.Condition = sdr["Condition"].ToString();
+                    resultList.Add(dataBean);
+                }
+                sdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultList;
+        }
+
+        public ObservableCollection<ItemDataBean> GetAllItemsInOberv()
+        {
+            bquery.sqlcom = "select * from bulldsp";
+            ObservableCollection<ItemDataBean> resultList = new ObservableCollection<ItemDataBean>();
+            try
+            {
+                openConnection();
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    ItemDataBean dataBean = new ItemDataBean();
+                    dataBean.Id = sdr["Id"].ToString();
+                    dataBean.FId = sdr["FId"].ToString();
+                    dataBean.MId = sdr["MId"].ToString();
+                    dataBean.Action = sdr["Action"].ToString();
+                    dataBean.Nation = sdr["Nation"].ToString();
+                    dataBean.Gender = sdr["Gender"].ToString();
+                    dataBean.Condition = sdr["Condition"].ToString();
+                    resultList.Add(dataBean);
+                }
+                sdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultList;
+        }
+
+        public List<ItemDataBean> GetAllCurrentItems()
+        {
+            bquery.sqlcom = "select * from bulldsp where `Condition` ='Y'";
             List<ItemDataBean> resultList = new List<ItemDataBean>();
             try
             {

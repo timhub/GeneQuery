@@ -21,6 +21,16 @@ namespace TestMysql
        static void Main(string[] args)
         {
             BullAction baction = new BullAction();
+            UserIdentification Uf = new UserIdentification();
+            Console.WriteLine(Uf.getMd5Hash(Uf.getMd5Hash(Uf.getHostIpName())));
+            if (Uf.validatePC())
+            {
+                Console.WriteLine("this MAC is Valid!");
+            }
+            else
+            {
+                Console.WriteLine("this MAC is invalid!");
+            }
             //List<string> t_t = baction.getIdLike("3", "F");
             List<string> t_t = new List<string>();
             foreach (string t1 in t_t)
@@ -28,7 +38,15 @@ namespace TestMysql
                 Console.WriteLine(t1);
             }
 
-            //baction.updateInfoById("44", "00", "56", "", "usa", "M", "");
+            UserIdentification ui = new UserIdentification();
+
+            UserBean ub = ui.getUserByName("admin");
+
+            ui.UpdateUserInfo(ub.Id, "admin", "admin");
+            Console.WriteLine("********" + ub.Id);
+            baction.GetAllCurrentItems();
+           //--------------------------------------------------------------------------------- 
+           //baction.updateInfoById("44", "00", "56", "", "usa", "M", "");
             Console.WriteLine("请分别输入FID与MID，输入-1退出程序！");
             string FID = Console.ReadLine();
             string MID = Console.ReadLine();

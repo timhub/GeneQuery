@@ -23,7 +23,6 @@ namespace GeneQueryMainPanel.PageContent
     public partial class Window1 : Window
     {
         LoginFilter login = new LoginFilter();
-        MainPage mp = new MainPage();
 
         public Window1()
         {
@@ -37,6 +36,7 @@ namespace GeneQueryMainPanel.PageContent
             bool flag = login.userCheck(nameInput, passInput);
             if (flag)
             {
+                MainPage mp = new MainPage(nameInput);
                 this.Content = mp.Content;
             }
             else
