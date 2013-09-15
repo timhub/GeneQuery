@@ -50,31 +50,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cNh5W9lWusksFrFdwSypXOhcoK6j/3opMBigw3rgyQI=</dsig:DigestValue>
+        <dsig:DigestValue>Xf3NP1+gstMs39Lq/B+bzf4m7iQrwGVjbGtM6zWuQic=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="22528">
       <assemblyIdentity name="CommonMysql" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PPAiU/FIWZifXo1gX2i2qhJMCRCNLwi25IMwCFNzHck=</dsig:DigestValue>
+        <dsig:DigestValue>5f5bf99xGwh6++K//35DwdPBsTtq/obxOo+2r+TPkb4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="596480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="597504">
       <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OYwlem+QLoKvpANhasEPGTSI+/NLWr45Lu9t/4dCEpU=</dsig:DigestValue>
+        <dsig:DigestValue>KDJUKwz2q89/IL9GhVlJsKPpxUbMiFd2+K/bVLb67TE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -397,6 +397,37 @@ namespace CommonMysql
             return resultList;
         }
 
+        public ObservableCollection<ItemDataBean> GetAllCurrentItemsInOberv()
+        {
+            bquery.sqlcom = "select * from bulldsp where `Condition` ='Y'";
+            ObservableCollection<ItemDataBean> resultList = new ObservableCollection<ItemDataBean>();
+            try
+            {
+                openConnection();
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    ItemDataBean dataBean = new ItemDataBean();
+                    dataBean.Id = sdr["Id"].ToString();
+                    dataBean.FId = sdr["FId"].ToString();
+                    dataBean.MId = sdr["MId"].ToString();
+                    dataBean.Action = sdr["Action"].ToString();
+                    dataBean.Nation = sdr["Nation"].ToString();
+                    dataBean.Gender = sdr["Gender"].ToString();
+                    dataBean.Condition = sdr["Condition"].ToString();
+                    resultList.Add(dataBean);
+                }
+                sdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultList;
+        }
+
         public List<ItemDataBean> GetAllCurrentItems()
         {
             bquery.sqlcom = "select * from bulldsp where `Condition` ='Y'";

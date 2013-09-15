@@ -33,8 +33,6 @@ namespace GeneQueryMainPanel.PageContent
 
         ValidateActionFunction validate = new ValidateActionFunction(); // input validator
 
-        private List<ItemDataBean> allDataList;
-        private List<ItemDataBean> currentDataList;
         private bool displayFlag = true; //for displaying the all item form or current item form
         private bool addItemFlag = false; //for intercept faults in input date of add new item component
 
@@ -45,40 +43,7 @@ namespace GeneQueryMainPanel.PageContent
         bool isAdmin;
         UserIdentification ui = new UserIdentification();
 
-        private ObservableCollection<ItemDataBean> allDataDisplayList;
-        public ObservableCollection<ItemDataBean> AllDataDisplayList
-        {
-            get
-            {
-                return this.allDataDisplayList;
-            }
-            set
-            {
-                if (this.allDataDisplayList != value)
-                {
-                    this.allDataDisplayList = value;
-                    OnPropertyChanged("AllDataDisplayList");
-                }
-            }
-        }
-
-        #region INotifyPropertyChanged Members
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        #endregion
-
         //--------------Binding test---------------------------
-
 
         public MainPage()
         {
@@ -91,12 +56,9 @@ namespace GeneQueryMainPanel.PageContent
             
             this.userName = userName;
             this.isAdmin = ui.IsAdmin(this.userName);
-
-            this.allDataViewModel = new AllDataItemViewModel();
-            this.allDataViewModel.view = this;
         }
 
-        public AllDataItemViewModel allDataViewModel
+        public AllDataItemViewModel ViewModel
         {
             get 
             {
@@ -108,62 +70,71 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-        
 
         private void allItemGridNew_Loaded(object sender, RoutedEventArgs e)
         {
-            allDataDisplayList = ba.GetAllItemsInOberv();
+            this.ViewModel = new AllDataItemViewModel();
+            this.ViewModel.view = this;
+            this.overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
         }
 
-        //load the data grid when the window is loaded
-        private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
+
+        private void currentItemGridNew_Loaded(object sender, RoutedEventArgs e)
         {
-            //ItemDisplay id = new ItemDisplay();
-            allDataList = ba.GetAllItems();
-            allItemGrid.ItemsSource = allDataList;
-            //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
-            //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
-            allItemGrid.SelectedValuePath = "Id";
+            this.ViewModel = new AllDataItemViewModel();
+            this.ViewModel.view = this;
+            this.overviewCurrentNumText.Text = ViewModel.CurrentDataListDisplayList.Count + "";
         }
 
-        private void currentItemGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-            currentDataList = ba.GetAllCurrentItems();
-            currentItemGrid.ItemsSource = currentDataList;
-            currentItemGrid.SelectedValuePath = "Id";
-        }
+        ////load the data grid when the window is loaded
+        //private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    //ItemDisplay id = new ItemDisplay();
+        //    allDataList = ba.GetAllItems();
+        //    allItemGrid.ItemsSource = allDataList;
+        //    //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
+        //    //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
+        //    allItemGrid.SelectedValuePath = "Id";
+        //}
+
+        //private void currentItemGrid_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    currentDataList = ba.GetAllCurrentItems();
+        //    currentItemGrid.ItemsSource = currentDataList;
+        //    currentItemGrid.SelectedValuePath = "Id";
+        //}
 
         //switch the data grid from all item to current item and from the opposite side
         private void switchViewBtn_click(object sender, RoutedEventArgs e)
         {
             if (displayFlag == true)
             {
-                allItemGrid.Visibility = System.Windows.Visibility.Hidden;
-                currentItemGrid.Visibility = System.Windows.Visibility.Visible;
+                allItemGridNew.Visibility = System.Windows.Visibility.Hidden;
+                currentItemGridNew.Visibility = System.Windows.Visibility.Visible;
                 displayFlag = false;
             }
             else 
             {
-                allItemGrid.Visibility = System.Windows.Visibility.Visible;
-                currentItemGrid.Visibility = System.Windows.Visibility.Hidden;
+                allItemGridNew.Visibility = System.Windows.Visibility.Visible;
+                currentItemGridNew.Visibility = System.Windows.Visibility.Hidden;
                 displayFlag = true;
             }
         }
 
         //trigger the show detail infomation of the current selected item
-        private void allItemGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            currentBean = (ItemDataBean)allItemGrid.CurrentItem;
-            recentItemList.Add(currentBean);
-            showDetailArea();
-        }
+        //private void allItemGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    currentBean = (ItemDataBean)allItemGrid.CurrentItem;
+        //    recentItemList.Add(currentBean);
+        //    showDetailArea();
+        //}
 
         //select the current item
-        private void allItemGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var a = allItemGrid.SelectedItem as ItemDataBean;
-            currentBean = a;
-        }
+        //private void allItemGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    var a = allItemGrid.SelectedItem as ItemDataBean;
+        //    currentBean = a;
+        //}
 
         //show the add new item grid
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
@@ -190,15 +161,10 @@ namespace GeneQueryMainPanel.PageContent
         private void saveItemBtn_Click(object sender, RoutedEventArgs e)
         {
             saveData();
-            allDataList = ba.GetAllItems();
             if (addItemFlag)
             {
                 addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             }
-            allItemGrid.UpdateLayout();
-            //allItemGrid.ItemsSource = allDataList;
-            //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
-            //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
         }
 
         //trigger the validation function of the input text
@@ -357,8 +323,9 @@ namespace GeneQueryMainPanel.PageContent
             }
 
             ba.updateInfoById(Id, MId, FId, "", "", gender, condition);
-            allDataList = ba.GetAllItems();
-            
+
+            ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
+            ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
             editGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
@@ -705,8 +672,8 @@ namespace GeneQueryMainPanel.PageContent
                 newItem.FId = fId;
                 newItem.Gender = gender;
                 newItem.Condition = condition;
-                allDataList.Add(newItem);
-                allItemGrid.UpdateLayout();
+
+                ViewModel.AllDataListDisplayList.Add(newItem);
 
                 //insert new fid
                 if (!ba.RowsCount(fId))
@@ -714,7 +681,6 @@ namespace GeneQueryMainPanel.PageContent
                     ba.InsertBullInfo(fId, "", "", "", "", "M", "");
                 }
                 cleanInput();
-                allDataDisplayList = ba.GetAllItemsInOberv();
             }
         }
 
@@ -1077,7 +1043,27 @@ namespace GeneQueryMainPanel.PageContent
             optionUserNameModify.Text = userName;
         }
 
-        
+        private void allItemGridNew_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            currentBean = allItemGridNew.SelectedItem as ItemDataBean;
+        }
+
+        private void allItemGridNew_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            currentBean = allItemGridNew.SelectedItem as ItemDataBean;
+            showDetailArea();
+        }
+
+        private void currentItemGridNew_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            currentBean = currentItemGridNew.SelectedItem as ItemDataBean;
+            showDetailArea();
+        }
+
+        private void currentItemGridNew_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            currentBean = currentItemGridNew.SelectedItem as ItemDataBean;
+        }
 
     }
 }

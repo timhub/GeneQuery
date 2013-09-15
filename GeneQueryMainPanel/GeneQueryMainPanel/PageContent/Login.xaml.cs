@@ -22,7 +22,7 @@ namespace GeneQueryMainPanel.PageContent
     /// </summary>
     public partial class Window1 : Window
     {
-        LoginFilter login = new LoginFilter();
+        BackingFunctions.LoginFilter login = new LoginFilter();
 
         public Window1()
         {

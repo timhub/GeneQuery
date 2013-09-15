@@ -13,7 +13,7 @@ namespace CommonMysql
         {
             get
             {
-                return this.id;
+                return id;
             }
             set
             {

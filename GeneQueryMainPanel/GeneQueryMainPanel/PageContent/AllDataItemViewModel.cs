@@ -12,23 +12,16 @@ namespace GeneQueryMainPanel
     public class AllDataItemViewModel : INotifyPropertyChanged
     {
         BullAction ba = new BullAction();
-        private ObservableCollection<ItemDataBean> allDataListDisplayList;
+        
         public GeneQueryMainPanel.PageContent.MainPage view { get; set; }
-
-        public event PropertyChangedEventHandler prtyChanged;
 
         public AllDataItemViewModel()
         {
             this.allDataListDisplayList = ba.GetAllItemsInOberv();
-
-            this.PropertyChanged += ModelPropertyChanged;
+            this.currentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
         }
 
-        void ModelPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            this.AllDataListDisplayList = ba.GetAllItemsInOberv();
-        }
-
+        private ObservableCollection<ItemDataBean> allDataListDisplayList;
         public ObservableCollection<ItemDataBean> AllDataListDisplayList
         {
             get
@@ -37,12 +30,27 @@ namespace GeneQueryMainPanel
             }
             set
             {
-                if (prtyChanged != null)
+                if (this.allDataListDisplayList != value)
                 {
-                    //this.allDataListDisplayList = value;
-                    //OnPropertyChanged("AllDataListDisplayList");
-                    prtyChanged(this, new PropertyChangedEventArgs("AllDataListDisplayList"));
-                    
+                    this.allDataListDisplayList = value;
+                    OnPropertyChanged("AllDataListDisplayList");
+                }
+            }
+        }
+
+        private ObservableCollection<ItemDataBean> currentDataListDisplayList;
+        public ObservableCollection<ItemDataBean> CurrentDataListDisplayList
+        {
+            get
+            {
+                return this.currentDataListDisplayList;
+            }
+            set
+            {
+                if (this.currentDataListDisplayList != value)
+                {
+                    this.currentDataListDisplayList = value;
+                    OnPropertyChanged("CurrentDataListDisplayList");
                 }
             }
         }

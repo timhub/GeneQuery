@@ -4,72 +4,83 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:CommonMysql="clr-namespace:CommonMysql;assembly=CommonMysql" 
-        xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
+        xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"  
+        xmlns:data="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:GeneQueryMainPanel="clr-namespace:GeneQueryMainPanel" 
         mc:Ignorable="d Anno" 
-        x:Class="GeneQueryMainPanel.PageContent.MainPage"  
+        x:Class="GeneQueryMainPanel.PageContent.MainPage"
         x:Name="MainPanel"
         Title="西安市奶牛育种中心奶牛选配软件" MinHeight="700" MinWidth="1000" Height="700" Width="1000">
-	<Window.Resources>
+    <Window.Resources>
         <Storyboard x:Key="login">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stackPanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainHomeBtn">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainAddBtn">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="analysisPageBtn">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="allItemGrid">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="switchViewBtn">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="stackPanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBox">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="button">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="allItemGrid">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="switchViewBtn">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainHomeBtn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainAddBtn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="analysisPageBtn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="switchViewBtn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="switchViewBtn">
+                <EasingDoubleKeyFrame KeyTime="0" Value="157.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-3"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="allItemGridNew">
+                <EasingDoubleKeyFrame KeyTime="0" Value="169.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="allItemGridNew">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-1.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="allItemGridNew">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="allItemGridNew">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.005"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-	</Window.Resources>
-	<Window.Triggers>
+    </Window.Resources>
+    <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
-        	<BeginStoryboard x:Name="login_BeginStoryboard" Storyboard="{StaticResource login}"/>
+            <BeginStoryboard x:Name="login_BeginStoryboard" Storyboard="{StaticResource login}"/>
         </EventTrigger>
-	</Window.Triggers>
+        <EventTrigger RoutedEvent="Control.MouseDoubleClick" SourceName="allItemGridNew"/>
+    </Window.Triggers>
     <Grid x:Name="grid">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -79,9 +90,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="531"/>
             <RowDefinition/>
-            <RowDefinition Height="8"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
@@ -90,10 +99,17 @@
             <ColumnDefinition Width="305*"/>
             <ColumnDefinition Width="8"/>
         </Grid.ColumnDefinitions>
-        <Label Content="西安市奶牛育种中心 奶牛选配软件" Grid.Column="1" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="42" Width="352" FontSize="22" Foreground="#FF333333" Padding="0,5,5,5" FontStretch="UltraExpanded" FontWeight="Thin" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" TabIndex="2222"/>
+        <Grid x:Name="overviewGrid" Grid.Column="1" Margin="183,494,-2,0" Grid.ColumnSpan="4" Background="#F6292929">
+            <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" TextWrapping="Wrap" Text="总览" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="137,42,0,0" TextWrapping="Wrap" Text="所有记录数量：" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="137,99,0,0" TextWrapping="Wrap" Text="现有种群数量：" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <TextBlock x:Name="overviewCurrentNumText" HorizontalAlignment="Left" Margin="324,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+            <TextBlock x:Name="overviewAllNumText" HorizontalAlignment="Left" Margin="324,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        </Grid>
+        <Label Content="西安市奶牛育种中心 奶牛选配软件" Grid.Column="1" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top" Height="42" Width="352" FontSize="22" Foreground="#FF333333" Padding="0,5,5,5" FontStretch="UltraExpanded" FontWeight="Thin" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" TabIndex="2222"/>
         <Button x:Name="settingBtn" Content="选   项" Grid.Column="3" Margin="0,10,10,0" VerticalAlignment="Top" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="20" Focusable="False" HorizontalAlignment="Right" Width="88" Click="settingBtn_Click"/>
 
-        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="493" VerticalAlignment="Top" Width="168" Grid.Column="1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Margin="0,62,0,0">
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="493" VerticalAlignment="Top" Width="168" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Margin="0,62,0,0">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -107,7 +123,7 @@
             <Button x:Name="analysisPageBtn" Content="育种分析" Height="40" Background="#FFF0F0F0" BorderThickness="1,0,1,1" Focusable="False" IsHitTestVisible="True" Click="analysisPageBtn_Click" BorderBrush="#FFE6E6E6"/>
         </StackPanel>
         <TextBox x:Name="textBox" Grid.Column="1" Margin="183,66,9,0" TextWrapping="Wrap" BorderBrush="#FFBDBDBD" CaretBrush="#FF818181" 
-                 BorderThickness="1" Padding="1,5,1,1" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Focusable="False">
+			BorderThickness="1" Padding="1,5,1,1" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Focusable="False">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -121,7 +137,7 @@
             </TextBox.Effect>
         </TextBox>
         <Button x:Name="button" Content="搜  索" Grid.Column="3" HorizontalAlignment="Left" Margin="11,66,0,0" 
-                Width="76" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Height="28" VerticalAlignment="Top" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
+			Width="76" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Height="28" VerticalAlignment="Top" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -134,15 +150,15 @@
                 <DropShadowEffect Opacity="0.5" ShadowDepth="3" BlurRadius="3"/>
             </Button.Effect>
         </Button>
-        <DataGrid x:Name="allItemGrid" Grid.Column="1" Margin="183,110,0,0" Grid.ColumnSpan="4" 
-    		    Background="#FFFFFFFE" Loaded="allItemGrid_Loaded" BorderBrush="#FFCDCDCD" Foreground="#FF1B1B1B" 
-                GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
-    		    AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
-    		    MouseDoubleClick="allItemGrid_MouseDoubleClick" MouseLeftButtonDown="allItemGrid_MouseLeftButtonDown" 
-    		    SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed"
-                IsSynchronizedWithCurrentItem="False" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
-                CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" 
-                RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}">
+        <!--<DataGrid x:Name="allItemGrid" Grid.Column="1" Margin="183,110,0,0" Grid.ColumnSpan="4" 
+			Background="#FFFFFFFE" Loaded="allItemGrid_Loaded" BorderBrush="#FFCDCDCD" Foreground="#FF1B1B1B" 
+			GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" 
+			AlternatingRowBackground="#FFEAEAEA" VerticalGridLinesBrush="{x:Null}" MinColumnWidth="48" Grid.RowSpan="3" 
+			MouseDoubleClick="allItemGrid_MouseDoubleClick" MouseLeftButtonDown="allItemGrid_MouseLeftButtonDown" 
+			SelectedIndex="0" BorderThickness="1" RowDetailsVisibilityMode="Collapsed"
+			IsSynchronizedWithCurrentItem="False" AlternationCount="2" AreRowDetailsFrozen="True" RowBackground="White" 
+			CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" 
+			RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" RowHeaderStyle="{DynamicResource gridHeader}" Visibility="Hidden">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -157,10 +173,10 @@
             <DataGrid.DataContext>
                 <CommonMysql:ItemDataBean Action="" FId=""/>
             </DataGrid.DataContext>
-        </DataGrid>
+        </DataGrid>-->
         <Button x:Name="switchViewBtn" Content="现有 / 所有" Grid.Column="3" Margin="0,66,8,0" 
-                Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Click="switchViewBtn_click" Height="28" 
-                VerticalAlignment="Top" HorizontalAlignment="Right" Width="90" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
+			Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Click="switchViewBtn_click" Height="28" 
+			VerticalAlignment="Top" HorizontalAlignment="Right" Width="90" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -173,17 +189,11 @@
                 <DropShadowEffect ShadowDepth="3" Opacity="0.5"/>
             </Button.Effect>
         </Button>
-        <DataGrid AutoGenerateColumns="False" x:Name="allItemGridNew" Grid.Column="1" HorizontalAlignment="Left" Margin="180,110,0,0" VerticalAlignment="Top" 
-        	Grid.ColumnSpan="4" Height="560" Width="797" Grid.RowSpan="3" Background="White" ItemsSource="{Binding AllDataListDisplayList, Mode= OneWay}" Loaded="allItemGridNew_Loaded">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="个体编号" Binding="{Binding Path=Id}">
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="父代编号" Binding="{Binding Path=FId}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <DataGrid x:Name="currentItemGrid" Grid.Column="1" Margin="182,110,0,0" Grid.ColumnSpan="4" 
-    		Background="White" BorderBrush="#FFCDCDCD" Foreground="#FF1D1D1D" Grid.RowSpan="3" Visibility="Hidden" RenderTransformOrigin="0.5,0.5" Loaded="currentItemGrid_Loaded" SelectedIndex="0" GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" AlternationCount="2" AlternatingRowBackground="#FFEAEAEA" AreRowDetailsFrozen="True" RowBackground="White">
+        <DataGrid AutoGenerateColumns="False" x:Name="allItemGridNew" Grid.Column="1" Margin="183,110,0,176" 
+			Grid.ColumnSpan="4" Background="White" ItemsSource="{Binding AllDataListDisplayList, Mode=TwoWay}" AlternatingRowBackground="#FFEEEEEE" 
+                  AlternationCount="2" GridLinesVisibility="None" IsSynchronizedWithCurrentItem="True" CanUserDeleteRows="False" 
+                  CanUserAddRows="False" Loaded="allItemGridNew_Loaded" MouseLeftButtonDown="allItemGridNew_MouseLeftButtonDown" 
+                  MouseDoubleClick="allItemGridNew_MouseDoubleClick" AreRowDetailsFrozen="True" IsReadOnly="True" BorderBrush="#FFECECEC" RenderTransformOrigin="0.5,0.5" MinColumnWidth="60">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -192,8 +202,50 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
+                <DataGridTextColumn Header="母代编号" Binding="{Binding MId}"/>
+                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
+                <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
+            </DataGrid.Columns>
         </DataGrid>
-        <Grid x:Name="addNewItemGrid" Grid.Column="1" Margin="179,62,0,0" Grid.ColumnSpan="4" Background="White" Grid.RowSpan="3" OpacityMask="Black" Visibility="Hidden">
+
+        <DataGrid AutoGenerateColumns="False" x:Name="currentItemGridNew" Grid.Column="1" Margin="183,110,0,139" 
+			Grid.ColumnSpan="4" Background="White" ItemsSource="{Binding CurrentDataListDisplayList, Mode=TwoWay}" AlternatingRowBackground="#FFEEEEEE" 
+                  AlternationCount="2" GridLinesVisibility="None" IsSynchronizedWithCurrentItem="True" CanUserDeleteRows="False" 
+                  CanUserAddRows="False" AreRowDetailsFrozen="True" IsReadOnly="True" BorderBrush="#FFECECEC" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Loaded="currentItemGridNew_Loaded" MouseDoubleClick="currentItemGridNew_MouseDoubleClick" MouseLeftButtonDown="currentItemGridNew_MouseLeftButtonDown" MinColumnWidth="60">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
+                <DataGridTextColumn Header="母代编号" Binding="{Binding MId}"/>
+                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
+                <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--<DataGrid x:Name="currentItemGrid" Grid.Column="1" Margin="182,110,0,0" Grid.ColumnSpan="4" 
+			Background="White" BorderBrush="#FFCDCDCD" Foreground="#FF1D1D1D" Grid.RowSpan="3" Visibility="Hidden" RenderTransformOrigin="0.5,0.5" Loaded="currentItemGrid_Loaded" SelectedIndex="0" GridLinesVisibility="None" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" AlternationCount="2" AlternatingRowBackground="#FFEAEAEA" AreRowDetailsFrozen="True" RowBackground="White">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>-->
+        <Grid x:Name="addNewItemGrid" Grid.Column="1" Margin="179,62,0,0" Grid.ColumnSpan="4" Background="White" OpacityMask="Black" Visibility="Hidden">
             <Grid.Effect>
                 <DropShadowEffect Direction="292" ShadowDepth="0" BlurRadius="10"/>
             </Grid.Effect>
@@ -238,7 +290,7 @@
             <TextBlock x:Name="addItemIdOk" HorizontalAlignment="Left" Margin="307,67,0,0" TextWrapping="Wrap" Text="Ok!" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Visibility="Hidden"/>
             <TextBlock TextWrapping="Wrap" Text="输入相应信息，*为必填项目" VerticalAlignment="Top" Height="40" Background="#FFFFC0C0" Padding="22,11,0,0" FontSize="14" HorizontalAlignment="Right" Width="212"/>
         </Grid>
-        <Grid x:Name="detailGrid" Grid.Column="1" Margin="180,0,-1,0" Grid.ColumnSpan="4" Background="#F6292929" Grid.RowSpan="3" Height="168" VerticalAlignment="Bottom" Visibility="Hidden">
+        <Grid x:Name="detailGrid" Grid.Column="1" Margin="183,0,0,0" Grid.ColumnSpan="4" Background="#F6292929" Height="176" VerticalAlignment="Bottom" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="332*"/>
@@ -276,7 +328,7 @@
             <Label Content="性别：" Grid.Column="1" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailGenderText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
-        <Grid x:Name="editGrid" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="4" Background="White" Margin="178,62,-2,0" Visibility="Hidden">
+        <Grid x:Name="editGrid" Grid.Column="1" Grid.ColumnSpan="4" Background="White" Margin="178,62,-2,0" Visibility="Hidden">
             <Grid.Effect>
                 <DropShadowEffect Direction="292" ShadowDepth="0" BlurRadius="10"/>
             </Grid.Effect>
@@ -296,7 +348,7 @@
             <Label Content="现有个体：" HorizontalAlignment="Left" Margin="-5,218,0,0" VerticalAlignment="Top" Width="85" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <CheckBox x:Name="editConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="100,223,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA"/>
         </Grid>
-        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Column="1" Margin="180,0,-2,0" Background="#F6292929" Visibility="Hidden">
+        <Grid x:Name="analysisGrid" Grid.ColumnSpan="4" Grid.Column="1" Margin="180,0,-2,0" Background="#F6292929" Visibility="Hidden">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10" Direction="292" ShadowDepth="0"/>
             </Grid.Effect>
@@ -375,7 +427,7 @@
                 <TextBlock x:Name="analysisPreGenResultText" HorizontalAlignment="Left" Margin="148,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
             </Grid>
         </Grid>
-        <Grid x:Name="optionGrid" Grid.Column="1" Margin="178,0,1,0" Grid.ColumnSpan="4" Grid.RowSpan="3" Background="#F6292929" Visibility="Hidden">
+        <Grid x:Name="optionGrid" Grid.Column="1" Margin="178,0,1,0" Grid.ColumnSpan="4" Background="#F6292929" Visibility="Hidden">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10" Direction="292" ShadowDepth="0"/>
             </Grid.Effect>
