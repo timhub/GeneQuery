@@ -55,6 +55,22 @@ namespace GeneQueryMainPanel
             }
         }
 
+        private ObservableCollection<ItemDataBean> searchResultDisplayList;
+        public ObservableCollection<ItemDataBean> SearchResultDisplayList
+        {
+            get
+            {
+                return this.searchResultDisplayList;
+            }
+            set
+            {
+                if (this.searchResultDisplayList != value)
+                {
+                    this.searchResultDisplayList = value;
+                    OnPropertyChanged("SearchResultDisplayList");
+                }
+            }
+        }
 
         #region INotifyPropertyChanged Members
 

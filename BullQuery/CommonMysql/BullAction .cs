@@ -428,6 +428,39 @@ namespace CommonMysql
             return resultList;
         }
 
+        public ObservableCollection<ItemDataBean> GetAllItemsIdLikeInOberv(String Id)
+        {
+            bquery.sqlcom = "select * from bulldsp where Id like " + "'" + Id + "%" + "'";
+            ObservableCollection<ItemDataBean> resultList = new ObservableCollection<ItemDataBean>();
+            List<String> idList = new List<string>();
+            try
+            {
+                openConnection();
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+                
+
+                while (sdr.Read())
+                {
+                    String str = sdr["Id"].ToString();
+                    idList.Add(str);
+                }
+                sdr.Close();
+                foreach (String str in idList)
+                {
+                    ItemDataBean bean = this.GetItemsById(str);
+                    resultList.Add(bean);
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return resultList;
+        }
+
         public List<ItemDataBean> GetAllCurrentItems()
         {
             bquery.sqlcom = "select * from bulldsp where `Condition` ='Y'";

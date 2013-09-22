@@ -86,23 +86,12 @@ namespace GeneQueryMainPanel.PageContent
             this.overviewCurrentNumText.Text = ViewModel.CurrentDataListDisplayList.Count + "";
         }
 
-        ////load the data grid when the window is loaded
-        //private void allItemGrid_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    //ItemDisplay id = new ItemDisplay();
-        //    allDataList = ba.GetAllItems();
-        //    allItemGrid.ItemsSource = allDataList;
-        //    //Binding allItemBinding = new Binding("allItemGrid.ItemsSource") { Source = this.allDataList };
-        //    //this.allItemGrid.SetBinding(DataGrid.DataContextProperty, new Binding());
-        //    allItemGrid.SelectedValuePath = "Id";
-        //}
 
-        //private void currentItemGrid_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    currentDataList = ba.GetAllCurrentItems();
-        //    currentItemGrid.ItemsSource = currentDataList;
-        //    currentItemGrid.SelectedValuePath = "Id";
-        //}
+        private void searchResultItemGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel = new AllDataItemViewModel();
+            this.ViewModel.view = this;
+        }
 
         //switch the data grid from all item to current item and from the opposite side
         private void switchViewBtn_click(object sender, RoutedEventArgs e)
@@ -120,21 +109,6 @@ namespace GeneQueryMainPanel.PageContent
                 displayFlag = true;
             }
         }
-
-        //trigger the show detail infomation of the current selected item
-        //private void allItemGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    currentBean = (ItemDataBean)allItemGrid.CurrentItem;
-        //    recentItemList.Add(currentBean);
-        //    showDetailArea();
-        //}
-
-        //select the current item
-        //private void allItemGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    var a = allItemGrid.SelectedItem as ItemDataBean;
-        //    currentBean = a;
-        //}
 
         //show the add new item grid
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
@@ -1063,6 +1037,31 @@ namespace GeneQueryMainPanel.PageContent
         private void currentItemGridNew_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             currentBean = currentItemGridNew.SelectedItem as ItemDataBean;
+        }
+
+        private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String str = "";
+            str = this.searchBar.Text;
+            if (!"".Equals(str))
+            {
+                ObservableCollection<ItemDataBean> resultList = ba.GetAllItemsIdLikeInOberv(str);
+                if (resultList.Count != 0)
+                {
+                    ViewModel.SearchResultDisplayList = resultList;
+                }
+                searchResultItemGrid.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        private void searchResultItemGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            currentBean = searchResultItemGrid.CurrentItem as ItemDataBean;
+            showDetailArea();
         }
 
     }
