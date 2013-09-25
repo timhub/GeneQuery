@@ -267,7 +267,9 @@ namespace CommonMysql
             return list;
         }
 
-        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
+        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition,
+            String EBVFC, String TPI, String D, String H, String R, String EBVM, String T, String EBVP, String EBCMS, String FL,
+            String SCS, String Others)
         {
             bool flag = false;
             
@@ -283,7 +285,9 @@ namespace CommonMysql
             {
                 bquery.conn.Open();
             }
-            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "','"+ Gender + "','" + Condition +"')";
+            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "','"+ 
+                Gender + "','" + Condition + "','" + EBVFC + "','" + TPI + "','" + D + "','" + H + "','" + R + "','" + EBVM + "','" + 
+                T + "','" + EBVP + "','" + EBCMS + "','" + FL + "','" + SCS + "','" + Others + "')";
             MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);        
             try
             {
@@ -299,41 +303,6 @@ namespace CommonMysql
             bquery.conn.Close();
             return flag;
         }
-
-
-        public bool InsertBullInfo(String Id, String MId, String FId, String Action, String Nation)
-        {
-            bool flag = false;
-
-            if (bquery.conn.State == ConnectionState.Closed)
-            {
-                bquery.conn.Open();
-            }
-            if (RowsCount(Id))
-            {
-                return false;
-            }
-            if (bquery.conn.State == ConnectionState.Closed)
-            {
-                bquery.conn.Open();
-            }
-            bquery.sqlcom = "insert into bulldsp values ('" + Id + "','" + FId + "','" + MId + "','" + Action + "','" + Nation + "')";
-            MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
-            try
-            {
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    flag = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            bquery.conn.Close();
-            return flag;
-        }
-
 
         public List<ItemDataBean> GetAllItems()
         {
@@ -355,6 +324,20 @@ namespace CommonMysql
                     dataBean.Nation = sdr["Nation"].ToString();
                     dataBean.Gender = sdr["Gender"].ToString();
                     dataBean.Condition = sdr["Condition"].ToString();
+
+                    dataBean.D = sdr["D"].ToString();
+                    dataBean.EBCMS = sdr["EBCMS"].ToString();
+                    dataBean.EBVFC = sdr["EBVFC"].ToString();
+                    dataBean.EBVM = sdr["EBVM"].ToString();
+                    dataBean.EBVP = sdr["EBVP"].ToString();
+                    dataBean.FL = sdr["FL"].ToString();
+                    dataBean.H = sdr["H"].ToString();
+                    dataBean.SCS = sdr["SCS"].ToString();
+                    dataBean.T = sdr["T"].ToString();
+                    dataBean.TPI = sdr["TPI"].ToString();
+                    dataBean.R = sdr["R"].ToString();
+                    dataBean.Others = sdr["Others"].ToString();
+
                     resultList.Add(dataBean);
                 }
                 sdr.Close();
@@ -386,6 +369,20 @@ namespace CommonMysql
                     dataBean.Nation = sdr["Nation"].ToString();
                     dataBean.Gender = sdr["Gender"].ToString();
                     dataBean.Condition = sdr["Condition"].ToString();
+
+                    dataBean.D = sdr["D"].ToString();
+                    dataBean.EBCMS = sdr["EBCMS"].ToString();
+                    dataBean.EBVFC = sdr["EBVFC"].ToString();
+                    dataBean.EBVM = sdr["EBVM"].ToString();
+                    dataBean.EBVP = sdr["EBVP"].ToString();
+                    dataBean.FL = sdr["FL"].ToString();
+                    dataBean.H = sdr["H"].ToString();
+                    dataBean.SCS = sdr["SCS"].ToString();
+                    dataBean.T = sdr["T"].ToString();
+                    dataBean.TPI = sdr["TPI"].ToString();
+                    dataBean.R = sdr["R"].ToString();
+                    dataBean.Others = sdr["Others"].ToString();
+
                     resultList.Add(dataBean);
                 }
                 sdr.Close();
@@ -417,6 +414,20 @@ namespace CommonMysql
                     dataBean.Nation = sdr["Nation"].ToString();
                     dataBean.Gender = sdr["Gender"].ToString();
                     dataBean.Condition = sdr["Condition"].ToString();
+
+                    dataBean.D = sdr["D"].ToString();
+                    dataBean.EBCMS = sdr["EBCMS"].ToString();
+                    dataBean.EBVFC = sdr["EBVFC"].ToString();
+                    dataBean.EBVM = sdr["EBVM"].ToString();
+                    dataBean.EBVP = sdr["EBVP"].ToString();
+                    dataBean.FL = sdr["FL"].ToString();
+                    dataBean.H = sdr["H"].ToString();
+                    dataBean.SCS = sdr["SCS"].ToString();
+                    dataBean.T = sdr["T"].ToString();
+                    dataBean.TPI = sdr["TPI"].ToString();
+                    dataBean.R = sdr["R"].ToString();
+                    dataBean.Others = sdr["Others"].ToString();
+
                     resultList.Add(dataBean);
                 }
                 sdr.Close();
@@ -459,7 +470,36 @@ namespace CommonMysql
             }
 
             return resultList;
+        }  
+
+        public List<String> GetAllItemsIdLike(String Id)
+        {
+            bquery.sqlcom = "select * from bulldsp where Id like " + "'" + Id + "%" + "'";
+            List<String> resultList = new List<String>();
+            try
+            {
+                openConnection();
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    String str = sdr["Id"].ToString();
+                    resultList.Add(str);
+                }
+                sdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return resultList;
         }
+
+
+
+
 
         public List<ItemDataBean> GetAllCurrentItems()
         {
@@ -481,6 +521,20 @@ namespace CommonMysql
                     dataBean.Nation = sdr["Nation"].ToString();
                     dataBean.Gender = sdr["Gender"].ToString();
                     dataBean.Condition = sdr["Condition"].ToString();
+
+                    dataBean.D = sdr["D"].ToString();
+                    dataBean.EBCMS = sdr["EBCMS"].ToString();
+                    dataBean.EBVFC = sdr["EBVFC"].ToString();
+                    dataBean.EBVM = sdr["EBVM"].ToString();
+                    dataBean.EBVP = sdr["EBVP"].ToString();
+                    dataBean.FL = sdr["FL"].ToString();
+                    dataBean.H = sdr["H"].ToString();
+                    dataBean.SCS = sdr["SCS"].ToString();
+                    dataBean.T = sdr["T"].ToString();
+                    dataBean.TPI = sdr["TPI"].ToString();
+                    dataBean.R = sdr["R"].ToString();
+                    dataBean.Others = sdr["Others"].ToString();
+
                     resultList.Add(dataBean);
                 }
                 sdr.Close();
@@ -491,67 +545,6 @@ namespace CommonMysql
             }
             return resultList;
         }
-
-
-        public List<ItemDataBean> GetAllItemsLike(String Id)
-        {
-            bquery.sqlcom = "select * from bulldsp where Id like " + "'" + Id + "%" + "'";
-            List<ItemDataBean> resultList = new List<ItemDataBean>();
-            try
-            {
-                openConnection();
-                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
-                MySqlDataReader sdr = cmd.ExecuteReader();
-
-                while (sdr.Read())
-                {
-                    ItemDataBean dataBean = new ItemDataBean();
-                    dataBean.Id = sdr["Id"].ToString();
-                    dataBean.FId = sdr["FId"].ToString();
-                    dataBean.MId = sdr["MId"].ToString();
-                    dataBean.Action = sdr["Action"].ToString();
-                    dataBean.Gender = sdr["Gender"].ToString();
-                    dataBean.Condition = sdr["Nation"].ToString();
-                    resultList.Add(dataBean);
-                    
-                }
-                sdr.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            
-            return resultList;
-        }
-
-        public List<String> GetAllItemsIdLike(String Id)
-        {
-            bquery.sqlcom = "select * from bulldsp where Id like " + "'" + Id + "%" + "'";
-            List<String> resultList = new List<String>();
-            try
-            {
-                openConnection();
-                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
-                MySqlDataReader sdr = cmd.ExecuteReader();
-
-                while (sdr.Read())
-                {
-                    String str = sdr["Id"].ToString();
-                    resultList.Add(str);
-
-                }
-                sdr.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            return resultList;
-        }
-
-
 
         public bool DeleteBullInfo(String Id)
         {
@@ -604,6 +597,18 @@ namespace CommonMysql
                 dataBean.Action = "无";
                 dataBean.Gender = "无";
                 dataBean.Condition = "无";
+                dataBean.D = "无";
+                dataBean.EBCMS = "无";
+                dataBean.EBVFC = "无";
+                dataBean.EBVM = "无";
+                dataBean.EBVP = "无";
+                dataBean.FL = "无";
+                dataBean.H = "无";
+                dataBean.SCS = "无";
+                dataBean.T = "无";
+                dataBean.TPI = "无";
+                dataBean.R = "无";
+                dataBean.Others = "无";
                 return dataBean;
             }
             if (bquery.conn.State == ConnectionState.Closed)
@@ -624,6 +629,20 @@ namespace CommonMysql
                 dataBean.Action = sdr["Action"].ToString();
                 dataBean.Gender = sdr["Gender"].ToString();
                 dataBean.Condition = sdr["Nation"].ToString();
+
+                dataBean.D = sdr["D"].ToString();
+                dataBean.EBCMS = sdr["EBCMS"].ToString();
+                dataBean.EBVFC = sdr["EBVFC"].ToString();
+                dataBean.EBVM = sdr["EBVM"].ToString();
+                dataBean.EBVP = sdr["EBVP"].ToString();
+                dataBean.FL = sdr["FL"].ToString();
+                dataBean.H = sdr["H"].ToString();
+                dataBean.SCS = sdr["SCS"].ToString();
+                dataBean.T = sdr["T"].ToString();
+                dataBean.TPI = sdr["TPI"].ToString();
+                dataBean.R = sdr["R"].ToString();
+                dataBean.Others = sdr["Others"].ToString();
+
                 sdr.Close();
                         
             }
@@ -645,7 +664,9 @@ namespace CommonMysql
         /// <param name="Gender"></param>
         /// <param name="Condition"></param>
         /// <returns></returns>
-        public bool updateInfoById(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
+        public bool updateInfoById(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition,
+            String EBVFC, String TPI, String D, String H, String R, String EBVM, String T, String EBVP, String EBCMS, String FL,
+            String SCS, String Others)
         {
             bool flag = false;
             //if (bquery.conn.State == ConnectionState.Open)
@@ -662,7 +683,10 @@ namespace CommonMysql
             }
             try
             {
-                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "', `Condition`='"+ Condition + "' WHERE `Id`='" + Id + "';";
+                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "', `Condition`='"+
+                    Condition + "', `EBVFC`='" + EBVFC + "', `TPI`='" + TPI + "', `D`='" + D + "', `H`='"+ H +
+                    "', `R`='" + R + "', `EBVM`='" + EBVM + "', `T`='" + T + "', `EBVP`='" + EBVP + "', `EBCMS`='" + EBCMS +
+                    "', `FL`='" + FL + "', `SCS`='" + SCS + "', `Others`='" + Others + "' WHERE `Id`='" + Id + "';";
                 MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {

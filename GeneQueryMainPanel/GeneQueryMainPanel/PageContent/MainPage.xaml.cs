@@ -238,6 +238,8 @@ namespace GeneQueryMainPanel.PageContent
             currentBeanDataDisplay();
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Visible;
+            searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
+            currentItemGridNew.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void editCancelBtn_Click(object sender, RoutedEventArgs e)
@@ -274,6 +276,19 @@ namespace GeneQueryMainPanel.PageContent
             String gender = "";
             String condition = "";
 
+            String _D = editItemD.Text;
+            String _EBCMS = editItemEBCMS.Text;
+            String _EBVFC = editItemEBVFC.Text;
+            String _EBVM = editItemEBVM.Text;
+            String _EBVP = editItemEBVP.Text;
+            String _FL = editItemFL.Text;
+            String _H = editItemH.Text;
+            String _R = editItemR.Text;
+            String _SCS = editItemSCS.Text;
+            String _T = editItemT.Text;
+            String _TPI = editItemTPI.Text;
+            String _Others = editItemOthers.Text;
+
             if (editMaleCheckbox.IsChecked == true)
             {
                 gender = "M";
@@ -296,7 +311,8 @@ namespace GeneQueryMainPanel.PageContent
                 condition = "N";
             }
 
-            ba.updateInfoById(Id, MId, FId, "", "", gender, condition);
+            ba.updateInfoById(Id, MId, FId, "", "", gender, condition, _EBVFC, _TPI, _D, _H, _R, _EBVM, 
+                _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
 
             ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
             ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
@@ -558,6 +574,19 @@ namespace GeneQueryMainPanel.PageContent
             String gender = currentBean.Gender;
             String condition = currentBean.Condition;
 
+            editItemD.Text = currentBean.D;
+            editItemEBCMS.Text = currentBean.EBCMS;
+            editItemEBVFC.Text = currentBean.EBVFC;
+            editItemEBVM.Text = currentBean.EBVM;
+            editItemEBVP.Text = currentBean.EBVP;
+            editItemFL.Text = currentBean.FL;
+            editItemH.Text = currentBean.H;
+            editItemR.Text = currentBean.R;
+            editItemSCS.Text = currentBean.SCS;
+            editItemT.Text = currentBean.T;
+            editItemTPI.Text = currentBean.TPI;
+            editItemOthers.Text = currentBean.Others;
+
             if (gender.Equals("M"))
             {
                 editMaleCheckbox.IsChecked = true;
@@ -617,9 +646,18 @@ namespace GeneQueryMainPanel.PageContent
                 String gender = "";
                 String condition = "";
 
-                //temporary variable, wait to implement till we change the BullAction code.
-                //TextRange others = new TextRange(addOtherDataInput.Document.ContentStart, addOtherDataInput.Document.ContentEnd);
-                //String othersContent = others.Text;
+                String _D = newItemD.Text;
+                String _EBCMS = newItemEBCMS.Text;
+                String _EBVFC = newItemEBVFC.Text;
+                String _EBVM = newItemEBVM.Text;
+                String _EBVP = newItemEBVP.Text;
+                String _FL = newItemFL.Text;
+                String _H = newItemH.Text;
+                String _R = newItemR.Text;
+                String _SCS = newItemSCS.Text;
+                String _T = newItemT.Text;
+                String _TPI = newItemTPI.Text;
+                String _Others = newItemOthers.Text;
 
                 if (maleCheckBox.IsChecked == true && femaleCheckbox.IsChecked == false)
                 {
@@ -639,7 +677,8 @@ namespace GeneQueryMainPanel.PageContent
                     condition = "N";
                 }
 
-                ba.InsertBullInfo(itemId, mId, fId, "", "", gender, condition);
+                ba.InsertBullInfo(itemId, mId, fId, "", "", gender, condition, _EBVFC, _TPI, _D, _H, _R, 
+                    _EBVM, _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
                 ItemDataBean newItem = new ItemDataBean();
                 newItem.Id = itemId;
                 newItem.MId = mId;
@@ -652,7 +691,7 @@ namespace GeneQueryMainPanel.PageContent
                 //insert new fid
                 if (!ba.RowsCount(fId))
                 {
-                    ba.InsertBullInfo(fId, "", "", "", "", "M", "");
+                    ba.InsertBullInfo(fId, "", "", "", "", "M", "", "", "", "", "", "", "", "", "", "", "", "", "");
                 }
                 cleanInput();
             }

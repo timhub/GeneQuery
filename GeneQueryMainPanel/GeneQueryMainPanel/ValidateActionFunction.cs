@@ -9,12 +9,12 @@ namespace BackingFunctions
 {
     class ValidateActionFunction
     {
-        BullAction dbAction = new BullAction();
+        //BullAction dbAction = new BullAction();
 
-        public void insertNewItem(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
-        {
-            dbAction.InsertBullInfo(Id,MId, FId, Action, Nation, Gender, Condition);
-        }
+        //public void insertNewItem(String Id, String MId, String FId, String Action, String Nation, String Gender, String Condition)
+        //{
+        //    dbAction.InsertBullInfo(Id,MId, FId, Action, Nation, Gender, Condition);
+        //}
 
         public bool checkInfoFormat(String str)
         {

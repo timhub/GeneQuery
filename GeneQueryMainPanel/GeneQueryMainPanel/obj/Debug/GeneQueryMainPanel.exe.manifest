@@ -55,26 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="22528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="26624">
       <assemblyIdentity name="CommonMysql" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+JFcMM5H0BqDVTKB4wqyTfl8AYnZkORyS458ys88bNw=</dsig:DigestValue>
+        <dsig:DigestValue>aAAsJzTqipm+iUOtQCVAkRdMnIety97yAUhje5ysObA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="599040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="610304">
       <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o9G0XmsHcqWQYvkS3nHlmhNds+6XSqjVPXQdR/IYh6I=</dsig:DigestValue>
+        <dsig:DigestValue>eT4TipeHuWpJNfIPwiQQFS9O0/Ph5fUJu84DULChbhU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

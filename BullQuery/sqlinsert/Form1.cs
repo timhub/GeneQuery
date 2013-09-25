@@ -23,7 +23,7 @@ namespace sqlinsert
             BullAction ba = new BullAction();
             try
             {
-                ba.InsertBullInfo(ID.Text, MId.Text, FId.Text, Action.Text, Nation.Text);
+                //ba.InsertBullInfo(ID.Text, MId.Text, FId.Text, Action.Text, Nation.Text);
                 MessageBox.Show("SUCCESS!");
             }
             catch (Exception ex)

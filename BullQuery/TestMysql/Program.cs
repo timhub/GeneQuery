@@ -14,10 +14,6 @@ namespace TestMysql
     class Program
     {
 
-
-
-
-
        static void Main(string[] args)
         {
             BullAction baction = new BullAction();
