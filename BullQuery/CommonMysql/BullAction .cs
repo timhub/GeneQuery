@@ -497,10 +497,6 @@ namespace CommonMysql
             return resultList;
         }
 
-
-
-
-
         public List<ItemDataBean> GetAllCurrentItems()
         {
             bquery.sqlcom = "select * from bulldsp where `Condition` ='Y'";

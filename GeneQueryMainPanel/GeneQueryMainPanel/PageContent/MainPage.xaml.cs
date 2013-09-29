@@ -118,6 +118,7 @@ namespace GeneQueryMainPanel.PageContent
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
+            searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         //show home page
@@ -948,6 +949,7 @@ namespace GeneQueryMainPanel.PageContent
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
+            searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void addToEditBtn_Click(object sender, RoutedEventArgs e)
@@ -1017,6 +1019,7 @@ namespace GeneQueryMainPanel.PageContent
         private void settingBtn_Click(object sender, RoutedEventArgs e)
         {
             optionGrid.Visibility = System.Windows.Visibility.Visible;
+            searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void optionNewUserInfoModifySave_Click(object sender, RoutedEventArgs e)
@@ -1093,6 +1096,7 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
+                ViewModel.SearchResultDisplayList = null;
                 searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
             }
         }

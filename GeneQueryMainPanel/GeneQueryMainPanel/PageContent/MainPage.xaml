@@ -195,12 +195,12 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid AutoGenerateColumns="False" x:Name="currentItemGridNew" Grid.Column="1" Margin="183,110,0,139" 
+        <DataGrid AutoGenerateColumns="False" x:Name="currentItemGridNew" Grid.Column="1" Margin="183,110,0,176" 
 			Grid.ColumnSpan="2" Background="White" ItemsSource="{Binding CurrentDataListDisplayList, Mode=TwoWay}" AlternatingRowBackground="#FFEEEEEE" 
                   AlternationCount="2" GridLinesVisibility="None" IsSynchronizedWithCurrentItem="True" CanUserDeleteRows="False" 
-                  CanUserAddRows="False" AreRowDetailsFrozen="True" IsReadOnly="True" BorderBrush="#FFECECEC" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" 
+                  CanUserAddRows="False" AreRowDetailsFrozen="True" IsReadOnly="True" BorderBrush="#FFECECEC" RenderTransformOrigin="0.5,0.5" 
                   Loaded="currentItemGridNew_Loaded" MouseDoubleClick="currentItemGridNew_MouseDoubleClick" 
-                  MouseLeftButtonDown="currentItemGridNew_MouseLeftButtonDown" MinColumnWidth="60">
+                  MouseLeftButtonDown="currentItemGridNew_MouseLeftButtonDown" MinColumnWidth="60" Visibility="Hidden">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
