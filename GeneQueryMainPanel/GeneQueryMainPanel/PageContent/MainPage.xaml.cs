@@ -176,7 +176,6 @@ namespace GeneQueryMainPanel.PageContent
             cleanInput();
             itemidError.Visibility = System.Windows.Visibility.Hidden;
             addToEditBtn.Visibility = System.Windows.Visibility.Hidden;
-            midError.Visibility = System.Windows.Visibility.Hidden;
             fidError.Visibility = System.Windows.Visibility.Hidden;
             genderError.Visibility = System.Windows.Visibility.Hidden;
         }
@@ -198,22 +197,6 @@ namespace GeneQueryMainPanel.PageContent
             {
                 addItemFlag = false;
                 fidError.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        //trigger the validation function of the input text
-        private void midBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            String input = midBox.Text;
-            bool result = validate.checkInfoFormat(input);
-            if (result)
-            {
-                addItemFlag = true;
-            }
-            else
-            {
-                addItemFlag = false;
-                midError.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -708,7 +691,6 @@ namespace GeneQueryMainPanel.PageContent
             femaleCheckbox.IsChecked = false;
             maleCheckBox.IsChecked = false;
             itemidError.Visibility = System.Windows.Visibility.Hidden;
-            midError.Visibility = System.Windows.Visibility.Hidden;
             fidError.Visibility = System.Windows.Visibility.Hidden;
             genderError.Visibility = System.Windows.Visibility.Hidden;
 
@@ -915,11 +897,6 @@ namespace GeneQueryMainPanel.PageContent
             fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        private void midBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            midError.Visibility = System.Windows.Visibility.Hidden;
-        }
-
         private void maleCheckBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             genderError.Visibility = System.Windows.Visibility.Hidden;
@@ -1105,6 +1082,13 @@ namespace GeneQueryMainPanel.PageContent
         {
             currentBean = searchResultItemGrid.CurrentItem as ItemDataBean;
             showDetailArea();
+        }
+
+        private void backupButton_Click(object sender, RoutedEventArgs e)
+        {
+            CsvFileOperator opt = new CsvFileOperator();
+            opt.CsvFileSave(ViewModel.AllDataListDisplayList);
+            MessageBox.Show("备份完成！");
         }
 
     }
