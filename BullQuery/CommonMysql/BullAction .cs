@@ -304,6 +304,41 @@ namespace CommonMysql
             return flag;
         }
 
+        public bool InsertBullInfo(ItemDataBean data)
+        {
+            bool flag = false;
+
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            if (RowsCount(data.Id))
+            {
+                return false;
+            }
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            bquery.sqlcom = "insert into bulldsp values ('" + data.Id + "','" + data.FId + "','" + data.MId + "',' ','" + data.Nation + "','" +
+                data.Gender + "','" + data.Condition + "','" + data.EBVFC + "','" + data.TPI + "','" + data.D + "','" + data.H + "','" + data.R + "','" + data.EBVM + "','" +
+                data.T + "','" + data.EBVP + "','" + data.EBCMS + "','" + data.FL + "','" + data.SCS + "','" + data.Others + "')";
+            MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            bquery.conn.Close();
+            return flag;
+        }
+
         public List<ItemDataBean> GetAllItems()
         {
             bquery.sqlcom = "select * from bulldsp";
@@ -683,6 +718,37 @@ namespace CommonMysql
                     Condition + "', `EBVFC`='" + EBVFC + "', `TPI`='" + TPI + "', `D`='" + D + "', `H`='"+ H +
                     "', `R`='" + R + "', `EBVM`='" + EBVM + "', `T`='" + T + "', `EBVP`='" + EBVP + "', `EBCMS`='" + EBCMS +
                     "', `FL`='" + FL + "', `SCS`='" + SCS + "', `Others`='" + Others + "' WHERE `Id`='" + Id + "';";
+                MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            bquery.conn.Close();
+            return flag;
+        }
+
+        public bool updateInfoById(ItemDataBean data)
+        {
+            bool flag = false;
+            if (!RowsCount(data.Id))
+            {
+                return flag;
+            }
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            try
+            {
+                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + data.FId + "', `MId`='" + data.MId + "', `Gender`='" + data.Gender + "', `Condition`='" +
+                    data.Condition + "', `EBVFC`='" + data.EBVFC + "', `TPI`='" + data.TPI + "', `D`='" + data.D + "', `H`='" + data.H +
+                    "', `R`='" + data.R + "', `EBVM`='" + data.EBVM + "', `T`='" + data.T + "', `EBVP`='" + data.EBVP + "', `EBCMS`='" + data.EBCMS +
+                    "', `FL`='" + data.FL + "', `SCS`='" + data.SCS + "', `Others`='" + data.Others + "' WHERE `Id`='" + data.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {

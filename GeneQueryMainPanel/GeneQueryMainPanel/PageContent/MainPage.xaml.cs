@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ using System.Windows.Navigation;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Microsoft.Win32;
 
 namespace GeneQueryMainPanel.PageContent
 {
@@ -1089,6 +1091,66 @@ namespace GeneQueryMainPanel.PageContent
             CsvFileOperator opt = new CsvFileOperator();
             opt.CsvFileSave(ViewModel.AllDataListDisplayList);
             MessageBox.Show("备份完成！");
+        }
+
+        private void option_dataInputBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fdDialog = new OpenFileDialog();
+            FileStream fsStream;
+            StreamReader streamReader;
+            fdDialog.DefaultExt = ".csv";
+            
+            if (fdDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    fsStream = fdDialog.OpenFile() as FileStream;
+                    streamReader = new StreamReader(fsStream);
+                    streamReader.ReadLine();                        //jump to the data
+
+                    while (!streamReader.EndOfStream)
+                    {
+                        ItemDataBean dataBean = new ItemDataBean();
+                        String dataStr = streamReader.ReadLine();
+                        List<String> dataList = dataStr.Split(',').ToList();
+                        dataBean.Id = dataList[0];
+                        dataBean.FId = dataList[1];
+                        dataBean.MId = dataList[2];
+                        dataBean.Nation = dataList[3];
+                        dataBean.Gender = dataList[4];
+                        dataBean.Condition = dataList[5];
+                        dataBean.EBVFC = dataList[6];
+                        dataBean.TPI = dataList[7];
+                        dataBean.D = dataList[8];
+                        dataBean.H = dataList[9];
+                        dataBean.R = dataList[10];
+                        dataBean.EBVM = dataList[11];
+                        dataBean.T = dataList[12];
+                        dataBean.EBVP = dataList[13];
+                        dataBean.EBCMS = dataList[14];
+                        dataBean.FL = dataList[15];
+                        dataBean.SCS = dataList[16];
+                        dataBean.Others = dataList[17];
+
+                        if (!ba.RowsCount(dataBean.Id))
+                        {
+                            ba.InsertBullInfo(dataBean);
+                        }
+                        else
+                        {
+                            ba.updateInfoById(dataBean);
+                        }
+                        
+                    }
+                    this.ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
+                    this.ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
+                    MessageBox.Show("导入成功！");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("文件读取异常，请关闭其他正在使用该文件的程序");
+                }
+            }
         }
 
     }
