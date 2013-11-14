@@ -21,3 +21,4 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqli
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.csproj.GenerateResource.Cache
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.exe
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\obj\x86\Debug\sqlinsert.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\sqlinsert\bin\Debug\sqlinsert.exe.config

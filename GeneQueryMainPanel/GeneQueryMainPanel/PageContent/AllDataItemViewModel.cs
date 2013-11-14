@@ -72,6 +72,20 @@ namespace GeneQueryMainPanel
             }
         }
 
+        private ObservableCollection<ResultDataBean> resultDataList = new ObservableCollection<ResultDataBean>();
+        public ObservableCollection<ResultDataBean> ResultDataList
+        {
+            get { return this.resultDataList; }
+            set
+            {
+                if (this.resultDataList != value)
+                {
+                    this.resultDataList = value;
+                    OnPropertyChanged("ResultDataList");
+                }
+            }
+        }
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

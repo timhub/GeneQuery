@@ -50,31 +50,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RCes3ehLnB5H8gpRnONwjbjioqc=</dsig:DigestValue>
+        <dsig:DigestValue>oVgzXw3nDcUxkzc5rL/5JeAnBk0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="27648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="28672">
       <assemblyIdentity name="CommonMysql" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rAxfKgsb9EoZgPkIADbpIrOtz+E=</dsig:DigestValue>
+        <dsig:DigestValue>0UlVfpmNJ9047xl7NH4tRq8jBug=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="612352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="611840">
       <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>a3r7Ru3XT+jgb7JBYw1zIss8RQA=</dsig:DigestValue>
+        <dsig:DigestValue>aLxjGe13Y9d3ea1HLS9npz+t6mk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -117,7 +117,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4RnS12hQBk60yafGQFP+/DKgMKQ=</dsig:DigestValue>
+      <dsig:DigestValue>zs0/m2EC7bZkaMXI4CN7NV2RQzg=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

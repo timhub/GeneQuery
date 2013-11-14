@@ -95,6 +95,12 @@ namespace GeneQueryMainPanel.PageContent
             this.ViewModel.view = this;
         }
 
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel = new AllDataItemViewModel();
+            this.ViewModel.view = this;
+        }
+
         //switch the data grid from all item to current item and from the opposite side
         private void switchViewBtn_click(object sender, RoutedEventArgs e)
         {
@@ -116,6 +122,7 @@ namespace GeneQueryMainPanel.PageContent
         private void mainAddBtn_Click(object sender, RoutedEventArgs e)
         {
             ba.closeConnection();
+            optionGrid.Visibility = Visibility.Hidden;
             addNewItemGrid.Visibility = System.Windows.Visibility.Visible;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -127,6 +134,7 @@ namespace GeneQueryMainPanel.PageContent
         private void mainHomeBtn_Click(object sender, RoutedEventArgs e)
         {
             ba.closeConnection();
+            optionGrid.Visibility = Visibility.Hidden;
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -341,6 +349,7 @@ namespace GeneQueryMainPanel.PageContent
 
         private void analysisBtn_Click(object sender, RoutedEventArgs e)
         {
+            allResultGrid.Visibility = Visibility.Hidden;
             if ((!"".Equals(analysisFid.Text)) && (!"".Equals(analysisMid.Text)))
             {
                 bool analysisFlag = true;
@@ -435,6 +444,32 @@ namespace GeneQueryMainPanel.PageContent
                 return -1;
             }
             
+        }
+
+        private void getAllAnalysisResult(String id)
+        {
+            ViewModel = new AllDataItemViewModel();
+            foreach (ItemDataBean bean in ViewModel.AllDataListDisplayList)
+            {
+                if (ba.RowsCount(id))
+                {
+                    if (!id.Equals(bean.Id))
+                    {
+                        ResultDataBean result = new ResultDataBean();
+                        result.Id = bean.Id;
+                        result.Condition = bean.Condition;
+                        foreach (KeyValuePair<String, double> iterator in ba.FamilyFertileCountWithFaIndex(id, bean.Id))
+                        {
+                            result.Result = 100 * iterator.Value + "%";
+                        }
+                        ViewModel.ResultDataList.Add(result);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ID输入有误");
+                }
+            }
         }
 
         private void analysisMid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -923,6 +958,7 @@ namespace GeneQueryMainPanel.PageContent
         {
             ba.closeConnection();
             resetInput();
+            optionGrid.Visibility = Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Visible;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -1153,6 +1189,15 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
+        private void anaAllResultBtn_Click(object sender, RoutedEventArgs e)
+        {
+            String id = analysisMid.Text;
+            getAllAnalysisResult(id);
+            
+            analysisResultGrid.Visibility = Visibility.Hidden;
+            analysisFamilyTreeGrid.Visibility = Visibility.Hidden;
+            allResultGrid.Visibility = Visibility.Visible;
+        }
     }
 }
        

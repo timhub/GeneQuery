@@ -77,6 +77,10 @@ namespace CommonMysql
             temp_id.Value = Name;
             cmd.Parameters.Add(temp_id);
             bquery.sqlExcute(cmd, "UsrTable");
+            if (validatePC())
+            {
+                
+            }
             if (bquery.ds.Tables["UsrTable"].Rows.Count > 0)
             {
                 if (Pwd == bquery.ds.Tables["UsrTable"].Rows[0]["Pwd"].ToString())
@@ -276,7 +280,7 @@ namespace CommonMysql
             bool flag = true;
             try
             {
-                StreamReader sr = new StreamReader("C:\\ProgramData\\GQ\\muted.txt", Encoding.Default);
+                StreamReader sr = new StreamReader("C:\\Users\\Public\\Program Data\\GeneQuery\\muted.txt", Encoding.Default);
                 string realmac = sr.ReadLine();
                 if (realmac != this.getMd5Hash(this.getMd5Hash(this.getHostIpName())))
                 {

@@ -22,28 +22,38 @@ namespace GeneQueryMainPanel.PageContent
     /// </summary>
     public partial class Window1 : Window
     {
-        BackingFunctions.LoginFilter login = new LoginFilter();
+        LoginFilter login = new LoginFilter();
+        UserIdentification identification = new UserIdentification();
 
         public Window1()
         {
             InitializeComponent();
+
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)   
         {
-            string passInput = this.passwordInput.Password;
-            string nameInput = this.usernameInput.Text;
-            bool flag = login.userCheck(nameInput, passInput);
-            if (flag)
-            {
-                MainPage mp = new MainPage(nameInput);
-                this.Content = mp.Content;
-            }
-            else
-            {
-                this.elertBox.Visibility = System.Windows.Visibility.Visible;
-                this.passwordInput.Password = "";
-            }
+            string passInput = passwordInput.Password;
+            string nameInput = usernameInput.Text;
+            //if (identification.validatePC())
+            //{
+                bool flag = login.userCheck(nameInput, passInput);
+                if (flag)
+                {
+                    MainPage mp = new MainPage(nameInput);
+                    this.Content = mp.Content;
+                }
+                else
+                {
+                    this.elertBox.Visibility = System.Windows.Visibility.Visible;
+                    this.passwordInput.Password = "";
+                }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("注册信息有误，请联系管理员");
+            //}
+            
         }
 
         private void passwordInput_GotFocus(object sender, RoutedEventArgs e)
