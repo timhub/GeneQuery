@@ -280,7 +280,8 @@ namespace CommonMysql
             bool flag = true;
             try
             {
-                StreamReader sr = new StreamReader("C:\\Users\\Public\\Program Data\\GeneQuery\\muted.txt", Encoding.Default);
+                FileStream fs = new FileStream("C:\\Users\\Public\\Program Data\\GeneQuery\\muted.txt", FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
                 string realmac = sr.ReadLine();
                 if (realmac != this.getMd5Hash(this.getMd5Hash(this.getHostIpName())))
                 {

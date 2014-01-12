@@ -35,26 +35,41 @@ namespace GeneQueryMainPanel.PageContent
         {
             string passInput = passwordInput.Password;
             string nameInput = usernameInput.Text;
-            //if (identification.validatePC())
-            //{
-                bool flag = login.userCheck(nameInput, passInput);
-                if (flag)
-                {
-                    MainPage mp = new MainPage(nameInput);
-                    this.Content = mp.Content;
-                }
-                else
-                {
-                    this.elertBox.Visibility = System.Windows.Visibility.Visible;
-                    this.passwordInput.Password = "";
-                }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("注册信息有误，请联系管理员");
-            //}
+            try
+            {
+                //if (identification.validatePC())
+                //{
+                    bool flag = login.userCheck(nameInput, passInput);
+                    if (flag)
+                    {
+                        MainPage mp = new MainPage(nameInput);
+                        this.RemoveLogicalChild(this.Content);
+                        this.Content = null;
+                        this.Content = mp.Content;
+                    }
+                    else
+                    {
+                        this.elertBox.Visibility = System.Windows.Visibility.Visible;
+                        this.passwordInput.Password = "";
+                    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("注册信息有误，请联系管理员");
+                //}
+            }
+            catch (Exception loginException)
+            {
+                MessageBox.Show(loginException.ToString());
+                throw;
+            }
+        }
+
+        private void removeItems()
+        {
             
         }
+
 
         private void passwordInput_GotFocus(object sender, RoutedEventArgs e)
         {

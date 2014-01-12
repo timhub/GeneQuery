@@ -37,6 +37,7 @@ namespace GeneQueryMainPanel.PageContent
 
         private bool displayFlag = true; //for displaying the all item form or current item form
         private bool addItemFlag = false; //for intercept faults in input date of add new item component
+        private bool editItemFlag = false; //for intercept faults in edit panel
 
         BullAction ba = new BullAction(); // new DB function
 
@@ -184,10 +185,7 @@ namespace GeneQueryMainPanel.PageContent
         {
             // add new item cancel button function, clean the input text
             cleanInput();
-            itemidError.Visibility = System.Windows.Visibility.Hidden;
-            addToEditBtn.Visibility = System.Windows.Visibility.Hidden;
-            fidError.Visibility = System.Windows.Visibility.Hidden;
-            genderError.Visibility = System.Windows.Visibility.Hidden;
+           
         }
 
         //trigger the validation function of the input text
@@ -197,10 +195,29 @@ namespace GeneQueryMainPanel.PageContent
             bool result = validate.checkInfoFormat(input);
             if (result)
             {
-                if (!("".Equals(input)) && !ba.RowsCount(input))
+                if ((!"".Equals(input)) && ba.RowsCount(input))
                 {
                     addItemFlag = true;
+                    List<string> grandFatherList = ba.FindFather(input);
+                    String grandFather = grandFatherList[1];
+                    if (!"".Equals(grandFather))
+                    {
+                        midBox.Text = grandFather;
+                        midBox.IsEnabled = false;
+                        newMidOk.Visibility = System.Windows.Visibility.Visible;
+                        newMidError.Visibility = System.Windows.Visibility.Hidden;
+                        newMidOk.Text = "祖父代信息已录入";
+                    }
+                    else
+                    {
+                        midBox.IsEnabled = true;
+                        midBox.Text = "";
+                        newMidError.Visibility = System.Windows.Visibility.Visible;
+                        newMidError.Text = "请输入祖父代ID，存入数据库";
+                        newMidOk.Visibility = System.Windows.Visibility.Hidden;
+                    }
                     fidAutoInsertText.Visibility = System.Windows.Visibility.Visible;
+                    fidAutoInsertText.Text = "OK";
                 }
             }
             else
@@ -210,26 +227,18 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-        private void maleCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            if(femaleCheckbox.IsChecked == true)
-            {
-                femaleCheckbox.IsChecked = false;
-            }
-        }
-
-        private void femaleCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (maleCheckBox.IsChecked == true)
-            {
-                maleCheckBox.IsChecked = false;
-            }
-        }
-
         private void detailViewEditBtn_Click(object sender, RoutedEventArgs e)
         {
             temBean = currentBean;
             currentBeanDataDisplay();
+            if (!"".Equals(currentBean.MId))
+            {
+                editMIdBox.IsEnabled = false;
+            }
+            else
+            {
+                editMIdBox.IsEnabled = true;
+            }
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Visible;
             searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -241,20 +250,22 @@ namespace GeneQueryMainPanel.PageContent
             editItemIdBox.Text = temBean.Id;
             editFIdBox.Text = temBean.FId;
             editMIdBox.Text = temBean.MId;
-            String gender = temBean.Gender;
-            if (!gender.Equals(""))
-            {
-                if (gender.Equals("M"))
-                {
-                    editMaleCheckbox.IsChecked = true;
-                    editFemaleCheckbox.IsChecked = false;
-                }
-                else
-                {
-                    editMaleCheckbox.IsChecked = false;
-                    editFemaleCheckbox.IsChecked = true;
-                }
-            }
+            editConditionCheckbox.IsChecked = "Y".Equals(temBean.Condition) ? true : false;
+            editItemD.Text = temBean.D;
+            editItemEBCMS.Text = temBean.EBCMS;
+            editItemEBVFC.Text = temBean.EBVFC;
+            editItemEBVM.Text = temBean.EBVM;
+            editItemEBVP.Text = temBean.EBVP;
+            editItemFL.Text = temBean.FL;
+            editItemH.Text = temBean.H;
+            editItemNation.Text = temBean.Nation;
+            editItemOthers.Text = temBean.Others;
+            editItemR.Text = temBean.R;
+            editItemSCS.Text = temBean.SCS;
+            editItemT.Text = temBean.T;
+            editItemTPI.Text = temBean.TPI;
+            
+            
         }
 
         /// <summary>
@@ -283,19 +294,6 @@ namespace GeneQueryMainPanel.PageContent
             String _TPI = editItemTPI.Text;
             String _Others = editItemOthers.Text;
 
-            if (editMaleCheckbox.IsChecked == true)
-            {
-                gender = "M";
-            }
-            else if (editFemaleCheckbox.IsChecked == true)
-            {
-                gender = "F";
-            }
-            else
-            {
-                gender = "";
-            }
-
             if (editConditionCheckbox.IsChecked == true)
             {
                 condition = "Y";
@@ -311,22 +309,6 @@ namespace GeneQueryMainPanel.PageContent
             ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
             ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
             editGrid.Visibility = System.Windows.Visibility.Hidden;
-        }
-
-        private void editMaleCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (editFemaleCheckbox.IsChecked == true) 
-            {
-                editFemaleCheckbox.IsChecked = false;
-            }
-        }
-
-        private void editFemaleCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (editMaleCheckbox.IsChecked == true)
-            {
-                editMaleCheckbox.IsChecked = false;
-            }
         }
 
         private void analysisMid_KeyDown(object sender, KeyEventArgs e)
@@ -350,7 +332,8 @@ namespace GeneQueryMainPanel.PageContent
         private void analysisBtn_Click(object sender, RoutedEventArgs e)
         {
             allResultGrid.Visibility = Visibility.Hidden;
-            if ((!"".Equals(analysisFid.Text)) && (!"".Equals(analysisMid.Text)))
+            if ((!"".Equals(analysisFid.Text)) && (!"".Equals(analysisMid.Text)) 
+                   && ba.RowsCount(analysisFid.Text) && ba.RowsCount(analysisMid.Text))
             {
                 bool analysisFlag = true;
                 String fid = analysisFid.Text;
@@ -423,7 +406,7 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
-                MessageBox.Show("ID输入有误");
+                MessageBox.Show("ID输入有误，无法进行分析");
             }
         }
 
@@ -518,15 +501,7 @@ namespace GeneQueryMainPanel.PageContent
             {
                 fid10Text.Text = "无记录";
             }
-            //left 11 tree node
-            if (!"".Equals(fDataBean.MId))
-            {
-                fid11Text.Text = fDataBean.MId;
-            }
-            else
-            {
-                fid11Text.Text = "无记录";
-            }
+           
             //right 10 tree node
             if (!"".Equals(mfDataBean.FId))
             {
@@ -538,15 +513,6 @@ namespace GeneQueryMainPanel.PageContent
             {
                 mfid10Text.Text = "无记录";
             }
-            //right 11 tree node
-            if (!"".Equals(mfDataBean.MId))
-            {
-                mfid11Text.Text = mfDataBean.MId;
-            }
-            else
-            {
-                mfid11Text.Text = "无记录";
-            }
 
             //set left 100 tree node
             if (!"".Equals(f0DataBean.FId))
@@ -557,15 +523,8 @@ namespace GeneQueryMainPanel.PageContent
             {
                 fid100Text.Text = "无记录";
             }
-            //set left 101 tree node
-            if (!"".Equals(f0DataBean.MId))
-            {
-                fid101Text.Text = f0DataBean.MId;
-            }
-            else
-            {
-                fid101Text.Text = "无记录";
-            }
+           
+           
             //set right 100 tree node
             if (!"".Equals(mf0DataBean.FId))
             {
@@ -575,15 +534,7 @@ namespace GeneQueryMainPanel.PageContent
             {
                 mfid100Text.Text = "无记录";
             }
-            //set right 101 tree node
-            if (!"".Equals(mf0DataBean.MId))
-            {
-                mfid101Text.Text = mf0DataBean.MId;
-            }
-            else
-            {
-                mfid101Text.Text = "无记录";
-            }
+          
         }
 
         // For edit grid to display data
@@ -591,9 +542,9 @@ namespace GeneQueryMainPanel.PageContent
         {
             editItemIdBox.Text = currentBean.Id;
             editFIdBox.Text = currentBean.FId;
-            editMIdBox.Text = currentBean.MId;
             String gender = currentBean.Gender;
             String condition = currentBean.Condition;
+            editItemNation.Text = currentBean.Nation;
 
             editItemD.Text = currentBean.D;
             editItemEBCMS.Text = currentBean.EBCMS;
@@ -608,20 +559,15 @@ namespace GeneQueryMainPanel.PageContent
             editItemTPI.Text = currentBean.TPI;
             editItemOthers.Text = currentBean.Others;
 
-            if (gender.Equals("M"))
+            if ("".Equals(currentBean.MId))
             {
-                editMaleCheckbox.IsChecked = true;
-                editFemaleCheckbox.IsChecked = false;
-            }
-            else if (gender.Equals("F"))
-            {
-                editMaleCheckbox.IsChecked = false;
-                editFemaleCheckbox.IsChecked = true;
+                editMIdBox.IsEnabled = true;
+                editMIdBox.Text = currentBean.MId;
             }
             else
             {
-                editMaleCheckbox.IsChecked = false;
-                editFemaleCheckbox.IsChecked = false;
+                editMIdBox.IsEnabled = false;
+                editMIdBox.Text = currentBean.MId;
             }
 
             if (condition.Equals("Y"))
@@ -634,38 +580,67 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-
+        //TODO add bind actions for grandfather generation
         private void saveData()
         {
-            checkBoxCheck();
+            bool addGFNodeFlag = false;
+
             if ("".Equals(itemidBox.Text))
             {
+                addItemFlag = false;
                 itemidError.Visibility = System.Windows.Visibility.Visible;
+                itemidError.Text = "输入有误，请重新输入";
             }
+            else
+            {
+                addItemFlag = true;
+                itemidError.Visibility = System.Windows.Visibility.Hidden;
+            }
+
+            if ("".Equals(midBox.Text))
+            {
+                addItemFlag = true;
+                newMidOk.Visibility = Visibility.Visible;
+                newMidOk.Text = "祖先节点";
+            }
+            else
+            {
+                if (ba.RowsCount(midBox.Text))
+                {
+                    addItemFlag = true;
+                    newMidOk.Visibility = System.Windows.Visibility.Visible;
+                    newMidError.Visibility = System.Windows.Visibility.Hidden;
+                    newMidOk.Text = "信息可用";
+                }
+                else
+                {
+                    addItemFlag = true;
+                    newMidOk.Visibility = Visibility.Visible;
+                    newMidError.Visibility = System.Windows.Visibility.Hidden;
+                    newMidOk.Text = "新个体，自动加入数据库";
+                    addGFNodeFlag = true;
+                }
+            }
+
             if ("".Equals(fidBox.Text))
             {
+                addItemFlag = false;
                 fidError.Visibility = System.Windows.Visibility.Visible;
             }
             else if (!"".Equals(fidBox.Text))
             {
-                String str = fidBox.Text;
-                ItemDataBean fItem = ba.GetItemsById(str);
-                if (!"M".Equals(fItem.Gender))
-                {
-                    fidError.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                {
-                    fidError.Visibility = System.Windows.Visibility.Hidden;
-                }
+                addItemFlag = true;
+                fidError.Visibility = System.Windows.Visibility.Hidden;
             }
             if (addItemFlag)
             {
                 String itemId = itemidBox.Text;
                 String fId = fidBox.Text;
                 String mId = midBox.Text;
+                //gender not useful for new design
                 String gender = "";
                 String condition = "";
+                String nation = newItemNation.Text;
 
                 String _D = newItemD.Text;
                 String _EBCMS = newItemEBCMS.Text;
@@ -680,15 +655,6 @@ namespace GeneQueryMainPanel.PageContent
                 String _TPI = newItemTPI.Text;
                 String _Others = newItemOthers.Text;
 
-                if (maleCheckBox.IsChecked == true && femaleCheckbox.IsChecked == false)
-                {
-                    gender = "M";
-                }
-                else if (maleCheckBox.IsChecked == false && femaleCheckbox.IsChecked == true)
-                {
-                    gender = "F";
-                }
-
                 if (addConditionCheckbox.IsChecked == true)
                 {
                     condition = "Y";
@@ -698,7 +664,7 @@ namespace GeneQueryMainPanel.PageContent
                     condition = "N";
                 }
 
-                ba.InsertBullInfo(itemId, mId, fId, "", "", gender, condition, _EBVFC, _TPI, _D, _H, _R, 
+                ba.InsertBullInfo(itemId, mId, fId, "", nation, "M", condition, _EBVFC, _TPI, _D, _H, _R, 
                     _EBVM, _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
                 ItemDataBean newItem = new ItemDataBean();
                 newItem.Id = itemId;
@@ -709,10 +675,28 @@ namespace GeneQueryMainPanel.PageContent
 
                 ViewModel.AllDataListDisplayList.Add(newItem);
 
+                if (addGFNodeFlag)
+                {
+                    ba.InsertBullInfo(mId, "", "", "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                    ItemDataBean newItemGF = new ItemDataBean();
+                    newItemGF.Id = mId;
+                    newItemGF.Gender = "M";
+                    newItemGF.Condition = "N";
+
+                    ViewModel.AllDataListDisplayList.Add(newItemGF);
+                }
+
                 //insert new fid
                 if (!ba.RowsCount(fId))
                 {
-                    ba.InsertBullInfo(fId, "", "", "", "", "M", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    ba.InsertBullInfo(fId, "", mId, "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                    ItemDataBean newItemF = new ItemDataBean();
+                    newItemF.Id = fId;
+                    newItemF.FId = mId;
+                    newItemF.Gender = "M";
+                    newItemF.Condition = "N";
+
+                    ViewModel.AllDataListDisplayList.Add(newItemF);
                 }
                 cleanInput();
             }
@@ -725,12 +709,8 @@ namespace GeneQueryMainPanel.PageContent
             itemidBox.Text = "";
             fidBox.Text = "";
             midBox.Text = "";
-            femaleCheckbox.IsChecked = false;
-            maleCheckBox.IsChecked = false;
             itemidError.Visibility = System.Windows.Visibility.Hidden;
             fidError.Visibility = System.Windows.Visibility.Hidden;
-            genderError.Visibility = System.Windows.Visibility.Hidden;
-
         }
 
         private void cleanInput()
@@ -738,17 +718,28 @@ namespace GeneQueryMainPanel.PageContent
             itemidBox.Text = "";
             fidBox.Text = "";
             midBox.Text = "";
-            maleCheckBox.IsChecked = false;
-            femaleCheckbox.IsChecked = false;
-        }
+            addConditionCheckbox.IsChecked = false;
+            newItemD.Text = "";
+            newItemEBCMS.Text = "";
+            newItemEBVFC.Text = "";
+            newItemEBVM.Text = "";
+            newItemEBVP.Text = "";
+            newItemFL.Text = "";
+            newItemH.Text = "";
+            newItemNation.Text = "";
+            newItemOthers.Text = "";
+            newItemR.Text = "";
+            newItemSCS.Text = "";
+            newItemT.Text = "";
+            newItemTPI.Text = "";
 
-        private void checkBoxCheck()
-        {
-            if (maleCheckBox.IsChecked == false && femaleCheckbox.IsChecked == false)
-            {
-                addItemFlag = false;
-                genderError.Visibility = System.Windows.Visibility.Visible;
-            }
+            itemidError.Visibility = System.Windows.Visibility.Hidden;
+            addToEditBtn.Visibility = System.Windows.Visibility.Hidden;
+            fidError.Visibility = System.Windows.Visibility.Hidden;
+            addItemIdOk.Visibility = System.Windows.Visibility.Hidden;
+            newMidError.Visibility = System.Windows.Visibility.Hidden;
+            newMidOk.Visibility = System.Windows.Visibility.Hidden;
+            fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void showDetailArea()
@@ -932,16 +923,6 @@ namespace GeneQueryMainPanel.PageContent
         {
             fidError.Visibility = System.Windows.Visibility.Hidden;
             fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
-        }
-
-        private void maleCheckBox_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            genderError.Visibility = System.Windows.Visibility.Hidden;
-        }
-
-        private void femaleCheckbox_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            genderError.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -1191,12 +1172,98 @@ namespace GeneQueryMainPanel.PageContent
 
         private void anaAllResultBtn_Click(object sender, RoutedEventArgs e)
         {
-            String id = analysisMid.Text;
-            getAllAnalysisResult(id);
+            if (!"".Equals(analysisFid.Text) && (ba.RowsCount(analysisFid.Text)) && (ba.RowsCount(analysisMid.Text)))
+            {
+                String id = analysisMid.Text;
+                getAllAnalysisResult(id);
+
+                analysisResultGrid.Visibility = Visibility.Hidden;
+                analysisFamilyTreeGrid.Visibility = Visibility.Hidden;
+                allResultGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("输入ID有误，无法进行分析");
+            }
             
-            analysisResultGrid.Visibility = Visibility.Hidden;
-            analysisFamilyTreeGrid.Visibility = Visibility.Hidden;
-            allResultGrid.Visibility = Visibility.Visible;
+        }
+
+        private void midBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            String mid = midBox.Text;
+            if ("".Equals(midBox.Text))
+            {
+                newMidError.Visibility = Visibility.Visible;
+                newMidOk.Visibility = System.Windows.Visibility.Hidden;
+                addItemFlag = false;
+            }
+            else
+            {
+                if (ba.RowsCount(mid))
+                {
+                    addItemFlag = true;
+                    newMidOk.Text = "个体信息存在";
+                    newMidError.Visibility = System.Windows.Visibility.Hidden;
+                    newMidOk.Visibility = System.Windows.Visibility.Visible;
+
+                }
+                else
+                {
+                    addItemFlag = true;
+                    newMidOk.Text = "新个体，将自动加入";
+                }
+            }
+        }
+
+        private void editItemIdBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            editInputCheck();
+        }
+
+        private void editInputCheck()
+        {
+            String newid = editItemIdBox.Text;
+            if ("".Equals(newid))
+            {
+                editItemFlag = false;
+                editIdError.Visibility = System.Windows.Visibility.Visible;
+                editIdError.Text = "ID不能为空！";
+            }
+            else
+            {
+                if (!newid.Equals(currentBean.Id))
+                {
+                    editItemFlag = true;
+                    editIdDiff.Visibility = System.Windows.Visibility.Visible;
+                    editIdDiff.Text = "与原ID不同，将修改关联个体信息";
+                }
+                else
+                {
+                    editItemFlag = true;
+                    editIdDiff.Visibility = System.Windows.Visibility.Hidden;
+                }
+                editIdError.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        private void editFIdBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            String fid = editFIdBox.Text;
+            if (ba.RowsCount(fid))
+            {
+                List<String> flist = ba.FindFather(fid);
+                String grandf = flist[1];
+                if (!"".Equals(grandf))
+                {
+                    editMIdBox.Text = grandf;
+                    editMIdBox.IsEnabled = false;
+                }
+                else
+                {
+                    editMIdBox.Text = "";
+                    editMIdBox.IsEnabled = true;
+                }
+            }
         }
     }
 }
