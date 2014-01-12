@@ -50,15 +50,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 76 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Media.Animation.BeginStoryboard login_BeginStoryboard;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 80 "..\..\..\PageContent\MainPage.xaml"
+        #line 14 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid grid;
         
@@ -66,7 +58,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 96 "..\..\..\PageContent\MainPage.xaml"
+        #line 31 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid overviewGrid;
         
@@ -74,7 +66,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 108 "..\..\..\PageContent\MainPage.xaml"
+        #line 43 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock overviewCurrentNumText;
         
@@ -82,7 +74,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 109 "..\..\..\PageContent\MainPage.xaml"
+        #line 44 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock overviewAllNumText;
         
@@ -90,7 +82,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 112 "..\..\..\PageContent\MainPage.xaml"
+        #line 47 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button settingBtn;
         
@@ -98,7 +90,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 114 "..\..\..\PageContent\MainPage.xaml"
+        #line 49 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox searchBar;
         
@@ -106,7 +98,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 117 "..\..\..\PageContent\MainPage.xaml"
+        #line 52 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel stackPanel;
         
@@ -114,7 +106,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 126 "..\..\..\PageContent\MainPage.xaml"
+        #line 61 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button mainHomeBtn;
         
@@ -122,7 +114,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 127 "..\..\..\PageContent\MainPage.xaml"
+        #line 62 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button mainAddBtn;
         
@@ -130,7 +122,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 128 "..\..\..\PageContent\MainPage.xaml"
+        #line 63 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button analysisPageBtn;
         
@@ -138,7 +130,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 154 "..\..\..\PageContent\MainPage.xaml"
+        #line 89 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button switchViewBtn;
         
@@ -146,7 +138,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 169 "..\..\..\PageContent\MainPage.xaml"
+        #line 104 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid allItemGridNew;
         
@@ -154,7 +146,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 198 "..\..\..\PageContent\MainPage.xaml"
+        #line 133 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid currentItemGridNew;
         
@@ -162,7 +154,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 238 "..\..\..\PageContent\MainPage.xaml"
+        #line 173 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid addNewItemGrid;
         
@@ -170,7 +162,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 253 "..\..\..\PageContent\MainPage.xaml"
+        #line 188 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox fidBox;
         
@@ -178,7 +170,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 254 "..\..\..\PageContent\MainPage.xaml"
+        #line 189 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock fidError;
         
@@ -186,7 +178,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 256 "..\..\..\PageContent\MainPage.xaml"
+        #line 191 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox midBox;
         
@@ -194,39 +186,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 257 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock midError;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 259 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.CheckBox maleCheckBox;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 260 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.CheckBox femaleCheckbox;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 261 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock genderError;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 263 "..\..\..\PageContent\MainPage.xaml"
+        #line 193 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox itemidBox;
         
@@ -234,7 +194,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 264 "..\..\..\PageContent\MainPage.xaml"
+        #line 194 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button saveItemBtn;
         
@@ -242,7 +202,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 265 "..\..\..\PageContent\MainPage.xaml"
+        #line 195 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addCancelBtn;
         
@@ -250,7 +210,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 266 "..\..\..\PageContent\MainPage.xaml"
+        #line 196 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock itemidError;
         
@@ -258,7 +218,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 268 "..\..\..\PageContent\MainPage.xaml"
+        #line 198 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.CheckBox addConditionCheckbox;
         
@@ -266,7 +226,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 270 "..\..\..\PageContent\MainPage.xaml"
+        #line 200 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock fidAutoInsertText;
         
@@ -274,7 +234,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 271 "..\..\..\PageContent\MainPage.xaml"
+        #line 201 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addToEditBtn;
         
@@ -282,7 +242,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 272 "..\..\..\PageContent\MainPage.xaml"
+        #line 202 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addBackBtn;
         
@@ -290,7 +250,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 273 "..\..\..\PageContent\MainPage.xaml"
+        #line 203 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock addItemIdOk;
         
@@ -298,7 +258,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 276 "..\..\..\PageContent\MainPage.xaml"
+        #line 206 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemD;
         
@@ -306,7 +266,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 278 "..\..\..\PageContent\MainPage.xaml"
+        #line 208 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemEBCMS;
         
@@ -314,7 +274,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 280 "..\..\..\PageContent\MainPage.xaml"
+        #line 210 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemEBVFC;
         
@@ -322,7 +282,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 282 "..\..\..\PageContent\MainPage.xaml"
+        #line 212 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemEBVM;
         
@@ -330,7 +290,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 284 "..\..\..\PageContent\MainPage.xaml"
+        #line 214 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemEBVP;
         
@@ -338,7 +298,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 286 "..\..\..\PageContent\MainPage.xaml"
+        #line 216 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemFL;
         
@@ -346,7 +306,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 288 "..\..\..\PageContent\MainPage.xaml"
+        #line 218 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemH;
         
@@ -354,7 +314,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 290 "..\..\..\PageContent\MainPage.xaml"
+        #line 220 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemR;
         
@@ -362,7 +322,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 292 "..\..\..\PageContent\MainPage.xaml"
+        #line 222 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemSCS;
         
@@ -370,7 +330,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 294 "..\..\..\PageContent\MainPage.xaml"
+        #line 224 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemT;
         
@@ -378,7 +338,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 296 "..\..\..\PageContent\MainPage.xaml"
+        #line 226 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemTPI;
         
@@ -386,7 +346,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 297 "..\..\..\PageContent\MainPage.xaml"
+        #line 227 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox newItemOthers;
         
@@ -394,7 +354,31 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 299 "..\..\..\PageContent\MainPage.xaml"
+        #line 228 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock newMidError;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 229 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock newMidOk;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 231 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox newItemNation;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 233 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid detailGrid;
         
@@ -402,7 +386,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 311 "..\..\..\PageContent\MainPage.xaml"
+        #line 245 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailItemIdText;
         
@@ -410,7 +394,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 313 "..\..\..\PageContent\MainPage.xaml"
+        #line 247 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailFidText;
         
@@ -418,7 +402,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 315 "..\..\..\PageContent\MainPage.xaml"
+        #line 249 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailMIdText;
         
@@ -426,7 +410,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 317 "..\..\..\PageContent\MainPage.xaml"
+        #line 251 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailNationText;
         
@@ -434,7 +418,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 319 "..\..\..\PageContent\MainPage.xaml"
+        #line 253 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailOtherText;
         
@@ -442,7 +426,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 320 "..\..\..\PageContent\MainPage.xaml"
+        #line 254 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button detailViewEditBtn;
         
@@ -450,7 +434,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 335 "..\..\..\PageContent\MainPage.xaml"
+        #line 269 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock detailGenderText;
         
@@ -458,7 +442,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 337 "..\..\..\PageContent\MainPage.xaml"
+        #line 271 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid editGrid;
         
@@ -466,7 +450,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 345 "..\..\..\PageContent\MainPage.xaml"
+        #line 283 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemIdBox;
         
@@ -474,7 +458,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 346 "..\..\..\PageContent\MainPage.xaml"
+        #line 284 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editFIdBox;
         
@@ -482,7 +466,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 347 "..\..\..\PageContent\MainPage.xaml"
+        #line 285 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editMIdBox;
         
@@ -490,23 +474,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 349 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.CheckBox editMaleCheckbox;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 350 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.CheckBox editFemaleCheckbox;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 351 "..\..\..\PageContent\MainPage.xaml"
+        #line 286 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button editSaveBtn;
         
@@ -514,7 +482,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 352 "..\..\..\PageContent\MainPage.xaml"
+        #line 287 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button editCancelBtn;
         
@@ -522,7 +490,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 353 "..\..\..\PageContent\MainPage.xaml"
+        #line 288 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button editBackBtn;
         
@@ -530,7 +498,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 355 "..\..\..\PageContent\MainPage.xaml"
+        #line 290 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.CheckBox editConditionCheckbox;
         
@@ -538,7 +506,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 358 "..\..\..\PageContent\MainPage.xaml"
+        #line 293 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemD;
         
@@ -546,7 +514,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 360 "..\..\..\PageContent\MainPage.xaml"
+        #line 295 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemEBCMS;
         
@@ -554,7 +522,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 362 "..\..\..\PageContent\MainPage.xaml"
+        #line 297 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemEBVFC;
         
@@ -562,7 +530,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 364 "..\..\..\PageContent\MainPage.xaml"
+        #line 299 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemEBVM;
         
@@ -570,7 +538,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 366 "..\..\..\PageContent\MainPage.xaml"
+        #line 301 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemEBVP;
         
@@ -578,7 +546,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 368 "..\..\..\PageContent\MainPage.xaml"
+        #line 303 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemFL;
         
@@ -586,7 +554,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 370 "..\..\..\PageContent\MainPage.xaml"
+        #line 305 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemH;
         
@@ -594,7 +562,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 372 "..\..\..\PageContent\MainPage.xaml"
+        #line 307 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemR;
         
@@ -602,7 +570,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 374 "..\..\..\PageContent\MainPage.xaml"
+        #line 309 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemSCS;
         
@@ -610,7 +578,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 376 "..\..\..\PageContent\MainPage.xaml"
+        #line 311 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemT;
         
@@ -618,7 +586,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 378 "..\..\..\PageContent\MainPage.xaml"
+        #line 313 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemTPI;
         
@@ -626,7 +594,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 379 "..\..\..\PageContent\MainPage.xaml"
+        #line 314 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox editItemOthers;
         
@@ -634,7 +602,31 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 381 "..\..\..\PageContent\MainPage.xaml"
+        #line 316 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox editItemNation;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 317 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock editIdError;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 318 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock editIdDiff;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 320 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid analysisGrid;
         
@@ -642,7 +634,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 388 "..\..\..\PageContent\MainPage.xaml"
+        #line 327 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button analysisBackBtn;
         
@@ -650,7 +642,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 394 "..\..\..\PageContent\MainPage.xaml"
+        #line 333 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox analysisMid;
         
@@ -658,7 +650,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 397 "..\..\..\PageContent\MainPage.xaml"
+        #line 336 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox analysisFid;
         
@@ -666,7 +658,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 398 "..\..\..\PageContent\MainPage.xaml"
+        #line 337 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button analysisBtn;
         
@@ -674,7 +666,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 412 "..\..\..\PageContent\MainPage.xaml"
+        #line 351 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid analysisFamilyTreeGrid;
         
@@ -682,7 +674,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 413 "..\..\..\PageContent\MainPage.xaml"
+        #line 352 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock fid00Text;
         
@@ -690,7 +682,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 414 "..\..\..\PageContent\MainPage.xaml"
+        #line 353 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock mfid00Text;
         
@@ -698,7 +690,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 415 "..\..\..\PageContent\MainPage.xaml"
+        #line 354 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock fid10Text;
         
@@ -706,15 +698,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 416 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock fid11Text;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 417 "..\..\..\PageContent\MainPage.xaml"
+        #line 355 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock fid100Text;
         
@@ -722,15 +706,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 418 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock fid101Text;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 419 "..\..\..\PageContent\MainPage.xaml"
+        #line 356 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock mfid10Text;
         
@@ -738,15 +714,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 420 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock mfid11Text;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 421 "..\..\..\PageContent\MainPage.xaml"
+        #line 357 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock mfid100Text;
         
@@ -754,15 +722,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 422 "..\..\..\PageContent\MainPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock mfid101Text;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 435 "..\..\..\PageContent\MainPage.xaml"
+        #line 368 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid analysisResultGrid;
         
@@ -770,7 +730,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 436 "..\..\..\PageContent\MainPage.xaml"
+        #line 369 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Shapes.Rectangle analysisGreenRec;
         
@@ -778,7 +738,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 444 "..\..\..\PageContent\MainPage.xaml"
+        #line 377 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Shapes.Rectangle analysisRedRec;
         
@@ -786,7 +746,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 452 "..\..\..\PageContent\MainPage.xaml"
+        #line 385 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisResultTitleText;
         
@@ -794,7 +754,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 453 "..\..\..\PageContent\MainPage.xaml"
+        #line 386 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisDataTitleText;
         
@@ -802,7 +762,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 454 "..\..\..\PageContent\MainPage.xaml"
+        #line 387 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisResultText;
         
@@ -810,7 +770,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 455 "..\..\..\PageContent\MainPage.xaml"
+        #line 388 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisResultTitleText_result;
         
@@ -818,7 +778,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 456 "..\..\..\PageContent\MainPage.xaml"
+        #line 389 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisPreGenTitle;
         
@@ -826,7 +786,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 457 "..\..\..\PageContent\MainPage.xaml"
+        #line 390 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock analysisPreGenResultText;
         
@@ -834,7 +794,23 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 460 "..\..\..\PageContent\MainPage.xaml"
+        #line 392 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid allResultGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 404 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button anaAllResultBtn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 419 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid optionGrid;
         
@@ -842,7 +818,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 464 "..\..\..\PageContent\MainPage.xaml"
+        #line 423 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button optionBackBtn;
         
@@ -850,7 +826,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 474 "..\..\..\PageContent\MainPage.xaml"
+        #line 433 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox optionUserNameModify;
         
@@ -858,7 +834,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 475 "..\..\..\PageContent\MainPage.xaml"
+        #line 434 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox optionUserPassModify;
         
@@ -866,7 +842,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 476 "..\..\..\PageContent\MainPage.xaml"
+        #line 435 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox optionUserPassModifyConfirm;
         
@@ -874,7 +850,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 477 "..\..\..\PageContent\MainPage.xaml"
+        #line 436 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid optionNewUserGrid;
         
@@ -882,7 +858,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 482 "..\..\..\PageContent\MainPage.xaml"
+        #line 441 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox optionNewUserName;
         
@@ -890,7 +866,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 483 "..\..\..\PageContent\MainPage.xaml"
+        #line 442 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox optionNewUserPass;
         
@@ -898,7 +874,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 484 "..\..\..\PageContent\MainPage.xaml"
+        #line 443 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox optionNewUserPassConfirm;
         
@@ -906,7 +882,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 485 "..\..\..\PageContent\MainPage.xaml"
+        #line 444 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button optionNewUserInfoModifySave;
         
@@ -914,7 +890,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 486 "..\..\..\PageContent\MainPage.xaml"
+        #line 445 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button optionNewUserInfoModifyCancle;
         
@@ -922,7 +898,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 487 "..\..\..\PageContent\MainPage.xaml"
+        #line 446 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock optionNewUserInfoError;
         
@@ -930,7 +906,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 489 "..\..\..\PageContent\MainPage.xaml"
+        #line 448 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button optionUserInfoModifySave;
         
@@ -938,7 +914,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 490 "..\..\..\PageContent\MainPage.xaml"
+        #line 449 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button optionUserInfoModifyCancle;
         
@@ -946,7 +922,7 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 491 "..\..\..\PageContent\MainPage.xaml"
+        #line 450 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock optionUserInfoError;
         
@@ -954,7 +930,23 @@ namespace GeneQueryMainPanel.PageContent {
         #line hidden
         
         
-        #line 493 "..\..\..\PageContent\MainPage.xaml"
+        #line 451 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button backupButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 466 "..\..\..\PageContent\MainPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button option_dataInputBtn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 483 "..\..\..\PageContent\MainPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid searchResultItemGrid;
         
@@ -995,668 +987,661 @@ namespace GeneQueryMainPanel.PageContent {
             this.MainPanel = ((GeneQueryMainPanel.PageContent.MainPage)(target));
             return;
             case 2:
-            this.login_BeginStoryboard = ((System.Windows.Media.Animation.BeginStoryboard)(target));
-            return;
-            case 3:
             this.grid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 4:
+            case 3:
             this.overviewGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 5:
+            case 4:
             this.overviewCurrentNumText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 6:
+            case 5:
             this.overviewAllNumText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 7:
+            case 6:
             this.settingBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 112 "..\..\..\PageContent\MainPage.xaml"
+            #line 47 "..\..\..\PageContent\MainPage.xaml"
             this.settingBtn.Click += new System.Windows.RoutedEventHandler(this.settingBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 8:
+            case 7:
             this.searchBar = ((System.Windows.Controls.TextBox)(target));
             
-            #line 115 "..\..\..\PageContent\MainPage.xaml"
+            #line 50 "..\..\..\PageContent\MainPage.xaml"
             this.searchBar.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.searchBar_TextChanged);
             
             #line default
             #line hidden
             return;
-            case 9:
+            case 8:
             this.stackPanel = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 10:
+            case 9:
             this.mainHomeBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 126 "..\..\..\PageContent\MainPage.xaml"
+            #line 61 "..\..\..\PageContent\MainPage.xaml"
             this.mainHomeBtn.Click += new System.Windows.RoutedEventHandler(this.mainHomeBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 11:
+            case 10:
             this.mainAddBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 127 "..\..\..\PageContent\MainPage.xaml"
+            #line 62 "..\..\..\PageContent\MainPage.xaml"
             this.mainAddBtn.Click += new System.Windows.RoutedEventHandler(this.mainAddBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 12:
+            case 11:
             this.analysisPageBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 128 "..\..\..\PageContent\MainPage.xaml"
+            #line 63 "..\..\..\PageContent\MainPage.xaml"
             this.analysisPageBtn.Click += new System.Windows.RoutedEventHandler(this.analysisPageBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 13:
+            case 12:
             this.switchViewBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 155 "..\..\..\PageContent\MainPage.xaml"
+            #line 90 "..\..\..\PageContent\MainPage.xaml"
             this.switchViewBtn.Click += new System.Windows.RoutedEventHandler(this.switchViewBtn_click);
             
             #line default
             #line hidden
             return;
-            case 14:
+            case 13:
             this.allItemGridNew = ((System.Windows.Controls.DataGrid)(target));
             
-            #line 172 "..\..\..\PageContent\MainPage.xaml"
+            #line 107 "..\..\..\PageContent\MainPage.xaml"
             this.allItemGridNew.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.allItemGridNew_MouseLeftButtonDown);
             
             #line default
             #line hidden
             
-            #line 173 "..\..\..\PageContent\MainPage.xaml"
+            #line 108 "..\..\..\PageContent\MainPage.xaml"
             this.allItemGridNew.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(this.allItemGridNew_MouseDoubleClick);
             
             #line default
             #line hidden
             
-            #line 174 "..\..\..\PageContent\MainPage.xaml"
+            #line 109 "..\..\..\PageContent\MainPage.xaml"
             this.allItemGridNew.Loaded += new System.Windows.RoutedEventHandler(this.allItemGridNew_Loaded);
             
             #line default
             #line hidden
             return;
-            case 15:
+            case 14:
             this.currentItemGridNew = ((System.Windows.Controls.DataGrid)(target));
             
-            #line 202 "..\..\..\PageContent\MainPage.xaml"
+            #line 137 "..\..\..\PageContent\MainPage.xaml"
             this.currentItemGridNew.Loaded += new System.Windows.RoutedEventHandler(this.currentItemGridNew_Loaded);
             
             #line default
             #line hidden
             
-            #line 202 "..\..\..\PageContent\MainPage.xaml"
+            #line 137 "..\..\..\PageContent\MainPage.xaml"
             this.currentItemGridNew.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(this.currentItemGridNew_MouseDoubleClick);
             
             #line default
             #line hidden
             
-            #line 203 "..\..\..\PageContent\MainPage.xaml"
+            #line 138 "..\..\..\PageContent\MainPage.xaml"
             this.currentItemGridNew.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.currentItemGridNew_MouseLeftButtonDown);
             
             #line default
             #line hidden
             return;
-            case 16:
+            case 15:
             this.addNewItemGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 17:
+            case 16:
             this.fidBox = ((System.Windows.Controls.TextBox)(target));
             
-            #line 253 "..\..\..\PageContent\MainPage.xaml"
+            #line 188 "..\..\..\PageContent\MainPage.xaml"
             this.fidBox.LostFocus += new System.Windows.RoutedEventHandler(this.fidBox_LostFocus);
             
             #line default
             #line hidden
             
-            #line 253 "..\..\..\PageContent\MainPage.xaml"
+            #line 188 "..\..\..\PageContent\MainPage.xaml"
             this.fidBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.fidBox_TextChanged);
             
             #line default
             #line hidden
             return;
-            case 18:
+            case 17:
             this.fidError = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 19:
+            case 18:
             this.midBox = ((System.Windows.Controls.TextBox)(target));
             
-            #line 256 "..\..\..\PageContent\MainPage.xaml"
+            #line 191 "..\..\..\PageContent\MainPage.xaml"
             this.midBox.LostFocus += new System.Windows.RoutedEventHandler(this.midBox_LostFocus);
             
             #line default
             #line hidden
-            
-            #line 256 "..\..\..\PageContent\MainPage.xaml"
-            this.midBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.midBox_TextChanged);
-            
-            #line default
-            #line hidden
             return;
-            case 20:
-            this.midError = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 21:
-            this.maleCheckBox = ((System.Windows.Controls.CheckBox)(target));
-            
-            #line 259 "..\..\..\PageContent\MainPage.xaml"
-            this.maleCheckBox.Checked += new System.Windows.RoutedEventHandler(this.maleCheckBox_Checked);
-            
-            #line default
-            #line hidden
-            
-            #line 259 "..\..\..\PageContent\MainPage.xaml"
-            this.maleCheckBox.MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.maleCheckBox_MouseDown);
-            
-            #line default
-            #line hidden
-            return;
-            case 22:
-            this.femaleCheckbox = ((System.Windows.Controls.CheckBox)(target));
-            
-            #line 260 "..\..\..\PageContent\MainPage.xaml"
-            this.femaleCheckbox.Checked += new System.Windows.RoutedEventHandler(this.femaleCheckbox_Checked);
-            
-            #line default
-            #line hidden
-            
-            #line 260 "..\..\..\PageContent\MainPage.xaml"
-            this.femaleCheckbox.MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.femaleCheckbox_MouseDown);
-            
-            #line default
-            #line hidden
-            return;
-            case 23:
-            this.genderError = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 24:
+            case 19:
             this.itemidBox = ((System.Windows.Controls.TextBox)(target));
             
-            #line 263 "..\..\..\PageContent\MainPage.xaml"
+            #line 193 "..\..\..\PageContent\MainPage.xaml"
             this.itemidBox.LostFocus += new System.Windows.RoutedEventHandler(this.itemidBox_LostFocus);
             
             #line default
             #line hidden
             
-            #line 263 "..\..\..\PageContent\MainPage.xaml"
+            #line 193 "..\..\..\PageContent\MainPage.xaml"
             this.itemidBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.itemidBox_TextChanged);
             
             #line default
             #line hidden
             return;
-            case 25:
+            case 20:
             this.saveItemBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 264 "..\..\..\PageContent\MainPage.xaml"
+            #line 194 "..\..\..\PageContent\MainPage.xaml"
             this.saveItemBtn.Click += new System.Windows.RoutedEventHandler(this.saveItemBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 26:
+            case 21:
             this.addCancelBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 265 "..\..\..\PageContent\MainPage.xaml"
+            #line 195 "..\..\..\PageContent\MainPage.xaml"
             this.addCancelBtn.Click += new System.Windows.RoutedEventHandler(this.addCancelBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 27:
+            case 22:
             this.itemidError = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 28:
+            case 23:
             this.addConditionCheckbox = ((System.Windows.Controls.CheckBox)(target));
             return;
-            case 29:
+            case 24:
             this.fidAutoInsertText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 30:
+            case 25:
             this.addToEditBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 271 "..\..\..\PageContent\MainPage.xaml"
+            #line 201 "..\..\..\PageContent\MainPage.xaml"
             this.addToEditBtn.Click += new System.Windows.RoutedEventHandler(this.addToEditBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 31:
+            case 26:
             this.addBackBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 272 "..\..\..\PageContent\MainPage.xaml"
+            #line 202 "..\..\..\PageContent\MainPage.xaml"
             this.addBackBtn.Click += new System.Windows.RoutedEventHandler(this.addBackBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 32:
+            case 27:
             this.addItemIdOk = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 33:
+            case 28:
             this.newItemD = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 34:
+            case 29:
             this.newItemEBCMS = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 35:
+            case 30:
             this.newItemEBVFC = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 36:
+            case 31:
             this.newItemEBVM = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 37:
+            case 32:
             this.newItemEBVP = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 38:
+            case 33:
             this.newItemFL = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 39:
+            case 34:
             this.newItemH = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 40:
+            case 35:
             this.newItemR = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 41:
+            case 36:
             this.newItemSCS = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 42:
+            case 37:
             this.newItemT = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 43:
+            case 38:
             this.newItemTPI = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 44:
+            case 39:
             this.newItemOthers = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 45:
+            case 40:
+            this.newMidError = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 41:
+            this.newMidOk = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 42:
+            this.newItemNation = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 43:
             this.detailGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 46:
+            case 44:
             
-            #line 304 "..\..\..\PageContent\MainPage.xaml"
+            #line 238 "..\..\..\PageContent\MainPage.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click_1);
             
             #line default
             #line hidden
             return;
-            case 47:
+            case 45:
             this.detailItemIdText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 48:
+            case 46:
             this.detailFidText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 49:
+            case 47:
             this.detailMIdText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 50:
+            case 48:
             this.detailNationText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 51:
+            case 49:
             this.detailOtherText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 52:
+            case 50:
             this.detailViewEditBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 320 "..\..\..\PageContent\MainPage.xaml"
+            #line 254 "..\..\..\PageContent\MainPage.xaml"
             this.detailViewEditBtn.Click += new System.Windows.RoutedEventHandler(this.detailViewEditBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 53:
+            case 51:
             this.detailGenderText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 54:
+            case 52:
             this.editGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 55:
+            case 53:
             this.editItemIdBox = ((System.Windows.Controls.TextBox)(target));
+            
+            #line 283 "..\..\..\PageContent\MainPage.xaml"
+            this.editItemIdBox.LostFocus += new System.Windows.RoutedEventHandler(this.editItemIdBox_LostFocus);
+            
+            #line default
+            #line hidden
             return;
-            case 56:
+            case 54:
             this.editFIdBox = ((System.Windows.Controls.TextBox)(target));
+            
+            #line 284 "..\..\..\PageContent\MainPage.xaml"
+            this.editFIdBox.LostFocus += new System.Windows.RoutedEventHandler(this.editFIdBox_LostFocus);
+            
+            #line default
+            #line hidden
             return;
-            case 57:
+            case 55:
             this.editMIdBox = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 58:
-            this.editMaleCheckbox = ((System.Windows.Controls.CheckBox)(target));
-            
-            #line 349 "..\..\..\PageContent\MainPage.xaml"
-            this.editMaleCheckbox.Checked += new System.Windows.RoutedEventHandler(this.editMaleCheckbox_Checked);
-            
-            #line default
-            #line hidden
-            return;
-            case 59:
-            this.editFemaleCheckbox = ((System.Windows.Controls.CheckBox)(target));
-            
-            #line 350 "..\..\..\PageContent\MainPage.xaml"
-            this.editFemaleCheckbox.Checked += new System.Windows.RoutedEventHandler(this.editFemaleCheckbox_Checked);
-            
-            #line default
-            #line hidden
-            return;
-            case 60:
+            case 56:
             this.editSaveBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 351 "..\..\..\PageContent\MainPage.xaml"
+            #line 286 "..\..\..\PageContent\MainPage.xaml"
             this.editSaveBtn.Click += new System.Windows.RoutedEventHandler(this.editSaveBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 61:
+            case 57:
             this.editCancelBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 352 "..\..\..\PageContent\MainPage.xaml"
+            #line 287 "..\..\..\PageContent\MainPage.xaml"
             this.editCancelBtn.Click += new System.Windows.RoutedEventHandler(this.editCancelBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 62:
+            case 58:
             this.editBackBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 353 "..\..\..\PageContent\MainPage.xaml"
+            #line 288 "..\..\..\PageContent\MainPage.xaml"
             this.editBackBtn.Click += new System.Windows.RoutedEventHandler(this.editBackBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 63:
+            case 59:
             this.editConditionCheckbox = ((System.Windows.Controls.CheckBox)(target));
             return;
-            case 64:
+            case 60:
             this.editItemD = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 65:
+            case 61:
             this.editItemEBCMS = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 66:
+            case 62:
             this.editItemEBVFC = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 67:
+            case 63:
             this.editItemEBVM = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 68:
+            case 64:
             this.editItemEBVP = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 69:
+            case 65:
             this.editItemFL = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 70:
+            case 66:
             this.editItemH = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 71:
+            case 67:
             this.editItemR = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 72:
+            case 68:
             this.editItemSCS = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 73:
+            case 69:
             this.editItemT = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 74:
+            case 70:
             this.editItemTPI = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 75:
+            case 71:
             this.editItemOthers = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 76:
+            case 72:
+            this.editItemNation = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 73:
+            this.editIdError = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 74:
+            this.editIdDiff = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 75:
             this.analysisGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 77:
+            case 76:
             this.analysisBackBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 388 "..\..\..\PageContent\MainPage.xaml"
+            #line 327 "..\..\..\PageContent\MainPage.xaml"
             this.analysisBackBtn.Click += new System.Windows.RoutedEventHandler(this.analysisBackBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 78:
+            case 77:
             this.analysisMid = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 394 "..\..\..\PageContent\MainPage.xaml"
+            #line 333 "..\..\..\PageContent\MainPage.xaml"
             this.analysisMid.KeyDown += new System.Windows.Input.KeyEventHandler(this.analysisMid_KeyDown);
             
             #line default
             #line hidden
             
-            #line 394 "..\..\..\PageContent\MainPage.xaml"
+            #line 333 "..\..\..\PageContent\MainPage.xaml"
             this.analysisMid.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.analysisMid_MouseLeftButtonDown);
             
             #line default
             #line hidden
             return;
-            case 79:
+            case 78:
             this.analysisFid = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 397 "..\..\..\PageContent\MainPage.xaml"
+            #line 336 "..\..\..\PageContent\MainPage.xaml"
             this.analysisFid.KeyDown += new System.Windows.Input.KeyEventHandler(this.analysisFid_KeyDown);
             
             #line default
             #line hidden
             
-            #line 397 "..\..\..\PageContent\MainPage.xaml"
+            #line 336 "..\..\..\PageContent\MainPage.xaml"
             this.analysisFid.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.analysisFid_MouseLeftButtonDown);
             
             #line default
             #line hidden
             return;
-            case 80:
+            case 79:
             this.analysisBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 398 "..\..\..\PageContent\MainPage.xaml"
+            #line 337 "..\..\..\PageContent\MainPage.xaml"
             this.analysisBtn.Click += new System.Windows.RoutedEventHandler(this.analysisBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 81:
+            case 80:
             this.analysisFamilyTreeGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 82:
+            case 81:
             this.fid00Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 83:
+            case 82:
             this.mfid00Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 84:
+            case 83:
             this.fid10Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 85:
-            this.fid11Text = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 86:
+            case 84:
             this.fid100Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 87:
-            this.fid101Text = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 88:
+            case 85:
             this.mfid10Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 89:
-            this.mfid11Text = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 90:
+            case 86:
             this.mfid100Text = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 91:
-            this.mfid101Text = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 92:
+            case 87:
             this.analysisResultGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 93:
+            case 88:
             this.analysisGreenRec = ((System.Windows.Shapes.Rectangle)(target));
             return;
-            case 94:
+            case 89:
             this.analysisRedRec = ((System.Windows.Shapes.Rectangle)(target));
             return;
-            case 95:
+            case 90:
             this.analysisResultTitleText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 96:
+            case 91:
             this.analysisDataTitleText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 97:
+            case 92:
             this.analysisResultText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 98:
+            case 93:
             this.analysisResultTitleText_result = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 99:
+            case 94:
             this.analysisPreGenTitle = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 100:
+            case 95:
             this.analysisPreGenResultText = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 101:
+            case 96:
+            this.allResultGrid = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 97:
+            
+            #line 395 "..\..\..\PageContent\MainPage.xaml"
+            ((System.Windows.Controls.DataGrid)(target)).Loaded += new System.Windows.RoutedEventHandler(this.DataGrid_Loaded);
+            
+            #line default
+            #line hidden
+            return;
+            case 98:
+            this.anaAllResultBtn = ((System.Windows.Controls.Button)(target));
+            
+            #line 404 "..\..\..\PageContent\MainPage.xaml"
+            this.anaAllResultBtn.Click += new System.Windows.RoutedEventHandler(this.anaAllResultBtn_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 99:
             this.optionGrid = ((System.Windows.Controls.Grid)(target));
             return;
-            case 102:
+            case 100:
             this.optionBackBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 464 "..\..\..\PageContent\MainPage.xaml"
+            #line 423 "..\..\..\PageContent\MainPage.xaml"
             this.optionBackBtn.Click += new System.Windows.RoutedEventHandler(this.optionBackBtn_Click);
             
             #line default
             #line hidden
             return;
-            case 103:
+            case 101:
             this.optionUserNameModify = ((System.Windows.Controls.TextBox)(target));
             
-            #line 474 "..\..\..\PageContent\MainPage.xaml"
+            #line 433 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserNameModify.GotFocus += new System.Windows.RoutedEventHandler(this.optionUserNameModify_GotFocus);
             
             #line default
             #line hidden
             
-            #line 474 "..\..\..\PageContent\MainPage.xaml"
+            #line 433 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserNameModify.Loaded += new System.Windows.RoutedEventHandler(this.optionUserNameModify_Loaded);
             
             #line default
             #line hidden
             return;
-            case 104:
+            case 102:
             this.optionUserPassModify = ((System.Windows.Controls.PasswordBox)(target));
             
-            #line 475 "..\..\..\PageContent\MainPage.xaml"
+            #line 434 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserPassModify.GotFocus += new System.Windows.RoutedEventHandler(this.optionUserPassModify_GotFocus);
             
             #line default
             #line hidden
             return;
-            case 105:
+            case 103:
             this.optionUserPassModifyConfirm = ((System.Windows.Controls.PasswordBox)(target));
             
-            #line 476 "..\..\..\PageContent\MainPage.xaml"
+            #line 435 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserPassModifyConfirm.GotFocus += new System.Windows.RoutedEventHandler(this.optionUserPassModifyConfirm_GotFocus);
             
             #line default
             #line hidden
             return;
-            case 106:
+            case 104:
             this.optionNewUserGrid = ((System.Windows.Controls.Grid)(target));
             
-            #line 477 "..\..\..\PageContent\MainPage.xaml"
+            #line 436 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserGrid.Loaded += new System.Windows.RoutedEventHandler(this.optionNewUserGrid_Loaded);
             
             #line default
             #line hidden
             return;
-            case 107:
+            case 105:
             this.optionNewUserName = ((System.Windows.Controls.TextBox)(target));
             
-            #line 482 "..\..\..\PageContent\MainPage.xaml"
+            #line 441 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserName.GotFocus += new System.Windows.RoutedEventHandler(this.optionNewUserName_GotFocus);
             
             #line default
             #line hidden
             return;
-            case 108:
+            case 106:
             this.optionNewUserPass = ((System.Windows.Controls.PasswordBox)(target));
             
-            #line 483 "..\..\..\PageContent\MainPage.xaml"
+            #line 442 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserPass.GotFocus += new System.Windows.RoutedEventHandler(this.optionNewUserPass_GotFocus);
             
             #line default
             #line hidden
             return;
-            case 109:
+            case 107:
             this.optionNewUserPassConfirm = ((System.Windows.Controls.PasswordBox)(target));
             
-            #line 484 "..\..\..\PageContent\MainPage.xaml"
+            #line 443 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserPassConfirm.GotFocus += new System.Windows.RoutedEventHandler(this.optionNewUserPassConfirm_GotFocus);
             
             #line default
             #line hidden
             return;
-            case 110:
+            case 108:
             this.optionNewUserInfoModifySave = ((System.Windows.Controls.Button)(target));
             
-            #line 485 "..\..\..\PageContent\MainPage.xaml"
+            #line 444 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserInfoModifySave.Click += new System.Windows.RoutedEventHandler(this.optionNewUserInfoModifySave_Click);
             
             #line default
             #line hidden
             return;
-            case 111:
+            case 109:
             this.optionNewUserInfoModifyCancle = ((System.Windows.Controls.Button)(target));
             
-            #line 486 "..\..\..\PageContent\MainPage.xaml"
+            #line 445 "..\..\..\PageContent\MainPage.xaml"
             this.optionNewUserInfoModifyCancle.Click += new System.Windows.RoutedEventHandler(this.optionNewUserInfoModifyCancle_Click);
             
             #line default
             #line hidden
             return;
-            case 112:
+            case 110:
             this.optionNewUserInfoError = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 113:
+            case 111:
             this.optionUserInfoModifySave = ((System.Windows.Controls.Button)(target));
             
-            #line 489 "..\..\..\PageContent\MainPage.xaml"
+            #line 448 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserInfoModifySave.Click += new System.Windows.RoutedEventHandler(this.optionUserInfoModifySave_Click);
             
             #line default
             #line hidden
             return;
-            case 114:
+            case 112:
             this.optionUserInfoModifyCancle = ((System.Windows.Controls.Button)(target));
             
-            #line 490 "..\..\..\PageContent\MainPage.xaml"
+            #line 449 "..\..\..\PageContent\MainPage.xaml"
             this.optionUserInfoModifyCancle.Click += new System.Windows.RoutedEventHandler(this.optionUserInfoModifyCancle_Click);
             
             #line default
             #line hidden
             return;
-            case 115:
+            case 113:
             this.optionUserInfoError = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 114:
+            this.backupButton = ((System.Windows.Controls.Button)(target));
+            
+            #line 451 "..\..\..\PageContent\MainPage.xaml"
+            this.backupButton.Click += new System.Windows.RoutedEventHandler(this.backupButton_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 115:
+            this.option_dataInputBtn = ((System.Windows.Controls.Button)(target));
+            
+            #line 466 "..\..\..\PageContent\MainPage.xaml"
+            this.option_dataInputBtn.Click += new System.Windows.RoutedEventHandler(this.option_dataInputBtn_Click);
+            
+            #line default
+            #line hidden
             return;
             case 116:
             this.searchResultItemGrid = ((System.Windows.Controls.DataGrid)(target));
             
-            #line 497 "..\..\..\PageContent\MainPage.xaml"
+            #line 487 "..\..\..\PageContent\MainPage.xaml"
             this.searchResultItemGrid.Loaded += new System.Windows.RoutedEventHandler(this.searchResultItemGrid_Loaded);
             
             #line default
             #line hidden
             
-            #line 497 "..\..\..\PageContent\MainPage.xaml"
+            #line 487 "..\..\..\PageContent\MainPage.xaml"
             this.searchResultItemGrid.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(this.searchResultItemGrid_MouseDoubleClick);
             
             #line default
