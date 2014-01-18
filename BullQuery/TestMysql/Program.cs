@@ -44,6 +44,7 @@ namespace TestMysql
            //--------------------------------------------------------------------------------- 
            //baction.updateInfoById("44", "00", "56", "", "usa", "M", "");
             Console.WriteLine("请分别输入FID与MID，输入-1退出程序！");
+            Console.WriteLine("totalnum="+baction.CondationCount());
             string FID = Console.ReadLine();
             string MID = Console.ReadLine();
             while (FID != "-1")

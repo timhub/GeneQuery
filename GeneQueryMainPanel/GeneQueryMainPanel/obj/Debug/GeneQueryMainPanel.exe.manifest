@@ -50,19 +50,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7Mh2yznzG12qFOcYtlwOURnhebo=</dsig:DigestValue>
+        <dsig:DigestValue>PHdHvvbKv6tv4+jeAtBOOtfmel8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="28672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonMysql.dll" size="29184">
       <assemblyIdentity name="CommonMysql" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NngoMN7axe7l1j8BuGjRh6haZ6Y=</dsig:DigestValue>
+        <dsig:DigestValue>CVyyu6j8y2nUey0jsK+vwxtlRmM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1/TSThXcnSzLA7kAnRLTRsXm6e0=</dsig:DigestValue>
+        <dsig:DigestValue>odM4MNiQCI1zO1VKn4zZKjAZQd4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

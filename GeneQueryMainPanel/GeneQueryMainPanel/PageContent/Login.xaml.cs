@@ -37,8 +37,8 @@ namespace GeneQueryMainPanel.PageContent
             string nameInput = usernameInput.Text;
             try
             {
-                //if (identification.validatePC())
-                //{
+                if (identification.validatePC())
+                {
                     bool flag = login.userCheck(nameInput, passInput);
                     if (flag)
                     {
@@ -52,11 +52,11 @@ namespace GeneQueryMainPanel.PageContent
                         this.elertBox.Visibility = System.Windows.Visibility.Visible;
                         this.passwordInput.Password = "";
                     }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("注册信息有误，请联系管理员");
-                //}
+                }
+                else
+                {
+                    MessageBox.Show("注册信息有误，请联系管理员");
+                }
             }
             catch (Exception loginException)
             {

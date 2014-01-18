@@ -231,14 +231,6 @@ namespace GeneQueryMainPanel.PageContent
         {
             temBean = currentBean;
             currentBeanDataDisplay();
-            if (!"".Equals(currentBean.MId))
-            {
-                editMIdBox.IsEnabled = false;
-            }
-            else
-            {
-                editMIdBox.IsEnabled = true;
-            }
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Visible;
             searchResultItemGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -674,6 +666,10 @@ namespace GeneQueryMainPanel.PageContent
                 newItem.Condition = condition;
 
                 ViewModel.AllDataListDisplayList.Add(newItem);
+                if (condition.Equals("Y"))
+                {
+                    ViewModel.CurrentDataListDisplayList.Add(newItem);
+                }
 
                 if (addGFNodeFlag)
                 {
@@ -699,6 +695,8 @@ namespace GeneQueryMainPanel.PageContent
                     ViewModel.AllDataListDisplayList.Add(newItemF);
                 }
                 cleanInput();
+                overviewAllNumText.Text = ba.TotalCount() + "";
+                overviewCurrentNumText.Text = ba.CondationCount() + "";
             }
         }
 
@@ -1263,6 +1261,11 @@ namespace GeneQueryMainPanel.PageContent
                     editMIdBox.Text = "";
                     editMIdBox.IsEnabled = true;
                 }
+            }
+            else
+            {
+                editMIdBox.Text = "";
+                editMIdBox.IsEnabled = true;
             }
         }
     }

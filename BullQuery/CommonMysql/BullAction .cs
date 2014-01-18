@@ -112,6 +112,37 @@ namespace CommonMysql
             return list;
         }
 
+
+
+        public int TotalCount()
+        {
+
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            bquery.sqlcom = "select count(*) from bulldsp";
+            MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            bquery.conn.Close();
+            return i;
+        }
+
+
+        public int CondationCount()
+        {
+
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            bquery.sqlcom = "select count(*) from bulldsp where bulldsp.Condition ='Y'";
+            MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            bquery.conn.Close();
+            return i;
+        }
+
         private void FindFatherLine(string Id)
         {
             if (RowsCount(Id))

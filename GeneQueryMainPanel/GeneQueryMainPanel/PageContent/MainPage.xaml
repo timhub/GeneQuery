@@ -119,7 +119,6 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
-                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>
@@ -148,7 +147,6 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
-                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>
@@ -268,7 +266,7 @@
             <Label Content="性别：" Grid.Column="1" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBlock x:Name="detailGenderText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
-        <Grid x:Name="editGrid" Grid.Column="1" Grid.ColumnSpan="3" Background="White" Margin="178,62,-2,0">
+        <Grid x:Name="editGrid" Grid.Column="1" Grid.ColumnSpan="3" Background="White" Margin="178,62,-2,0" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="380*"/>
                 <ColumnDefinition Width="421*"/>
@@ -282,7 +280,7 @@
             <Label Content="祖父代编号：" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="editItemIdBox" Height="32" Margin="100,62,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Padding="1,3,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA" LostFocus="editItemIdBox_LostFocus"/>
             <TextBox x:Name="editFIdBox" Height="32" Margin="100,103,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA" SelectionBrush="Black" LostFocus="editFIdBox_LostFocus"/>
-            <TextBox x:Name="editMIdBox" Height="32" Margin="100,142,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA"/>
+            <TextBox x:Name="editMIdBox" Height="32" Margin="100,142,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA" IsEnabled="False"/>
             <Button x:Name="editSaveBtn" Content="保   存" Margin="0,0,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85" Grid.Column="1"/>
             <Button x:Name="editCancelBtn" Content="取消编辑" Margin="0,0,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click" HorizontalAlignment="Right" Width="86" Height="30" VerticalAlignment="Bottom" Grid.Column="1"/>
             <Button x:Name="editBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,0,0,10" Width="85" Background="#FF9A3117" Foreground="White" Click="editBackBtn_Click" BorderBrush="#FF7A3939" Height="30" VerticalAlignment="Bottom"/>
@@ -497,7 +495,6 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
-                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>

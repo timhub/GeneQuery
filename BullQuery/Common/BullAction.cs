@@ -67,6 +67,25 @@ namespace Common
             bquery.conn.Close();
             return flag;
         }
+
+
+        public int TotalCount()
+        {
+            
+            if (bquery.conn.State == ConnectionState.Closed)
+            {
+                bquery.conn.Open();
+            }
+            bquery.sqlcom = "select count(*) from dbo.Cowdescription";
+
+            SqlCommand cmd = new SqlCommand(bquery.sqlcom, bquery.conn);
+            
+            int i=Convert.ToInt32(cmd.ExecuteScalar());
+            bquery.conn.Close();
+            return i;
+          
+        
+        }
         public List<string> FindParents(string Id)
         {
             List<string> list = new List<string>();
