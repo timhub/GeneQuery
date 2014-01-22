@@ -140,7 +140,8 @@ namespace GeneQueryMainPanel.PageContent
             editGrid.Visibility = System.Windows.Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Hidden;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
-            resetInput();
+            cleanInput();
+            cleanEditInput();
         }
 
         //save the input data of the add new item grid
@@ -185,7 +186,6 @@ namespace GeneQueryMainPanel.PageContent
         {
             // add new item cancel button function, clean the input text
             cleanInput();
-           
         }
 
         //trigger the validation function of the input text
@@ -256,8 +256,9 @@ namespace GeneQueryMainPanel.PageContent
             editItemSCS.Text = temBean.SCS;
             editItemT.Text = temBean.T;
             editItemTPI.Text = temBean.TPI;
-            
-            
+
+            editIdDiff.Visibility = System.Windows.Visibility.Hidden;
+            editIdError.Visibility = System.Windows.Visibility.Hidden;
         }
 
         /// <summary>
@@ -267,6 +268,7 @@ namespace GeneQueryMainPanel.PageContent
         /// <param name="e"></param>
         private void editSaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            
             String Id = editItemIdBox.Text;
             String FId = editFIdBox.Text;
             String MId = editMIdBox.Text;
@@ -289,18 +291,28 @@ namespace GeneQueryMainPanel.PageContent
             if (editConditionCheckbox.IsChecked == true)
             {
                 condition = "Y";
+                editItemFlag = true;
             }
             else 
             {
                 condition = "N";
+                editItemFlag = true;
             }
 
-            ba.updateInfoById(Id, MId, FId, "", "", gender, condition, _EBVFC, _TPI, _D, _H, _R, _EBVM, 
-                _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
+            if ("".Equals(editFIdBox.Text))
+            {
+                editItemFlag = false;
+            }
 
-            ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
-            ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
-            editGrid.Visibility = System.Windows.Visibility.Hidden;
+            editInputCheck();
+            if (editItemFlag)
+            {
+                ba.updateInfoById(Id, MId, FId, "", "", gender, condition, _EBVFC, _TPI, _D, _H, _R, _EBVM,
+                _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
+                ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
+                ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
+                editGrid.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         private void analysisMid_KeyDown(object sender, KeyEventArgs e)
@@ -700,17 +712,6 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-        //reset all input value when switching module.
-        private void resetInput()
-        {
-            // reset add item grid boxes
-            itemidBox.Text = "";
-            fidBox.Text = "";
-            midBox.Text = "";
-            itemidError.Visibility = System.Windows.Visibility.Hidden;
-            fidError.Visibility = System.Windows.Visibility.Hidden;
-        }
-
         private void cleanInput()
         {
             itemidBox.Text = "";
@@ -738,6 +739,30 @@ namespace GeneQueryMainPanel.PageContent
             newMidError.Visibility = System.Windows.Visibility.Hidden;
             newMidOk.Visibility = System.Windows.Visibility.Hidden;
             fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void cleanEditInput()
+        {
+            editItemIdBox.Text = "";
+            editFIdBox.Text = "";
+            editMIdBox.Text = "";
+            editConditionCheckbox.IsChecked = false;
+            editItemD.Text = "";
+            editItemEBCMS.Text = "";
+            editItemEBVFC.Text = "";
+            editItemEBVM.Text = "";
+            editItemEBVP.Text = "";
+            editItemFL.Text = "";
+            editItemH.Text = "";
+            editItemNation.Text = "";
+            editItemOthers.Text = "";
+            editItemR.Text = "";
+            editItemSCS.Text = "";
+            editItemT.Text = "";
+            editItemTPI.Text = "";
+
+            editIdError.Visibility = System.Windows.Visibility.Hidden;
+            editIdDiff.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void showDetailArea()
@@ -936,7 +961,8 @@ namespace GeneQueryMainPanel.PageContent
         private void analysisPageBtn_Click(object sender, RoutedEventArgs e)
         {
             ba.closeConnection();
-            resetInput();
+            cleanEditInput();
+            cleanInput();
             optionGrid.Visibility = Visibility.Hidden;
             analysisGrid.Visibility = System.Windows.Visibility.Visible;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
@@ -957,12 +983,14 @@ namespace GeneQueryMainPanel.PageContent
         private void editBackBtn_Click(object sender, RoutedEventArgs e)
         {
             editGrid.Visibility = System.Windows.Visibility.Hidden;
+            cleanEditInput();
         }
 
         private void addBackBtn_Click(object sender, RoutedEventArgs e)
         {
             ba.closeConnection();
             addNewItemGrid.Visibility = System.Windows.Visibility.Hidden;
+            cleanInput();
         }
         #endregion
 
@@ -1221,24 +1249,27 @@ namespace GeneQueryMainPanel.PageContent
         private void editInputCheck()
         {
             String newid = editItemIdBox.Text;
-            if ("".Equals(newid))
+            if ("".Equals(newid.Trim()))
             {
                 editItemFlag = false;
                 editIdError.Visibility = System.Windows.Visibility.Visible;
+                editIdDiff.Visibility = System.Windows.Visibility.Hidden;
                 editIdError.Text = "ID不能为空！";
             }
             else
             {
-                if (!newid.Equals(currentBean.Id))
+                if (!newid.Trim().Equals(currentBean.Id))
                 {
                     editItemFlag = true;
                     editIdDiff.Visibility = System.Windows.Visibility.Visible;
-                    editIdDiff.Text = "与原ID不同，将修改关联个体信息";
+                    editIdError.Visibility = System.Windows.Visibility.Hidden;
+                    editIdDiff.Text = "与原ID不同";
                 }
                 else
                 {
                     editItemFlag = true;
                     editIdDiff.Visibility = System.Windows.Visibility.Hidden;
+                    editIdError.Visibility = System.Windows.Visibility.Hidden;
                 }
                 editIdError.Visibility = System.Windows.Visibility.Hidden;
             }
