@@ -119,6 +119,7 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
+                <DataGridTextColumn Header="外祖父代编号" Binding="{Binding Action}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>
@@ -147,6 +148,7 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
+                <DataGridTextColumn Header="外祖父代编号" Binding="{Binding Action}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}" SortMemberPath="Id"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>
@@ -192,13 +194,13 @@
             <Button x:Name="saveItemBtn" Content="保    存" Margin="0,0,10,10" Grid.Row="1" BorderBrush="#FF7A3939" Foreground="White" Background="#FF9A3117" HorizontalAlignment="Right" Width="92" BorderThickness="2" Click="saveItemBtn_Click" Height="30" VerticalAlignment="Bottom" Grid.Column="1"/>
             <Button x:Name="addCancelBtn" Content="取消编辑" Margin="0,0,234,10" Grid.Row="1" BorderThickness="2" BorderBrush="#FFDEDEDE" Click="addCancelBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="87" Grid.Column="1"/>
             <TextBlock x:Name="itemidError" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Background="#FFC73434" Foreground="White" Width="180" Padding="7,4,0,0" Grid.Column="1" Visibility="Hidden"/>
-            <Label Content="现有个体：" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
-            <CheckBox x:Name="addConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="104,215,0,0" VerticalAlignment="Top" Foreground="#FF333333" BorderBrush="#FFC5C5C5" Height="16" Width="15"/>
+            <Label Content="现有个体：" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <CheckBox x:Name="addConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="104,221,0,0" VerticalAlignment="Top" Foreground="#FF333333" BorderBrush="#FFC5C5C5" Height="16" Width="15"/>
             <Label Content="备注：" HorizontalAlignment="Left" Margin="37,435,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right" Grid.Column="1"/>
             <TextBlock x:Name="fidAutoInsertText" HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" Text="新记录，将自动插入数据库" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Height="26" Width="180" Grid.Column="1" Visibility="Hidden"/>
             <Button x:Name="addToEditBtn" Content="转到编辑" HorizontalAlignment="Left" Margin="194,68,0,0" VerticalAlignment="Top" Width="75" Height="26" Foreground="White" Background="#FFC73434" BorderBrush="#FFC73434" Click="addToEditBtn_Click" Grid.Column="1" Visibility="Hidden"/>
             <Button x:Name="addBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,0,0,10" Width="85" Grid.Row="1" Background="#FF9A3117" Foreground="White" BorderBrush="#FF7A3939" Click="addBackBtn_Click" Height="30" VerticalAlignment="Bottom"/>
-            <TextBlock x:Name="addItemIdOk" HorizontalAlignment="Left" Margin="307,67,0,0" TextWrapping="Wrap" Text="Ok!" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Visibility="Hidden" Grid.ColumnSpan="2" Height="26" Width="180"/>
+            <TextBlock x:Name="addItemIdOk" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Ok!" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Height="26" Width="180" Grid.Column="1" Visibility="Hidden"/>
             <TextBlock TextWrapping="Wrap" Text="输入相应信息，*为必填项目" VerticalAlignment="Top" Height="40" Background="#FFFFC0C0" Padding="22,11,0,0" FontSize="14" HorizontalAlignment="Right" Width="212" Grid.Column="1"/>
             <Label Content="女儿数：" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="newItemD" Margin="101,244,95,0" TextWrapping="Wrap" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2" Height="32" VerticalAlignment="Top"/>
@@ -227,6 +229,9 @@
             <TextBlock x:Name="newMidOk" Grid.Column="1" HorizontalAlignment="Left" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4E811B" Background="#FF99F73D" Height="26" Width="180" Padding="5,5,0,0" Visibility="Hidden"/>
             <Label Content="国籍：" HorizontalAlignment="Left" Margin="37,248,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right" Grid.Column="1"/>
             <TextBox x:Name="newItemNation" Height="32" Margin="128,244,98,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2" Grid.Column="1"/>
+            <Label Content="外祖父代编号：" HorizontalAlignment="Left" Margin="2,185,0,0" VerticalAlignment="Top" Width="90" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <TextBox x:Name="mfidBox" Height="32" Margin="101,181,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2" LostFocus="mfidBox_LostFocus"/>
+            <TextBlock x:Name="addMfidOk" HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="180" MinHeight="26" Padding="5,4,0,0" Background="#FF99F73D" Foreground="#FF4E811B" Height="26" Width="180" Grid.Column="1" Visibility="Hidden"/>
         </Grid>
         <Grid x:Name="detailGrid" Grid.Column="1" Margin="183,0,0,0" Grid.ColumnSpan="3" Background="#F6292929" Height="176" VerticalAlignment="Bottom" Visibility="Hidden">
             <Grid.ColumnDefinitions>
@@ -264,7 +269,35 @@
                 </Button.Background>
             </Button>
             <Label Content="性别：" Grid.Column="1" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Button x:Name="deleteItemBtn" Content="删除该数据" Grid.Column="1" Margin="0,0,73,10" 
+            	Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" HorizontalAlignment="Right" Width="90" BorderThickness="1" RenderTransformOrigin="0.5,0.5" Focusable="False" IsHitTestVisible="True" Click="deleteItemBtn_Click" Height="28" VerticalAlignment="Bottom">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Effect>
+                    <DropShadowEffect ShadowDepth="3" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
             <TextBlock x:Name="detailGenderText" Grid.Column="1" HorizontalAlignment="Left" Margin="85,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+            <Button x:Name="deleteCfmBtn" Content="删除确认" Grid.Column="1" Foreground="White" BorderThickness="0" HorizontalAlignment="Right" Width="88" Margin="0,0,184,10" Click="deleteCfmBtn_Click" Height="28" VerticalAlignment="Bottom" Visibility="Hidden">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF99F73D" Offset="0.003"/>
+                        <GradientStop Color="#FF3D5920" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9CFB3E" Offset="0.007"/>
+                        <GradientStop Color="#FF3C5720" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
         <Grid x:Name="editGrid" Grid.Column="1" Grid.ColumnSpan="3" Background="White" Margin="178,62,-2,0" Visibility="Hidden">
             <Grid.ColumnDefinitions>
@@ -284,8 +317,8 @@
             <Button x:Name="editSaveBtn" Content="保   存" Margin="0,0,10,10" Background="#FF9A3117" BorderBrush="#FF7A3939" Foreground="White" Focusable="False" Click="editSaveBtn_Click" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85" Grid.Column="1"/>
             <Button x:Name="editCancelBtn" Content="取消编辑" Margin="0,0,209,10" BorderBrush="#FFF0F0F0" Focusable="False" Click="editCancelBtn_Click" HorizontalAlignment="Right" Width="86" Height="30" VerticalAlignment="Bottom" Grid.Column="1"/>
             <Button x:Name="editBackBtn" Content="返回上层" HorizontalAlignment="Left" Margin="10,0,0,10" Width="85" Background="#FF9A3117" Foreground="White" Click="editBackBtn_Click" BorderBrush="#FF7A3939" Height="30" VerticalAlignment="Bottom"/>
-            <Label Content="现有个体：" HorizontalAlignment="Left" Margin="-5,208,0,0" VerticalAlignment="Top" Width="85" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
-            <CheckBox x:Name="editConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="100,213,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA"/>
+            <Label Content="现有个体：" HorizontalAlignment="Left" Margin="-4,215,0,0" VerticalAlignment="Top" Width="85" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
+            <CheckBox x:Name="editConditionCheckbox" Content="" HorizontalAlignment="Left" Margin="101,220,0,0" VerticalAlignment="Top" BorderBrush="#FFAAAAAA"/>
             <Label Content="备注：" HorizontalAlignment="Left" Margin="48,433,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right" Grid.Column="1"/>
             <Label Content="女儿数：" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Width="70" Foreground="#FF333333" Height="26" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="editItemD" Height="32" Margin="101,244,91,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2"/>
@@ -314,6 +347,9 @@
             <TextBox x:Name="editItemNation" Height="32" Margin="139,242,94,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" BorderBrush="#FFC5C5C5" Foreground="#FF333333" SelectionBrush="#FF9A3117" BorderThickness="2" Grid.Column="1"/>
             <TextBlock x:Name="editIdError" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" Padding="5,5,0,0" Background="#FFC73434" Foreground="White" Visibility="Hidden"/>
             <TextBlock x:Name="editIdDiff" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="26" Padding="5,5,0,0" Background="#FFF98A1A" Foreground="White" Visibility="Hidden"/>
+            <Label Content="外祖父代编号：" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="editMfidBox" Height="32" Margin="100,179,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Padding="1,4,1,1" Foreground="#FF333333" BorderBrush="#FFAAAAAA" LostFocus="editMfidBox_LostFocus"/>
+            <TextBlock x:Name="editMfidOk" Grid.Column="1" HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF4E811B" Background="#FF99F73D" Height="26" Width="180" Padding="5,5,0,0" Visibility="Hidden"/>
         </Grid>
         <Grid x:Name="analysisGrid" Grid.ColumnSpan="3" Grid.Column="1" Margin="180,0,-2,0" Background="#F6292929" Visibility="Hidden">
             <Grid.Effect>
@@ -495,6 +531,7 @@
                 <DataGridTextColumn Header="个体编号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="父代编号" Binding="{Binding FId}"/>
                 <DataGridTextColumn Header="祖父代编号" Binding="{Binding MId}"/>
+                <DataGridTextColumn Header="外祖父代编号" Binding="{Binding Action}"/>
                 <DataGridTextColumn Header="国籍" Binding="{Binding Nation}"/>
                 <DataGridTextColumn Header="现有个体" Binding="{Binding Condition}"/>
                 <DataGridTextColumn Header="可靠性" Binding="{Binding R}"/>

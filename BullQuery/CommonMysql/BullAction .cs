@@ -745,10 +745,12 @@ namespace CommonMysql
             }
             try
             {
-                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + "', `Gender`='" + Gender + "', `Condition`='"+
-                    Condition + "', `EBVFC`='" + EBVFC + "', `TPI`='" + TPI + "', `D`='" + D + "', `H`='"+ H +
-                    "', `R`='" + R + "', `EBVM`='" + EBVM + "', `T`='" + T + "', `EBVP`='" + EBVP + "', `EBCMS`='" + EBCMS +
-                    "', `FL`='" + FL + "', `SCS`='" + SCS + "', `Others`='" + Others + "' WHERE `Id`='" + Id + "';";
+                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + FId + "', `MId`='" + MId + 
+                    "', `Gender`='" + Gender + "', `Action`='" + Action +"', `Condition`='"+
+                    Condition + "', `EBVFC`='" + EBVFC + "', `TPI`='" + TPI + "', `D`='" + D + 
+                    "', `H`='"+ H + "', `R`='" + R + "', `EBVM`='" + EBVM + "', `T`='" + T + 
+                    "', `EBVP`='" + EBVP + "', `EBCMS`='" + EBCMS + "', `FL`='" + FL + "', `SCS`='" + 
+                    SCS + "', `Others`='" + Others + "' WHERE `Id`='" + Id + "';";
                 MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -776,10 +778,14 @@ namespace CommonMysql
             }
             try
             {
-                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + data.FId + "', `MId`='" + data.MId + "', `Gender`='" + data.Gender + "', `Condition`='" +
-                    data.Condition + "', `EBVFC`='" + data.EBVFC + "', `TPI`='" + data.TPI + "', `D`='" + data.D + "', `H`='" + data.H +
-                    "', `R`='" + data.R + "', `EBVM`='" + data.EBVM + "', `T`='" + data.T + "', `EBVP`='" + data.EBVP + "', `EBCMS`='" + data.EBCMS +
-                    "', `FL`='" + data.FL + "', `SCS`='" + data.SCS + "', `Others`='" + data.Others + "' WHERE `Id`='" + data.Id + "';";
+                bquery.sqlcom = "UPDATE `bulldb`.`bulldsp` SET `FId`='" + data.FId + 
+                    "', `MId`='" + data.MId + "', `Gender`='" + data.Gender + "', `Condition`='" +
+                    data.Condition + "', `Action`='" + data.Action + "', `EBVFC`='" + data.EBVFC + 
+                    "', `TPI`='" + data.TPI + "', `D`='" + data.D + "', `H`='" + 
+                    data.H + "', `R`='" + data.R + "', `EBVM`='" + data.EBVM + "', `T`='" + 
+                    data.T + "', `EBVP`='" + data.EBVP + "', `EBCMS`='" + 
+                    data.EBCMS + "', `FL`='" + data.FL + "', `SCS`='" + data.SCS + "', `Others`='" + 
+                    data.Others + "' WHERE `Id`='" + data.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(bquery.sqlcom, bquery.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {

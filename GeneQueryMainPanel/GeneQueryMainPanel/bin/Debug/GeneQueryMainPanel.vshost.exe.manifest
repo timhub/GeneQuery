@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TlqY7zP6cYEDvQ8AYc8lzq7e494=</dsig:DigestValue>
+        <dsig:DigestValue>Ol+EiYO/iObNU3lw1JZfS5Kwczo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,19 +62,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VE5zVJON/saGKQYJCo+3Q+p6yOg=</dsig:DigestValue>
+        <dsig:DigestValue>risOZ9ynw7MHpFZoxD9RhXoN7fE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="612864">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GeneQueryMainPanel.exe" size="616960">
       <assemblyIdentity name="GeneQueryMainPanel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Ileib17952a51ezttgDsQdAxnk4=</dsig:DigestValue>
+        <dsig:DigestValue>Kr32PVQeqNeRwMv0Q3wzyzewC0I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
