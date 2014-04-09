@@ -20,6 +20,8 @@ using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Microsoft.Win32;
+using System.Threading;
+using GeneQueryMainPanel.Constants;
 
 namespace GeneQueryMainPanel.PageContent
 {
@@ -28,6 +30,8 @@ namespace GeneQueryMainPanel.PageContent
     /// </summary>
     public partial class MainPage : Window
     {
+       
+
         public ItemDataBean currentBean = new ItemDataBean();
         ItemDataBean temBean = new ItemDataBean();
         public List<ItemDataBean> recentItemList = new List<ItemDataBean>();
@@ -46,7 +50,7 @@ namespace GeneQueryMainPanel.PageContent
         bool isAdmin;
         UserIdentification ui = new UserIdentification();
 
-        //--------------Binding test---------------------------
+        List<String> EBVFCSelection = new List<String>();
 
         public MainPage()
         {
@@ -79,6 +83,12 @@ namespace GeneQueryMainPanel.PageContent
             this.ViewModel = new AllDataItemViewModel();
             this.ViewModel.view = this;
             this.overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
+
+            loadEBVFCSelection();
+            newItemEBVFC.ItemsSource = EBVFCSelection;
+            newItemEBVFC.SelectedIndex = 0;
+            editItemEBVFC.ItemsSource = EBVFCSelection;
+            editItemEBVFC.SelectedIndex = 0;
         }
 
 
@@ -199,11 +209,7 @@ namespace GeneQueryMainPanel.PageContent
                 if ((!"".Equals(input)) && ba.RowsCount(input))
                 {
                     addItemFlag = true;
-                    List<string> grandFatherList = ba.FindFather(input);
-                    if(grandFatherList.Count > 1)
-                    {
-                        grandFather = grandFatherList[1];
-                    }
+                    grandFather = ba.findFatherString(input);
                     
                     if (!"".Equals(grandFather))
                     {
@@ -235,6 +241,22 @@ namespace GeneQueryMainPanel.PageContent
         private void detailViewEditBtn_Click(object sender, RoutedEventArgs e)
         {
             temBean = currentBean;
+
+            //This block adds grandfather info to the database while user didn't input the infor for 
+            //this case.
+            if (!currentBean.FId.Equals(""))
+            {
+                String gfid = ba.findFatherString(currentBean.FId);
+                if (currentBean.Gfid.Equals("") || !gfid.Equals(currentBean.Gfid))
+                {
+                    if (!gfid.Equals(""))
+                    {
+                        currentBean.Gfid = gfid;
+                        ba.updateInfoById(currentBean);
+                    }
+                }
+            }
+            cleanEditInput();
             currentBeanDataDisplay();
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
             editGrid.Visibility = System.Windows.Visibility.Visible;
@@ -246,11 +268,11 @@ namespace GeneQueryMainPanel.PageContent
         {
             editItemIdBox.Text = temBean.Id;
             editFIdBox.Text = temBean.FId;
-            editMIdBox.Text = temBean.MId;
+            editMIdBox.Text = temBean.Gfid;
+            editMfidBox.Text = temBean.Mfid;
             editConditionCheckbox.IsChecked = "Y".Equals(temBean.Condition) ? true : false;
             editItemD.Text = temBean.D;
             editItemEBCMS.Text = temBean.EBCMS;
-            editItemEBVFC.Text = temBean.EBVFC;
             editItemEBVM.Text = temBean.EBVM;
             editItemEBVP.Text = temBean.EBVP;
             editItemFL.Text = temBean.FL;
@@ -261,6 +283,18 @@ namespace GeneQueryMainPanel.PageContent
             editItemSCS.Text = temBean.SCS;
             editItemT.Text = temBean.T;
             editItemTPI.Text = temBean.TPI;
+            if (CommonConstants.EBVFC_SELECT_2.Equals(temBean.EBVFC))
+            {
+                editItemEBVFC.SelectedIndex = 1;
+            }
+            else if (CommonConstants.EBVFC_SELECT_3.Equals(temBean.EBVFC))
+            {
+                editItemEBVFC.SelectedIndex = 2;
+            }
+            else
+            {
+                editItemEBVFC.SelectedIndex = 0;
+            }
 
             editIdDiff.Visibility = System.Windows.Visibility.Hidden;
             editIdError.Visibility = System.Windows.Visibility.Hidden;
@@ -278,7 +312,7 @@ namespace GeneQueryMainPanel.PageContent
             String FId = editFIdBox.Text;
             String MId = editMIdBox.Text;
             String MFId = editMfidBox.Text;
-            String gender = "";
+            String nation = editItemNation.Text;
             String condition = "";
 
             String _D = editItemD.Text;
@@ -317,30 +351,46 @@ namespace GeneQueryMainPanel.PageContent
                 if (ba.RowsCount(MFId))
                 {
                     editMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    editMfidOk.Text = "数据已存在";
+                    editMfidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
                 }
                 else
                 {
                     editMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    editMfidOk.Text = "新数据，将自动保存";
-                    ba.InsertBullInfo(MFId, "", "", "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                    editMfidOk.Text = CommonConstants.SAVE_NEW_DATA;
+                    ba.InsertBullInfo(MFId, "", "", "", "", "", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                }
+            }
 
-                    ItemDataBean newMfBean = new ItemDataBean();
-                    newMfBean.Id = MFId;
-                    newMfBean.Gender = "M";
-                    newMfBean.Condition = "N";
+            if (!FId.Equals(""))
+            {
+                if (ba.RowsCount(FId))
+                {
+                    String fFather = ba.findFatherString(FId);
+                    editFidOk.Visibility = System.Windows.Visibility.Visible;
+                    editFidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
 
-                    ViewModel.AllDataListDisplayList.Add(newMfBean);
-                    overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
+                    //modify the grandfather's id for the corresponding item.
+                    editMIdBox.Text = fFather;
+                    MId = fFather;
+                }
+                else
+                {
+                    ba.InsertBullInfo(FId, "", "", "", "", "", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                    editFidOk.Visibility = System.Windows.Visibility.Visible;
+                    editFidOk.Text = "";
+                    editMIdBox.Text = CommonConstants.SAVE_NEW_DATA;
                 }
             }
 
             if (editItemFlag)
             {
-                ba.updateInfoById(Id, MId, FId, MFId, "", gender, condition, _EBVFC, _TPI, _D, _H, _R, _EBVM,
+                if (CommonConstants.EBVFC_SELECT_1.Equals(_EBVFC))
+                {
+                    _EBVFC = "";
+                }
+                ba.updateInfoById(Id, MId, FId, "", nation, MFId, condition, _EBVFC, _TPI, _D, _H, _R, _EBVM,
                 _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
-                ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
-                ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
+                refreshView();
                 editGrid.Visibility = System.Windows.Visibility.Hidden;
             }
         }
@@ -363,6 +413,9 @@ namespace GeneQueryMainPanel.PageContent
             this.analysisFid.IsDropDownOpen = true;
         }
 
+        /**
+         * Main entrance for analyzing, it controls the fron end display and behavior.
+         */
         private void analysisBtn_Click(object sender, RoutedEventArgs e)
         {
             allResultGrid.Visibility = Visibility.Hidden;
@@ -463,6 +516,9 @@ namespace GeneQueryMainPanel.PageContent
             
         }
 
+        /**
+         * The action for analyze all the items that avaliable.
+         */
         private void getAllAnalysisResult(String id)
         {
             ViewModel = new AllDataItemViewModel();
@@ -504,7 +560,9 @@ namespace GeneQueryMainPanel.PageContent
         //=======================================below is action functions===================================
         # region actions
 
-        // This function is used for displaying family tree items of analysis grid
+        /**
+         * This function is for displaying the family tree for analyzing process.
+         */
         private void displayFamilyTree()
         {
             String fid = analysisFid.Text;
@@ -516,9 +574,9 @@ namespace GeneQueryMainPanel.PageContent
             ItemDataBean mf0DataBean = new ItemDataBean();
 
             f0DataBean.FId = "";
-            f0DataBean.MId = "";
+            f0DataBean.Gfid = "";
             mf0DataBean.FId = "";
-            mf0DataBean.MId = "";
+            mf0DataBean.Gfid = "";
 
             //left 0 tree node
             fid00Text.Text = fDataBean.Id;
@@ -533,7 +591,7 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
-                fid10Text.Text = "无记录";
+                fid10Text.Text = CommonConstants.NO_RECORD;
             }
            
             //right 10 tree node
@@ -545,7 +603,7 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
-                mfid10Text.Text = "无记录";
+                mfid10Text.Text = CommonConstants.NO_RECORD;
             }
 
             //set left 100 tree node
@@ -555,7 +613,7 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
-                fid100Text.Text = "无记录";
+                fid100Text.Text = CommonConstants.NO_RECORD;
             }
            
            
@@ -566,23 +624,24 @@ namespace GeneQueryMainPanel.PageContent
             }
             else
             {
-                mfid100Text.Text = "无记录";
+                mfid100Text.Text = CommonConstants.NO_RECORD;
             }
           
         }
 
-        // For edit grid to display data
+        /**
+         * For displaying corresponding data in edit pannel when selected an item from the first page.
+         */
         private void currentBeanDataDisplay()
         {
             editItemIdBox.Text = currentBean.Id;
             editFIdBox.Text = currentBean.FId;
-            String gender = currentBean.Gender;
             String condition = currentBean.Condition;
             editItemNation.Text = currentBean.Nation;
+            editMfidBox.Text = currentBean.Mfid;
 
             editItemD.Text = currentBean.D;
             editItemEBCMS.Text = currentBean.EBCMS;
-            editItemEBVFC.Text = currentBean.EBVFC;
             editItemEBVM.Text = currentBean.EBVM;
             editItemEBVP.Text = currentBean.EBVP;
             editItemFL.Text = currentBean.FL;
@@ -593,15 +652,27 @@ namespace GeneQueryMainPanel.PageContent
             editItemTPI.Text = currentBean.TPI;
             editItemOthers.Text = currentBean.Others;
 
-            if ("".Equals(currentBean.MId))
+            if (CommonConstants.EBVFC_SELECT_2.Equals(currentBean.EBVFC))
             {
-                editMIdBox.IsEnabled = true;
-                editMIdBox.Text = currentBean.MId;
+                editItemEBVFC.SelectedIndex = 1;
+            }
+            else if (CommonConstants.EBVFC_SELECT_3.Equals(currentBean.EBVFC))
+            {
+                editItemEBVFC.SelectedIndex = 2;
             }
             else
             {
-                editMIdBox.IsEnabled = false;
-                editMIdBox.Text = currentBean.MId;
+                editItemEBVFC.SelectedIndex = 0;
+            }
+
+
+            if ("".Equals(currentBean.Gfid))
+            {
+                editMIdBox.Text = currentBean.Gfid;
+            }
+            else
+            {
+                editMIdBox.Text = currentBean.Gfid;
             }
 
             if (condition.Equals("Y"))
@@ -614,7 +685,9 @@ namespace GeneQueryMainPanel.PageContent
             }
         }
 
-        //TODO add bind actions for grandfather generation
+        /**
+         * Main entrance of saving data from adding new item pannel.
+         */
         private void saveData()
         {
             bool addGFNodeFlag = false;
@@ -667,16 +740,19 @@ namespace GeneQueryMainPanel.PageContent
                 fidError.Visibility = System.Windows.Visibility.Hidden;
             }
 
-           
+            if (itemidBox.Text.Equals(fidBox.Text) || itemidBox.Text.Equals(midBox.Text)
+                || itemidBox.Text.Equals(mfidBox.Text))
+            {
+                MessageBox.Show("个体ID与前代ID不可相同");
+                addItemFlag = false;
+            }
 
             if (addItemFlag)
             {
                 String itemId = itemidBox.Text;
                 String fId = fidBox.Text;
-                String mId = midBox.Text;
+                String gfid = midBox.Text;
                 String mfId = mfidBox.Text;
-                //gender not useful for new design
-                String gender = "";
                 String condition = "";
                 String nation = newItemNation.Text;
 
@@ -698,21 +774,13 @@ namespace GeneQueryMainPanel.PageContent
                     if (ba.RowsCount(mfId))
                     {
                         addMfidOk.Visibility = System.Windows.Visibility.Visible;
-                        addMfidOk.Text = "数据已存在";
+                        addMfidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
                     }
                     else
                     {
                         addMfidOk.Visibility = System.Windows.Visibility.Visible;
-                        addMfidOk.Text = "新数据，将自动保存";
-                        ba.InsertBullInfo(mfId, "", "", "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
-
-                        ItemDataBean newMfBean = new ItemDataBean();
-                        newMfBean.Id = mfId;
-                        newMfBean.Gender = "M";
-                        newMfBean.Condition = "N";
-
-                        ViewModel.AllDataListDisplayList.Add(newMfBean);
-                        overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
+                        addMfidOk.Text = CommonConstants.SAVE_NEW_DATA;
+                        ba.InsertBullInfo(mfId, "", "", "", "", "", "N", "", "", "", "", "", "", "", "", "", "", "", "");
                     }
                 }
 
@@ -725,47 +793,26 @@ namespace GeneQueryMainPanel.PageContent
                     condition = "N";
                 }
 
-                ba.InsertBullInfo(itemId, mId, fId, mfId, nation, "M", condition, _EBVFC, _TPI, _D, _H, _R, 
-                    _EBVM, _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
-                ItemDataBean newItem = new ItemDataBean();
-                newItem.Id = itemId;
-                newItem.MId = mId;
-                newItem.FId = fId;
-                newItem.Gender = gender;
-                newItem.Condition = condition;
-
-                ViewModel.AllDataListDisplayList.Add(newItem);
-                if (condition.Equals("Y"))
+                if (CommonConstants.EBVFC_SELECT_1.Equals(_EBVFC))
                 {
-                    ViewModel.CurrentDataListDisplayList.Add(newItem);
+                    _EBVFC = "";
                 }
+
+                ba.InsertBullInfo(itemId, fId, gfid, mfId, nation, "", condition, _EBVFC, _TPI, _D, _H, _R, 
+                    _EBVM, _T, _EBVP, _EBCMS, _FL, _SCS, _Others);
 
                 if (addGFNodeFlag)
                 {
-                    ba.InsertBullInfo(mId, "", "", "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
-                    ItemDataBean newItemGF = new ItemDataBean();
-                    newItemGF.Id = mId;
-                    newItemGF.Gender = "M";
-                    newItemGF.Condition = "N";
-
-                    ViewModel.AllDataListDisplayList.Add(newItemGF);
+                    ba.InsertBullInfo(gfid, "", "", "", "", "", "N", "", "", "", "", "", "", "", "", "", "", "", "");
                 }
 
                 //insert new fid
                 if (!ba.RowsCount(fId))
                 {
-                    ba.InsertBullInfo(fId, "", mId, "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
-                    ItemDataBean newItemF = new ItemDataBean();
-                    newItemF.Id = fId;
-                    newItemF.FId = mId;
-                    newItemF.Gender = "M";
-                    newItemF.Condition = "N";
-
-                    ViewModel.AllDataListDisplayList.Add(newItemF);
+                    ba.InsertBullInfo(fId, gfid, "", "", "", "", "N", "", "", "", "", "", "", "", "", "", "", "", "");
                 }
                 cleanInput();
-                overviewAllNumText.Text = ba.TotalCount() + "";
-                overviewCurrentNumText.Text = ba.CondationCount() + "";
+                refreshView();
             }
         }
 
@@ -778,7 +825,7 @@ namespace GeneQueryMainPanel.PageContent
             addConditionCheckbox.IsChecked = false;
             newItemD.Text = "";
             newItemEBCMS.Text = "";
-            newItemEBVFC.Text = "";
+            newItemEBVFC.SelectedIndex = 0;
             newItemEBVM.Text = "";
             newItemEBVP.Text = "";
             newItemFL.Text = "";
@@ -798,6 +845,22 @@ namespace GeneQueryMainPanel.PageContent
             newMidOk.Visibility = System.Windows.Visibility.Hidden;
             fidAutoInsertText.Visibility = System.Windows.Visibility.Hidden;
             addMfidOk.Visibility = System.Windows.Visibility.Hidden;
+
+            if (midBox.IsEnabled == false)
+            {
+                midBox.IsEnabled = true;
+            }
+        }
+
+        /**
+         * Refresh the display view of the data grids.
+         */
+        private void refreshView()
+        {
+            ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
+            ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
+            overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
+            overviewCurrentNumText.Text = ViewModel.CurrentDataListDisplayList.Count + "";
         }
 
         private void cleanEditInput()
@@ -808,7 +871,7 @@ namespace GeneQueryMainPanel.PageContent
             editConditionCheckbox.IsChecked = false;
             editItemD.Text = "";
             editItemEBCMS.Text = "";
-            editItemEBVFC.Text = "";
+            editItemEBVFC.SelectedIndex = 0;
             editItemEBVM.Text = "";
             editItemEBVP.Text = "";
             editItemFL.Text = "";
@@ -824,6 +887,8 @@ namespace GeneQueryMainPanel.PageContent
             editIdError.Visibility = System.Windows.Visibility.Hidden;
             editIdDiff.Visibility = System.Windows.Visibility.Hidden;
             editMfidOk.Visibility = System.Windows.Visibility.Hidden;
+            editFidOk.Visibility = System.Windows.Visibility.Hidden;
+            editMfidOk.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private void showDetailArea()
@@ -831,9 +896,9 @@ namespace GeneQueryMainPanel.PageContent
             detailGrid.Visibility = System.Windows.Visibility.Visible;
             detailItemIdText.Text = currentBean.Id;
             detailFidText.Text = currentBean.FId;
-            detailMIdText.Text = currentBean.MId;
+            detailMIdText.Text = currentBean.Gfid;
             detailNationText.Text = currentBean.Nation;
-            detailGenderText.Text = currentBean.Gender;
+            detailGenderText.Text = "M";
             deleteItemBtn.Visibility = System.Windows.Visibility.Visible;
             deleteCfmBtn.Visibility = System.Windows.Visibility.Hidden;
         }
@@ -1192,6 +1257,9 @@ namespace GeneQueryMainPanel.PageContent
             showDetailArea();
         }
 
+        /**
+         * Action for backing up data.
+         */
         private void backupButton_Click(object sender, RoutedEventArgs e)
         {
             CsvFileOperator opt = new CsvFileOperator();
@@ -1221,10 +1289,10 @@ namespace GeneQueryMainPanel.PageContent
                         List<String> dataList = dataStr.Split(',').ToList();
                         dataBean.Id = dataList[0];
                         dataBean.FId = dataList[1];
-                        dataBean.MId = dataList[2];
-                        dataBean.Nation = dataList[3];
-                        dataBean.Gender = dataList[4];
-                        dataBean.Condition = dataList[5];
+                        dataBean.Gfid = dataList[2];
+                        dataBean.Mfid = dataList[3];
+                        dataBean.Condition = dataList[4];
+                        dataBean.Nation = dataList[5];
                         dataBean.EBVFC = dataList[6];
                         dataBean.TPI = dataList[7];
                         dataBean.D = dataList[8];
@@ -1344,29 +1412,19 @@ namespace GeneQueryMainPanel.PageContent
         {
             String fid = editFIdBox.Text;
             String grandf = "";
-            if (ba.RowsCount(fid))
+            if (!fid.Equals(""))
             {
-                List<String> flist = ba.FindFather(fid);
-                if(flist.Count > 1)
+                if (ba.RowsCount(fid))
                 {
-                    grandf = flist[1];
-                }
-                
-                if (!"".Equals(grandf))
-                {
+                    grandf = ba.findFatherString(fid);
                     editMIdBox.Text = grandf;
-                    editMIdBox.IsEnabled = false;
+                    editFidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
                 }
                 else
                 {
                     editMIdBox.Text = "";
-                    editMIdBox.IsEnabled = true;
+                    editFidOk.Text = "新数据，将自动加入";
                 }
-            }
-            else
-            {
-                editMIdBox.Text = "";
-                editMIdBox.IsEnabled = true;
             }
         }
 
@@ -1378,13 +1436,12 @@ namespace GeneQueryMainPanel.PageContent
                 if (ba.RowsCount(input))
                 {
                     editMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    editMfidOk.Text = "数据已存在";
+                    editMfidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
                 }
                 else
                 {
                     editMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    editMfidOk.Text = "新数据，将自动保存";
-                    ba.InsertBullInfo(input, "", "", "", "", "M", "N", "", "", "", "", "", "", "", "", "", "", "", "");
+                    editMfidOk.Text = CommonConstants.SAVE_NEW_DATA;
                 }
             }
         }
@@ -1397,12 +1454,12 @@ namespace GeneQueryMainPanel.PageContent
                 if (ba.RowsCount(input))
                 {
                     addMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    addMfidOk.Text = "数据已存在";
+                    addMfidOk.Text = CommonConstants.SAVE_DATA_EXISTS;
                 }
                 else
                 {
                     addMfidOk.Visibility = System.Windows.Visibility.Visible;
-                    addMfidOk.Text = "新数据，将自动保存";
+                    addMfidOk.Text = CommonConstants.SAVE_NEW_DATA;
                 }
             }
         }
@@ -1416,14 +1473,18 @@ namespace GeneQueryMainPanel.PageContent
         {
             ba.DeleteBullInfo(currentBean.Id);
             currentBean = null;
-            ViewModel.AllDataListDisplayList = ba.GetAllItemsInOberv();
-            ViewModel.CurrentDataListDisplayList = ba.GetAllCurrentItemsInOberv();
-            overviewAllNumText.Text = ViewModel.AllDataListDisplayList.Count + "";
-            overviewCurrentNumText.Text = ViewModel.CurrentDataListDisplayList.Count + "";
+            refreshView();
             deleteCfmBtn.Visibility = System.Windows.Visibility.Hidden;
             detailGrid.Visibility = System.Windows.Visibility.Hidden;
 
             MessageBox.Show("删除成功");
+        }
+
+        private void loadEBVFCSelection()
+        {
+            EBVFCSelection.Add(CommonConstants.EBVFC_SELECT_1);
+            EBVFCSelection.Add(CommonConstants.EBVFC_SELECT_2);
+            EBVFCSelection.Add(CommonConstants.EBVFC_SELECT_3);
         }
     }
 }

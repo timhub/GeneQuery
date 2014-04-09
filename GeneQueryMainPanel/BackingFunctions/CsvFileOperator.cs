@@ -35,13 +35,13 @@ namespace BackingFunctions
                              .Append(",")
                              .Append(itemDataBean.FId)
                              .Append(",")
-                             .Append(itemDataBean.MId)
+                             .Append(itemDataBean.Gfid)
                              .Append(",")
-                             .Append(itemDataBean.Nation)
-                             .Append(",")
-                             .Append(itemDataBean.Gender)
+                             .Append(itemDataBean.Mfid)
                              .Append(",")
                              .Append(itemDataBean.Condition)
+                             .Append(",")
+                             .Append(itemDataBean.Nation)
                              .Append(",")
                              .Append(itemDataBean.EBVFC)
                              .Append(",")
@@ -76,7 +76,7 @@ namespace BackingFunctions
         //write the header of the chart
         private void WriteHeader(StreamWriter streamWriter)
         {
-            streamWriter.WriteLine("个体编号,父亲编号,母亲编号,国籍,性别,现有个体,外貌等级,总性能指数," +
+            streamWriter.WriteLine("个体编号,父亲编号,祖父编号,外祖父编号,现有个体,国籍,外貌等级,总性能指数," +
                                    "女儿数,牛群数,可靠性,产奶量育种值,体型,乳蛋白量育种值,泌乳系统,肢蹄,体细胞,其他");
         }
 

@@ -42,36 +42,36 @@ namespace CommonMysql
             }
         }
 
-        private String mid;
-        public String MId
+        private String gfid;
+        public String Gfid
         {
             get
             {
-                return this.mid;
+                return this.gfid;
             }
             set
             {
-                if (this.mid != value)
+                if (this.gfid != value)
                 {
-                    this.mid = value;
-                    OnPropertyChanged("MId");
+                    this.gfid = value;
+                    OnPropertyChanged("Gfid");
                 }
             }
         }
 
-        private String action;
-        public String Action
+        private String mfid;
+        public String Mfid
         {
             get
             {
-                return this.action;
+                return this.mfid;
             }
             set
             {
-                if (this.action != value)
+                if (this.mfid != value)
                 {
-                    this.action = value;
-                    OnPropertyChanged("Action");
+                    this.mfid = value;
+                    OnPropertyChanged("Mfid");
                 }
             }
         }
@@ -93,19 +93,19 @@ namespace CommonMysql
             }
         }
 
-        private String gender;
-        public String Gender
+        private String temp;
+        public String Temp
         {
             get
             {
-                return this.gender;
+                return this.temp;
             }
             set
             {
-                if (this.gender != value)
+                if (this.temp != value)
                 {
-                    this.gender = value;
-                    OnPropertyChanged("Gender");
+                    this.temp = value;
+                    OnPropertyChanged("Temp");
                 }
             }
         }

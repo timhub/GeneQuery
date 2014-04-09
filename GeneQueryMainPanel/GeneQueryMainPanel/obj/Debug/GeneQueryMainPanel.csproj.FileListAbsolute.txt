@@ -26,3 +26,4 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel_MarkupCompile.lref
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.pdb
+E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.csprojResolveAssemblyReference.cache
