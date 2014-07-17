@@ -27,3 +27,6 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\BackingFunctions.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.csprojResolveAssemblyReference.cache
+D:\Work\workspace\GitHubRepos\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\bin\Debug\GeneQueryMainPanel.exe.config
+D:\Work\workspace\GitHubRepos\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.exe
+D:\Work\workspace\GitHubRepos\GeneQuery\GeneQueryMainPanel\GeneQueryMainPanel\obj\Debug\GeneQueryMainPanel.pdb

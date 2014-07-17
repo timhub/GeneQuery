@@ -3,5 +3,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <sys:String x:Key="login_subtitle">畜牧业种群育种选配系统</sys:String>
     <sys:String x:Key="login_username">用户名：</sys:String>
-    <sys:String x:Key="login_userpass">密码：</sys:String>
+    <sys:String x:Key="login_userpass">密  码：</sys:String>
+    <sys:String x:Key="login_cancelbtn">取  消</sys:String>
+    <sys:String x:Key="login_logbtn">登  陆</sys:String>
+    <sys:String x:Key="login_loginfoerror">输入信息有误，请检查</sys:String>
+    <sys:String x:Key="login_cdkeyerror">注册信息有误，请联系管理员</sys:String>
 </ResourceDictionary>  

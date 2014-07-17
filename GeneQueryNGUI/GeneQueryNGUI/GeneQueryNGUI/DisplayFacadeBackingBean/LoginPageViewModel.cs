@@ -41,5 +41,23 @@ namespace GeneQueryNGUI.DisplayFacadeBackingBean
                 }
             }
         }
+
+        private int loginFlag;
+        public int LoginFlag
+        {
+            get
+            {
+                return this.loginFlag;
+            }
+            set
+            {
+                if (this.loginFlag != value)
+                {
+                    this.loginFlag = value;
+                    OnPropertyChanged("LoginFlag");
+                }
+            }
+        }
+
     }
 }

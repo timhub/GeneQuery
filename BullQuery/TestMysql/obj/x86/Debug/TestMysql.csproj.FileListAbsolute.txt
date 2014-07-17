@@ -16,3 +16,5 @@ E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\MySQLDri
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\MySql.Data.dll
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\bin\Debug\CommonMysql.pdb
 E:\Works\SoftProjects\geneQuery\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.csprojResolveAssemblyReference.cache
+D:\Work\workspace\GitHubRepos\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.exe
+D:\Work\workspace\GitHubRepos\GeneQuery\BullQuery\TestMysql\obj\x86\Debug\TestMysql.pdb

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\Works\SoftProjects\geneQuery\GeneQueryNGUI\GeneQueryNGUI\GeneQueryNGUI\obj\Debug\
+D:\Work\workspace\GitHubRepos\GeneQuery\GeneQueryNGUI\GeneQueryNGUI\GeneQueryNGUI\obj\Debug\
 GeneQueryNGUI
 none
 false
 DEBUG;TRACE
-E:\Works\SoftProjects\geneQuery\GeneQueryNGUI\GeneQueryNGUI\GeneQueryNGUI\App.xaml
+D:\Work\workspace\GitHubRepos\GeneQuery\GeneQueryNGUI\GeneQueryNGUI\GeneQueryNGUI\App.xaml
 61137180869
 11363817073
 12982323427
-131242308270
+151473768853
 LoginWindow.xaml;MainWindow.xaml;Content\About.xaml;Content\SettingsAppearance.xaml;Pages\Home.xaml;Pages\Settings.xaml;
 
 False

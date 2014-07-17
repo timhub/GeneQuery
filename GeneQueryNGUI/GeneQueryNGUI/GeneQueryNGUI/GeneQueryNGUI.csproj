@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BackingFunctions">
+      <HintPath>..\..\..\GeneQueryMainPanel\BackingFunctions\bin\Debug\BackingFunctions.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonMysql">
+      <HintPath>..\..\..\BullQuery\CommonMysql\bin\Debug\CommonMysql.dll</HintPath>
+    </Reference>
     <Reference Include="FirstFloor.ModernUI">
       <HintPath>..\packages\ModernUI.WPF.1.0.5\lib\net45\FirstFloor.ModernUI.dll</HintPath>
     </Reference>

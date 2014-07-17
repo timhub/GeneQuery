@@ -13,17 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GeneQueryNGUI.DisplayFacadeBackingBean;
+using CommonMysql;
 
 namespace GeneQueryNGUI
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : UserControl
+    public partial class LoginWindow : Window
     {
+        UserIdentification userIdentification;
+        ResourceDictionary resourceDict;
+
         public LoginWindow()
         {
             InitializeComponent();
+            userIdentification = new UserIdentification();
             this.ViewModel = new LoginPageViewModel();
         }
 
@@ -38,5 +43,51 @@ namespace GeneQueryNGUI
                 this.DataContext = value;
             }
         }
+
+        private void login_cancelbtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void login_logbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (userIdentification.validatePC())
+            {
+                if (userIdentification.UserValidate(ViewModel.UserName, ViewModel.UserPass))
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    ViewModel.LoginFlag = 2;
+                }
+            }
+            else
+            {
+                ViewModel.LoginFlag = 1;
+            }
+            manageErrorMessageDisplay();
+        }
+
+        private void manageErrorMessageDisplay()
+        {
+            if (ViewModel.LoginFlag == 1)
+            {
+                login_cdkeyerrortxt.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (ViewModel.LoginFlag == 2)
+            {
+                login_loginfoerrortxt.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            login_loginfoerrortxt.Visibility = System.Windows.Visibility.Hidden;
+            login_cdkeyerrortxt.Visibility = System.Windows.Visibility.Hidden;
+        }
+
     }
 }
