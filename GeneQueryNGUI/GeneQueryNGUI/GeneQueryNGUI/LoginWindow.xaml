@@ -29,7 +29,7 @@
                    TextWrapping="Wrap" Text="{DynamicResource login_userpass}" 
                    VerticalAlignment="Bottom" Foreground="White" HorizontalAlignment="Right" Width="120" Height="38" 
                    Padding="0,10,0,0" TextAlignment="Right" Grid.Row="1" FontSize="14"/>
-        <PasswordBox Margin="181,120,139,153" Grid.Row="1" Padding="2,5,1,1"/>
+        <PasswordBox x:Name="login_userPassBox" Margin="181,120,139,153" Grid.Row="1" Padding="2,5,1,1"/>
         <Button x:Name="login_cancelbtn" Content="{DynamicResource login_cancelbtn}" 
                 Margin="491,13,26,10" Click="login_cancelbtn_Click" Grid.Row="2"/>
         <Button x:Name="login_logbtn" Content="{DynamicResource login_logbtn}" 

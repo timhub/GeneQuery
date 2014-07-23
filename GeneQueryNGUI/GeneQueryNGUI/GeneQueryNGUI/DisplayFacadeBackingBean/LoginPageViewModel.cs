@@ -9,7 +9,7 @@ namespace GeneQueryNGUI.DisplayFacadeBackingBean
     public class LoginPageViewModel : BaseDataBindingBean
     {
         private String userName;
-        public String UserName 
+        public String UserName
         {
             get
             {

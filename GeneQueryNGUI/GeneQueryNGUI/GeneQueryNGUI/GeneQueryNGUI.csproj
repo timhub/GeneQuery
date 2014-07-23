@@ -31,14 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BackingFunctions">
+    <Reference Include="BackingFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\GeneQueryMainPanel\BackingFunctions\bin\Debug\BackingFunctions.dll</HintPath>
     </Reference>
-    <Reference Include="CommonMysql">
+    <Reference Include="CommonMysql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\BullQuery\CommonMysql\bin\Debug\CommonMysql.dll</HintPath>
     </Reference>
     <Reference Include="FirstFloor.ModernUI">
       <HintPath>..\packages\ModernUI.WPF.1.0.5\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQLDriverCS">
+      <HintPath>..\..\..\BullQuery\CommonMysql\bin\Debug\MySQLDriverCS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

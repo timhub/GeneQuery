@@ -8,4 +8,7 @@
     <sys:String x:Key="login_logbtn">登  陆</sys:String>
     <sys:String x:Key="login_loginfoerror">输入信息有误，请检查</sys:String>
     <sys:String x:Key="login_cdkeyerror">注册信息有误，请联系管理员</sys:String>
+    <sys:String x:Key="setting_appearance">外观</sys:String>
+    <sys:String x:Key="setting_about">关于</sys:String>
+    <sys:String x:Key="about_content">GeneQuery 1.0.2 陕西澳希生物技术有限公司 all rights reserved</sys:String>
 </ResourceDictionary>  

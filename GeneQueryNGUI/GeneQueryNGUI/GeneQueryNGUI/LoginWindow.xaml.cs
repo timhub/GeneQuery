@@ -23,7 +23,6 @@ namespace GeneQueryNGUI
     public partial class LoginWindow : Window
     {
         UserIdentification userIdentification;
-        ResourceDictionary resourceDict;
 
         public LoginWindow()
         {
@@ -51,9 +50,10 @@ namespace GeneQueryNGUI
 
         private void login_logbtn_Click(object sender, RoutedEventArgs e)
         {
+            String userPass = this.login_userPassBox.Password;
             if (userIdentification.validatePC())
             {
-                if (userIdentification.UserValidate(ViewModel.UserName, ViewModel.UserPass))
+                if (userIdentification.UserValidate(ViewModel.UserName, userPass))
                 {
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
@@ -76,10 +76,12 @@ namespace GeneQueryNGUI
             if (ViewModel.LoginFlag == 1)
             {
                 login_cdkeyerrortxt.Visibility = System.Windows.Visibility.Visible;
+                login_loginfoerrortxt.Visibility = System.Windows.Visibility.Hidden;
             }
             else if (ViewModel.LoginFlag == 2)
             {
                 login_loginfoerrortxt.Visibility = System.Windows.Visibility.Visible;
+                login_cdkeyerrortxt.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
