@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GeneQueryNGUI.DisplayFacadeBackingBean;
 
 namespace GeneQueryNGUI.Pages
 {
@@ -20,9 +21,26 @@ namespace GeneQueryNGUI.Pages
     /// </summary>
     public partial class Home : UserControl
     {
+        public HomePageViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as HomePageViewModel;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
+        }
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel = new HomePageViewModel();
+            this.ViewModel.view = this;
         }
     }
 }

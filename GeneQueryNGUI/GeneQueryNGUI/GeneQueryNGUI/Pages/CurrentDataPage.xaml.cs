@@ -1,5 +1,4 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GeneQueryNGUI.RuntimeUtilityBean;
 
-namespace GeneQueryNGUI
+namespace GeneQueryNGUI.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CurrentDataPage.xaml
     /// </summary>
-    partial class MainWindow : ModernWindow
+    public partial class CurrentDataPage : UserControl
     {
-        public MainWindow()
+        public CurrentDataPage()
         {
             InitializeComponent();
         }

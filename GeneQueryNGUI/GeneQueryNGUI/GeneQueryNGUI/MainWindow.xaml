@@ -7,19 +7,32 @@
         ContentSource="/Pages/Home.xaml">
 
     <mui:ModernWindow.MenuLinkGroups>
-        <mui:LinkGroup DisplayName="welcome">
+        <mui:LinkGroup DisplayName="{StaticResource main_dataview}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="home" Source="/Pages/Home.xaml" />
+                <mui:Link DisplayName="{StaticResource main_overview}" Source="/Pages/Home.xaml" />
+                <mui:Link DisplayName="{StaticResource main_alldatagrid}" Source="/Pages/AllDataPage.xaml" />
+                <mui:Link DisplayName="{StaticResource main_currentdatagrid}" Source="/Pages/CurrentDataPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="settings" GroupName="settings">
+        <mui:LinkGroup DisplayName="{StaticResource main_dataedit}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="{StaticResource main_addnewdata}" Source="/Pages/AddNewDataPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{StaticResource main_analysis}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="{StaticResource main_singleanalysis}" Source="/Pages/SingleAnalysisPage.xaml" />
+                <mui:Link DisplayName="{StaticResource main_allanalysis}" Source="/Pages/AllAnalysisPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{StaticResource main_setting}" GroupName="settings">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="software" Source="/Pages/Settings.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
-    
+
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="settings" Source="/Pages/Settings.xaml" />
+        <mui:Link DisplayName="{StaticResource main_setting}" Source="/Pages/Settings.xaml" />
     </mui:ModernWindow.TitleLinks>
 </mui:ModernWindow>

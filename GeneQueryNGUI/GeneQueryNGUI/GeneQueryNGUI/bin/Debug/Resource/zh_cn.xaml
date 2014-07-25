@@ -10,5 +10,19 @@
     <sys:String x:Key="login_cdkeyerror">注册信息有误，请联系管理员</sys:String>
     <sys:String x:Key="setting_appearance">外观</sys:String>
     <sys:String x:Key="setting_about">关于</sys:String>
+    <sys:String x:Key="appearance_theme">主题:</sys:String>
+    <sys:String x:Key="appearance_fontsize">字体大小:</sys:String>
     <sys:String x:Key="about_content">GeneQuery 1.0.2 陕西澳希生物技术有限公司 all rights reserved</sys:String>
+    <sys:String x:Key="main_setting">设置</sys:String>
+    <sys:String x:Key="main_dataview">数据查看</sys:String>
+    <sys:String x:Key="main_overview">数据总览</sys:String>
+    <sys:String x:Key="main_alldatagrid">全部个体</sys:String>
+    <sys:String x:Key="main_currentdatagrid">现有个体</sys:String>
+    <sys:String x:Key="main_dataedit">数据编辑</sys:String>
+    <sys:String x:Key="main_addnewdata">添加个体信息</sys:String>
+    <sys:String x:Key="main_analysis">育种分析</sys:String>
+    <sys:String x:Key="main_singleanalysis">单个配对信息</sys:String>
+    <sys:String x:Key="main_allanalysis">全部配对信息</sys:String>
+    <sys:String x:Key="home_allcount">全部个体数量：</sys:String>
+    <sys:String x:Key="home_allcurrentcount">现有个体数量：</sys:String>
 </ResourceDictionary>  

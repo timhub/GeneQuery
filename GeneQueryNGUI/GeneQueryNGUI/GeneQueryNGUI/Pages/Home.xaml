@@ -5,11 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
-    <Grid Style="{StaticResource ContentRoot}">
-        <ScrollViewer>
-            <StackPanel MinWidth="200">
-                <TextBlock Text="TODO: add content" />
-            </StackPanel>
-        </ScrollViewer>
+    <Grid Style="{StaticResource ContentRoot}" Loaded="Grid_Loaded">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{StaticResource home_allcount}" VerticalAlignment="Top" 
+                   Margin="68,41,0,0" Height="25" Width="116" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="68,97,0,0" TextWrapping="Wrap" Text="{StaticResource home_allcurrentcount}" 
+                   VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="208,41,0,0" TextWrapping="Wrap" Text="{Binding AllItemCount}" 
+                   VerticalAlignment="Top" FontSize="16" Name="home_allCountTxt"/>
+        <TextBlock HorizontalAlignment="Left" Margin="208,97,0,0" TextWrapping="Wrap" Text="{Binding CurrentItemCount}" 
+                   VerticalAlignment="Top" FontSize="16" Name="home_allCurrentCountTxt"/>
     </Grid>
 </UserControl>

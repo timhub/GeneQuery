@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GeneQueryNGUI.DisplayFacadeBackingBean;
+using GeneQueryNGUI.RuntimeUtilityBean;
 using CommonMysql;
 
 namespace GeneQueryNGUI
@@ -55,6 +56,7 @@ namespace GeneQueryNGUI
             {
                 if (userIdentification.UserValidate(ViewModel.UserName, userPass))
                 {
+                    RuntimeDataHandler.getInstance().IsAdmin = userIdentification.IsAdmin(ViewModel.UserName);
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Close();
