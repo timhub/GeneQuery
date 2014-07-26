@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using GeneQueryNGUI.Utilities.IniUtilities;
 
 namespace GeneQueryNGUI.Content
 {
@@ -74,9 +75,21 @@ namespace GeneQueryNGUI.Content
 
         private void SyncThemeAndColor()
         {
+            String iniPath = System.Environment.CurrentDirectory + "\\config.ini";
             // synchronizes the selected viewmodel theme with the actual theme used by the appearance manager.
             this.SelectedTheme = this.themes.FirstOrDefault(l => l.Source.Equals(AppearanceManager.Current.ThemeSource));
-
+            Link themeSource = this.selectedTheme;
+            if (themeSource != null)
+            {
+                if (themeSource.Source.ToString().Contains("dark"))
+                {
+                    IniOperationUtilities.WriteString("basic", "theme", "dark", iniPath);
+                }
+                else
+                {
+                    IniOperationUtilities.WriteString("basic", "theme", "dark", iniPath);
+                }
+            }
             // and make sure accent color is up-to-date
             this.SelectedAccentColor = AppearanceManager.Current.AccentColor;
         }

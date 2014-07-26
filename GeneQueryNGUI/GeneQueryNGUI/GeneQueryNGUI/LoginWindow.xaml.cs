@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GeneQueryNGUI.DisplayFacadeBackingBean;
-using GeneQueryNGUI.RuntimeUtilityBean;
+using GeneQueryNGUI.Utilities.RuntimeUtilityBean;
 using CommonMysql;
 
 namespace GeneQueryNGUI

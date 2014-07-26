@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneQueryNGUI.RuntimeUtilityBean
+namespace GeneQueryNGUI.Utilities.RuntimeUtilityBean
 {
     public class RuntimeDataHandler
     {
