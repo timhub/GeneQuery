@@ -79,6 +79,7 @@ namespace GeneQueryNGUI.Content
             // synchronizes the selected viewmodel theme with the actual theme used by the appearance manager.
             this.SelectedTheme = this.themes.FirstOrDefault(l => l.Source.Equals(AppearanceManager.Current.ThemeSource));
             Link themeSource = this.selectedTheme;
+
             if (themeSource != null)
             {
                 if (themeSource.Source.ToString().Contains("dark"))
@@ -87,11 +88,15 @@ namespace GeneQueryNGUI.Content
                 }
                 else
                 {
-                    IniOperationUtilities.WriteString("basic", "theme", "dark", iniPath);
+                    IniOperationUtilities.WriteString("basic", "theme", "light", iniPath);
                 }
             }
             // and make sure accent color is up-to-date
             this.SelectedAccentColor = AppearanceManager.Current.AccentColor;
+            if (this.SelectedAccentColor != null)
+            {
+                IniOperationUtilities.WriteString("basic", "themecolor", this.selectedAccentColor.ToString(), iniPath);
+            }
         }
 
         private void OnAppearanceManagerPropertyChanged(object sender, PropertyChangedEventArgs e)
