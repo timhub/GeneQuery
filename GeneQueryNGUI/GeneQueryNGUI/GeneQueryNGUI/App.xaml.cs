@@ -21,7 +21,7 @@ namespace GeneQueryNGUI
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             ColorConverter converter = new WebColorConverter();
-            String iniPath = System.Environment.CurrentDirectory + CommonConstrants.INI_FILE_PATH;
+            String iniPath = System.Environment.CurrentDirectory + CommonConstrants.INI_FILE_PATH; 
             String theme = IniOperationUtilities.GetString("basic", "theme", "", iniPath);
             String color = IniOperationUtilities.GetString("basic", "themecolor", "", iniPath);
 

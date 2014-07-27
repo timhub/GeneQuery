@@ -82,7 +82,7 @@ namespace GeneQueryNGUI.Content
 
             if (themeSource != null)
             {
-                if (themeSource.Source.ToString().Contains("dark"))
+                if (themeSource.Source.ToString().Contains("Dark"))
                 {
                     IniOperationUtilities.WriteString("basic", "theme", "dark", iniPath);
                 }
